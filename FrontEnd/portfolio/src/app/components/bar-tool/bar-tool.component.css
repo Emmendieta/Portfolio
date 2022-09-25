@@ -1,0 +1,18 @@
+.toolBarHeader{
+width: 100%;
+}
+
+#argProg{
+    width: 150px;
+    float: left;
+    margin-left: 4px;
+}
+.login{
+    float: right;
+    margin-right: 5px;
+    width: 80%;
+}
+
+.socialNets{
+    text-align: right;
+}
