@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarToolComponent } from './bar-tool.component';
+import { SocialsNetsComponent } from './socials-nets.component';
 
-describe('BarToolComponent', () => {
-  let component: BarToolComponent;
-  let fixture: ComponentFixture<BarToolComponent>;
+describe('SocialsNetsComponent', () => {
+  let component: SocialsNetsComponent;
+  let fixture: ComponentFixture<SocialsNetsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BarToolComponent ]
+      declarations: [ SocialsNetsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BarToolComponent);
+    fixture = TestBed.createComponent(SocialsNetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
