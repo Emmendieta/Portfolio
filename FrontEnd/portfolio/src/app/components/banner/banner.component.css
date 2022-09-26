@@ -1,0 +1,41 @@
+.banner{
+    width: 100%;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.row{
+    width: 100%;
+    padding-left: 20px;
+}
+
+#cardBanner{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: cover;
+    border: 2px solid blue;
+    padding: 0;
+}
+
+
+#imaBanner{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: fit-content; 
+    max-height: 600px !important;
+    object-fit: cover; 
+}
+
+/*--- Pantallas xs ---*/
+@media(max-width: 420px){
+    #imaBanner{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        height: fit-content; 
+        max-height: 500px !important;
+        object-fit: cover; 
+    }
+
+}
