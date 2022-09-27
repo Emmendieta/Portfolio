@@ -1,56 +1,71 @@
-.contanier{
+.logArgProg{
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+}
+
+.socialNets{
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
+
 .btn{
     border-width: medium;
-    margin-right: 5px;
     margin-left: 5px;
 }
 
 #facebook{
     border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(146, 133, 193);
-    
-}
-#instagram{
-    border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(212, 144, 144);
-    
-}
-#gitHub{
-    border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(146, 133, 193);
-    
-}
-#linkedIn{
-    border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(141, 111, 251);
-    
-}
-#argProg{
-    margin-left: 5px;
-    width: 150px;
-}
-
-img{
+    box-shadow: 1px 1px 1px rgb(146, 133, 193);    
     width: 30px;
     margin: 2.5px;
 }
 
-/*--- Pantallas xs ---*/
-@media (max-width: 420px){
+#instagram{
+    border-radius: 100%;
+    box-shadow: 1px 1px 1px rgb(212, 144, 144);
+    width: 30px;
+    margin: 2.5px;    
+}
+
+#gitHub{
+    border-radius: 100%;
+    box-shadow: 1px 1px 1px rgb(146, 133, 193);
+    width: 30px;
+    margin: 2.5px;    
+}
+
+#linkedIn{
+    border-radius: 100%;
+    box-shadow: 1px 1px 1px rgb(141, 111, 251);
+    width: 30px;
+    margin: 2.5px;
+}
+
+#argProg{
+    width: 150px;
+}
+
+@media(max-width: 578px){
+
+    .row{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2.5px;
+    }
+
     .socialNets{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 2.5px;
-        margin-bottom: 2.5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
-    .contanier{
-        flex-direction: column;
+
+    .logArgProg{
+        display: flex;
         align-items: center;
-        margin-bottom: 2.5px;
+        flex-direction: column;
     }
 }
+
