@@ -1,3 +1,7 @@
+.row{
+    border-color: black;
+}
+
 .logArgProg{
     display: flex;
     justify-content: left;

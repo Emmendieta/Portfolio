@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
-    margin: 0;
-    height: 100%; }
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 #editIcon{
@@ -13,6 +11,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container-fluid{
     background-color: black;
 }
+
+.row{
+    border-left: 2px solid blue;
+    border-right: 2px solid blue;
+    padding: 10px 10px 10px 10px;
+}
+
+.portfolio{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
 
 
 
