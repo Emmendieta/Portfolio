@@ -1,33 +1,27 @@
-.row{
-    border-top: 2px solid blue;
-    border-bottom: 2px solid blue;
-    border-radius: 20px;
-}
 .container-fluid{
     padding-bottom: 15px;
     padding-top: 10px;
 }
 
+.row{
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    border-radius: 20px;
+}
+
+
 .expDescription{
     text-align: justify;
-}
-
-#col-2{
-    margin: 0;
-    padding: 0;
-    padding-left: 0.5rem;
-}
-
-#dateExp{
-    display: inline;
 }
 
 #addExperience{
     margin: 5px;
 }
 
-.editionExp{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-}
+
+
+
+
+
+
+
