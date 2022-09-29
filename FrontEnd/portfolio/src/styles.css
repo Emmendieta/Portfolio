@@ -24,8 +24,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .generalTitle{
     padding-top: 15px;
-    display: inline;
     color: grey;
+    display: flex;
+    justify-content: space-between;
 }
 
 .add{
@@ -51,7 +52,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-style: hidden;
 }
 
-#col-2, #col-1{
+#col-2, #col-1, #dateExp{
     margin: 0;
     padding: 0;
     padding-left: 0.5rem;
@@ -60,10 +61,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /*Para pantallas XS*/
 @media (max-width: 575.9px){
-    .generalTitle{
-        display: flex;
-        justify-content: center;
-    }
+
 
     .editionExp{
         flex-direction: column;

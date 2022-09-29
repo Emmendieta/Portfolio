@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
 import {MatCardModule} from '@angular/material/card';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { EducationComponent } from './components/education/education.component';
 
 
 
@@ -22,6 +23,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
     HeaderComponent,
     AboutComponent,
     ExperienceComponent,
+    EducationComponent,
   ],
   imports: [
     BrowserModule,
