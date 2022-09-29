@@ -167,12 +167,16 @@
         max-width: 35px;
         max-height: 35px;
     }
-    #nameAbout, #titleAbout{
+    #nameAbout{
         font-size: xx-large;
         text-align: center
     }
-    .profileDescription{
+
+    #titleAbout{
         font-size: x-large;
+    }
+    .profileDescription{
+        font-size: large;
     }
 
 }

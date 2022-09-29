@@ -10,6 +10,7 @@ import { SocialsNetsComponent } from './components/socials-nets/socials-nets.com
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
 import {MatCardModule} from '@angular/material/card';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 
 
@@ -20,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
     SocialsNetsComponent,
     HeaderComponent,
     AboutComponent,
+    ExperienceComponent,
   ],
   imports: [
     BrowserModule,
