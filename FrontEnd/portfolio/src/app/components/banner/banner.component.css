@@ -4,6 +4,7 @@
     border-top: 2px solid blue;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    box-shadow: 1px 1px 5px rgb(146, 133, 193);
 }
 
 #imaBanner{

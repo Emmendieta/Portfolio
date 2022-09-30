@@ -12,6 +12,7 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-bottom: 2px solid blue;
+    box-shadow: 1px 1px 5px rgb(146, 133, 193);
 
    /* position: relative;
     top: 0;
