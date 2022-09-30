@@ -1,0 +1,56 @@
+.container-fluid{
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+.row{
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.footDesciption{
+    display: flex;
+    flex-direction: column;
+}
+
+.footContact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#textFootContact{
+    margin: 0;
+    padding-right: 15px;
+    color: grey;
+}
+
+#textFoot{
+    padding-top: 10px;
+    color: grey;
+}
+
+#addExperience{
+    margin-left: 10px;
+}
+
+/*Para pantallas XS*/
+@media (max-width: 575.9px){
+
+    .footDesciption{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/*Para pantallas SM*/
+@media (min-width: 576px) and (max-width: 767.99px){
+    .footDesciption{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
