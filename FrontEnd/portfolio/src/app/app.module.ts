@@ -12,6 +12,8 @@ import { AboutComponent } from './components/about/about.component';
 import {MatCardModule} from '@angular/material/card';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { EducationComponent } from './components/education/education.component';
+import { HardSoftComponent } from './components/hard-soft/hard-soft.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -24,6 +26,7 @@ import { EducationComponent } from './components/education/education.component';
     AboutComponent,
     ExperienceComponent,
     EducationComponent,
+    HardSoftComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,9 @@ import { EducationComponent } from './components/education/education.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    NgCircleProgressModule.forRoot({
+      
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

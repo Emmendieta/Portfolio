@@ -10,9 +10,11 @@
     overflow: hidden;
 }
 
-
-.expDescription{
-    text-align: justify;
+.circleHAndS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
 }
 
 #addExperience{

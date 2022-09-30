@@ -7,12 +7,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .container-fluid{
     background-color: black;
+
 }
 
 .row{
     border-left: 2px solid blue;
     border-right: 2px solid blue;
     padding: 10px 10px 10px 10px;
+    
+
 }
 
 .portfolio{
