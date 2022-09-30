@@ -14,6 +14,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { EducationComponent } from './components/education/education.component';
 import { HardSoftComponent } from './components/hard-soft/hard-soft.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ProyectsComponent } from './components/proyects/proyects.component';
 
 
 
@@ -27,6 +28,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ExperienceComponent,
     EducationComponent,
     HardSoftComponent,
+    ProyectsComponent,
   ],
   imports: [
     BrowserModule,

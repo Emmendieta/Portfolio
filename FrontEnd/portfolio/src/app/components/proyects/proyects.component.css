@@ -1,0 +1,76 @@
+.container-fluid{
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+.row{
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.proyectDescrption{
+    text-align: justify;
+    color: grey;
+}
+
+#addExperience{
+    margin: 5px;
+}
+
+.img-fluid{
+    padding:5%;
+}
+
+
+
+/*Para pantallas XS*/
+@media (max-width: 575.9px){
+    .img-fluid{
+        max-height: 75px; 
+        max-width: 75px;
+    }
+}
+
+
+/*Para pantallas SM*/
+@media (min-width: 576px) and (max-width: 767.99px){
+    .img-fluid{
+        max-height: 100px; 
+        max-width: 100px;
+    }
+}
+
+/*Para pantallas MD*/
+@media(min-width:768px) and (max-width: 991.99px){
+    .img-fluid{
+        max-height: 150px; 
+        max-width: 150px;
+    }
+}
+
+/*Para pantallas LG*/
+@media(min-width: 992px) and (max-width: 1199.99px){
+    .img-fluid{
+        max-height: 200px; 
+        max-width: 200px;
+    }
+    .proyectDescrption{
+        padding-top: 35px;
+    }
+}
+
+/*Para pantallas XL*/
+@media(min-width: 1200px){
+    .img-fluid{
+        max-height: 250px; 
+        max-width: 250px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .proyectDescrption{
+        padding-top: 35px;
+    }
+}
