@@ -17,19 +17,11 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
 	Optional<Person> findById(Long id);
 
-	@Query("SELECT p FROM PERSON p")
-	public List<Person> findAll();
-
-	@Modifying
-	@Transactional
-	Optional<Person> editPersonById(Long id);
+	@Query("SELECT pers FROM Person pers")
+	public List<Person> findPersons();
 
 	@Modifying
 	@Transactional
 	Optional<Person> deletePersonById(Long id);
-
-	@Modifying
-	@Transactional
-	Optional<Person> deleteAllPerson();
 
 }

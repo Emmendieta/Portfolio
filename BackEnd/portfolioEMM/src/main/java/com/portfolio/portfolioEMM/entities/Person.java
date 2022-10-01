@@ -46,20 +46,43 @@ public class Person {
 	@Column(name = "IMAGEP")
 	private String imageP;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "personEx")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<Experience> experiences;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "personEd")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<Education> educations;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "personHYS")
-	private List<HardAndSoft> hardAndSofts;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
+	private List<HardSoft> hardAndSofts;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "personPro")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<Proyect> proyects;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "personSM")
-	private List<SocialMedia> socialMedias;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
+	private List<SocialMedias> socialMedias;
+
+	public Person() {
+		super();
+	}
+
+	public Person(String nameP, String lastNameP, Date ageP, String titleP, String aboutP, String provinceP,
+			String countryP, String imageP, List<Experience> experiences, List<Education> educations,
+			List<HardSoft> hardAndSofts, List<Proyect> proyects, List<SocialMedias> socialMedias) {
+		super();
+		this.nameP = nameP;
+		this.lastNameP = lastNameP;
+		this.ageP = ageP;
+		this.titleP = titleP;
+		this.aboutP = aboutP;
+		this.provinceP = provinceP;
+		this.countryP = countryP;
+		this.imageP = imageP;
+		this.experiences = experiences;
+		this.educations = educations;
+		this.hardAndSofts = hardAndSofts;
+		this.proyects = proyects;
+		this.socialMedias = socialMedias;
+	}
 
 	public Long getId() {
 		return id;
@@ -149,11 +172,11 @@ public class Person {
 		this.educations = educations;
 	}
 
-	public List<HardAndSoft> getHardAndSofts() {
+	public List<HardSoft> getHardAndSofts() {
 		return hardAndSofts;
 	}
 
-	public void setHardAndSofts(List<HardAndSoft> hardAndSofts) {
+	public void setHardAndSofts(List<HardSoft> hardAndSofts) {
 		this.hardAndSofts = hardAndSofts;
 	}
 
@@ -165,11 +188,11 @@ public class Person {
 		this.proyects = proyects;
 	}
 
-	public List<SocialMedia> getSocialMedias() {
+	public List<SocialMedias> getSocialMedias() {
 		return socialMedias;
 	}
 
-	public void setSocialMedias(List<SocialMedia> socialMedias) {
+	public void setSocialMedias(List<SocialMedias> socialMedias) {
 		this.socialMedias = socialMedias;
 	}
 

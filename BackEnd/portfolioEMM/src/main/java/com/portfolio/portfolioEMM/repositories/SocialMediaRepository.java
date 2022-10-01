@@ -10,35 +10,24 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.portfolio.portfolioEMM.entities.SocialMedia;
+import com.portfolio.portfolioEMM.entities.SocialMedias;
 
 @Repository
-public interface SocialMediaRepository extends JpaRepository<SocialMedia, Long> {
+public interface SocialMediaRepository extends JpaRepository<SocialMedias, Long> {
 
-	Optional<SocialMedia> findSocialMediaById(Long id);
+	Optional<SocialMedias> findSocialMediaById(Long id);
 
-	Optional<SocialMedia> findSocialMediaByName(String name);
+	Optional<SocialMedias> findSocialMediaByName(String name);
 
-	@Query("SELECT sm FROM SOCIALMEDIAS sm")
-	public List<SocialMedia> findAllSM();
-
-	@Modifying
-	@Transactional
-	Optional<SocialMedia> editSocialMediaById(Long id);
+	@Query("SELECT sm FROM SocialMedias sm")
+	public List<SocialMedias> findSocialMedias();
 
 	@Modifying
 	@Transactional
-	Optional<SocialMedia> editSocialMediaByName(String name);
+	Optional<SocialMedias> deleteSocialMediaById(Long id);
 
 	@Modifying
 	@Transactional
-	Optional<SocialMedia> deleteSocialMediaById(Long id);
+	Optional<SocialMedias> deleteSocialMediaByName(String name);
 
-	@Modifying
-	@Transactional
-	Optional<SocialMedia> deleteSocialMediaByName(String name);
-
-	@Modifying
-	@Transactional
-	Optional<SocialMedia> deleteAllSocialMedias();
 }

@@ -18,18 +18,10 @@ public interface EducationRepository extends JpaRepository<Education, Long> {
 	Optional<Education> findEducationById(Long id);
 
 	@Query("SELECT edu FROM Education edu")
-	public List<Education> findAllEducation();
+	public List<Education> findEducations();
 
 	@Modifying
 	@Transactional
-	Optional<Education> editEducationById(Long id);
-
-	@Modifying
-	@Transactional
-	Optional<Education> delteEducationById(Long id);
-
-	@Modifying
-	@Transactional
-	Optional<Education> deleteAllEducation();
+	Optional<Education> deleteEducationById(Long id);
 
 }

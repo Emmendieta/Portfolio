@@ -22,14 +22,6 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 
 	@Modifying
 	@Transactional
-	Optional<Experience> editExperience(Long id);
-
-	@Modifying
-	@Transactional
 	Optional<Experience> deleteExperienceById(Long id);
-
-	@Modifying
-	@Transactional
-	Optional<Experience> deleteAllExperience();
 
 }

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "SOCIALMEDIAS")
-public class SocialMedia {
+public class SocialMedias {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +21,29 @@ public class SocialMedia {
 	private Long id;
 
 	@Column(name = "NAMESM", nullable = false)
-	private String nameSM;
+	private String name;
 
 	@Column(name = "IMAGESM", nullable = false)
-	private String imageSM;
+	private String image;
 
 	@Column(name = "URLSM", nullable = false)
-	private String urlSM;
+	private String url;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
-	private Person personSM;
+	private Person person;
+
+	public SocialMedias() {
+		super();
+	}
+
+	public SocialMedias(String name, String image, String url, Person person) {
+		super();
+		this.name = name;
+		this.image = image;
+		this.url = url;
+		this.person = person;
+	}
 
 	public Long getId() {
 		return id;
@@ -41,36 +53,36 @@ public class SocialMedia {
 		this.id = id;
 	}
 
-	public String getNameSM() {
-		return nameSM;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameSM(String nameSM) {
-		this.nameSM = nameSM;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getImageSM() {
-		return imageSM;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImageSM(String imageSM) {
-		this.imageSM = imageSM;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public String getUrlSM() {
-		return urlSM;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setUrlSM(String urlSM) {
-		this.urlSM = urlSM;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
-	public Person getPersonSM() {
-		return personSM;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setPersonSM(Person personSM) {
-		this.personSM = personSM;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 }

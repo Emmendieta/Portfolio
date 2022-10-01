@@ -42,7 +42,23 @@ public class Experience {
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID", nullable = false, unique = true)
-	private Person personEx;
+	private Person person;
+
+	public Experience() {
+		super();
+	}
+
+	public Experience(String nameEx, String titleEx, String activitiesEx, Date dateStartEx, Date dateEndEX,
+			String imageEx, Person person) {
+		super();
+		this.nameEx = nameEx;
+		this.titleEx = titleEx;
+		this.activitiesEx = activitiesEx;
+		this.dateStartEx = dateStartEx;
+		this.dateEndEX = dateEndEX;
+		this.imageEx = imageEx;
+		this.person = person;
+	}
 
 	public Long getId() {
 		return id;
@@ -100,12 +116,12 @@ public class Experience {
 		this.imageEx = imageEx;
 	}
 
-	public Person getPersonEx() {
-		return personEx;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setPersonEx(Person personEx) {
-		this.personEx = personEx;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 }

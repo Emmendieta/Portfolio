@@ -17,19 +17,11 @@ public interface ProyectRepository extends JpaRepository<Proyect, Long> {
 
 	Optional<Proyect> findProyectById(Long id);
 
-	@Query("SELECT pro FROM PROYECTS pro")
-	public List<Proyect> findAllProyects();
-
-	@Modifying
-	@Transactional
-	Optional<Proyect> editProyectById(Long id);
+	@Query("SELECT pro FROM Proyect pro")
+	public List<Proyect> findProyects();
 
 	@Modifying
 	@Transactional
 	Optional<Proyect> deleteProyectById(Long id);
-
-	@Modifying
-	@Transactional
-	Optional<Proyect> deleteAllProyects();
 
 }

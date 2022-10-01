@@ -42,7 +42,23 @@ public class Proyect {
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
-	private Person personPro;
+	private Person person;
+
+	public Proyect() {
+		super();
+	}
+
+	public Proyect(String namePro, String descriptionPro, String linkPro, String imagePro, Date dateStartPro,
+			Date dateEndPro, Person person) {
+		super();
+		this.namePro = namePro;
+		this.descriptionPro = descriptionPro;
+		this.linkPro = linkPro;
+		this.imagePro = imagePro;
+		this.dateStartPro = dateStartPro;
+		this.dateEndPro = dateEndPro;
+		this.person = person;
+	}
 
 	public Long getId() {
 		return id;
@@ -100,12 +116,12 @@ public class Proyect {
 		this.dateEndPro = dateEndPro;
 	}
 
-	public Person getPersonPro() {
-		return personPro;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setPersonPro(Person personPro) {
-		this.personPro = personPro;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 }
