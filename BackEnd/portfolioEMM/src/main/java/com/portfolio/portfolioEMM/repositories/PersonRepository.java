@@ -15,7 +15,7 @@ import com.portfolio.portfolioEMM.entities.Person;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
-	Optional<Person> findById(Long id);
+	boolean personExist(Long id);
 
 	@Query("SELECT pers FROM Person pers")
 	public List<Person> findPersons();

@@ -10,14 +10,14 @@ import com.portfolio.portfolioEMM.jsons.ExperienceRest;
 
 public interface ExperienceService {
 
-	String createExperience(ExperienceCreateRest experienceRest) throws PortfolioException;
+	String createExperience(ExperienceCreateRest experienceCreateRest) throws PortfolioException;
 
 	@Query("SELECT exp FROM Experience exp")
-	public List<ExperienceRest> getAllExperiences() throws PortfolioException;
+	public List<ExperienceRest> findAllExperiences() throws PortfolioException;
 
 	ExperienceRest getExperienceById(Long id) throws PortfolioException;
 
-	public String editExpierenceById(Long id) throws PortfolioException;
+	public String updateExpierenceById(Long id, ExperienceRest experienceRest) throws PortfolioException;
 
 	public String deleteExperienceById(Long id) throws PortfolioException;
 

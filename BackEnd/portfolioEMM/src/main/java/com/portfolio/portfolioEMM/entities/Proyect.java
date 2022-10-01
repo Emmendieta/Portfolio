@@ -23,22 +23,22 @@ public class Proyect {
 	private Long id;
 
 	@Column(name = "NAMEPRO", nullable = false)
-	private String namePro;
+	private String name;
 
 	@Column(name = "DESCRIPTIONPRO")
-	private String descriptionPro;
+	private String description;
 
 	@Column(name = "LINKPRO", nullable = false)
-	private String linkPro;
+	private String link;
 
 	@Column(name = "IMAGEPRO")
-	private String imagePro;
+	private String image;
 
 	@Column(name = "DATESTARTPRO", nullable = false)
-	private Date dateStartPro;
+	private Date dateStart;
 
 	@Column(name = "DATEENDPRO")
-	private Date dateEndPro;
+	private Date dateEnd;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
@@ -48,15 +48,16 @@ public class Proyect {
 		super();
 	}
 
-	public Proyect(String namePro, String descriptionPro, String linkPro, String imagePro, Date dateStartPro,
-			Date dateEndPro, Person person) {
+	public Proyect(Long id, String name, String description, String link, String image, Date dateStart, Date dateEnd,
+			Person person) {
 		super();
-		this.namePro = namePro;
-		this.descriptionPro = descriptionPro;
-		this.linkPro = linkPro;
-		this.imagePro = imagePro;
-		this.dateStartPro = dateStartPro;
-		this.dateEndPro = dateEndPro;
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.link = link;
+		this.image = image;
+		this.dateStart = dateStart;
+		this.dateEnd = dateEnd;
 		this.person = person;
 	}
 
@@ -68,52 +69,52 @@ public class Proyect {
 		this.id = id;
 	}
 
-	public String getNamePro() {
-		return namePro;
+	public String getName() {
+		return name;
 	}
 
-	public void setNamePro(String namePro) {
-		this.namePro = namePro;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getDescriptionPro() {
-		return descriptionPro;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriptionPro(String descriptionPro) {
-		this.descriptionPro = descriptionPro;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getLinkPro() {
-		return linkPro;
+	public String getLink() {
+		return link;
 	}
 
-	public void setLinkPro(String linkPro) {
-		this.linkPro = linkPro;
+	public void setLink(String link) {
+		this.link = link;
 	}
 
-	public String getImagePro() {
-		return imagePro;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImagePro(String imagePro) {
-		this.imagePro = imagePro;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public Date getDateStartPro() {
-		return dateStartPro;
+	public Date getDateStart() {
+		return dateStart;
 	}
 
-	public void setDateStartPro(Date dateStartPro) {
-		this.dateStartPro = dateStartPro;
+	public void setDateStart(Date dateStart) {
+		this.dateStart = dateStart;
 	}
 
-	public Date getDateEndPro() {
-		return dateEndPro;
+	public Date getDateEnd() {
+		return dateEnd;
 	}
 
-	public void setDateEndPro(Date dateEndPro) {
-		this.dateEndPro = dateEndPro;
+	public void setDateEnd(Date dateEnd) {
+		this.dateEnd = dateEnd;
 	}
 
 	public Person getPerson() {

@@ -17,6 +17,9 @@ public class EducationRest {
 	@JsonProperty("title")
 	private String title;
 
+	@JsonProperty("description")
+	private String description;
+
 	@JsonProperty("dateStart")
 	private Date dateStart;
 
@@ -25,6 +28,9 @@ public class EducationRest {
 
 	@JsonProperty("image")
 	private String image;
+
+	@JsonProperty("peronsId")
+	private Long personId;
 
 	public Long getId() {
 		return id;
@@ -72,6 +78,22 @@ public class EducationRest {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Long getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 
 }

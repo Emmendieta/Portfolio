@@ -22,6 +22,8 @@ public interface SocialMediaRepository extends JpaRepository<SocialMedias, Long>
 	@Query("SELECT sm FROM SocialMedias sm")
 	public List<SocialMedias> findSocialMedias();
 
+	Optional<SocialMedias> findByPersonIdAndName(Long personId, String name);
+
 	@Modifying
 	@Transactional
 	Optional<SocialMedias> deleteSocialMediaById(Long id);

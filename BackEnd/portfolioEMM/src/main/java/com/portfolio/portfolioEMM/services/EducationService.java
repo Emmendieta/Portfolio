@@ -17,7 +17,7 @@ public interface EducationService {
 
 	EducationRest getEducationById(Long id) throws PortfolioException;
 
-	public String editEducaction(Long id) throws PortfolioException;
+	public String editEducaction(Long id, EducationRest educationRest) throws PortfolioException;
 
 	public String deleteEducationById(Long id) throws PortfolioException;
 

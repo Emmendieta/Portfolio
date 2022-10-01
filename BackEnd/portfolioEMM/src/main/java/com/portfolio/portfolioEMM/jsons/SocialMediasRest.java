@@ -18,6 +18,9 @@ public class SocialMediasRest {
 	@JsonProperty("url")
 	private String url;
 
+	@JsonProperty("personId")
+	private Long personId;
+
 	public Long getId() {
 		return id;
 	}
@@ -48,6 +51,14 @@ public class SocialMediasRest {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Long getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 
 }

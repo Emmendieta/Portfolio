@@ -22,6 +22,8 @@ public interface HardSoftRepository extends JpaRepository<HardSoft, Long> {
 	@Query("SELECT hs FROM HardSoft hs")
 	public List<HardSoft> findHards();
 
+	Optional<HardSoft> findByPersonIdAndName(Long personId, String name);
+
 	@Modifying
 	@Transactional
 	Optional<HardSoft> deleteHardById(Long id);

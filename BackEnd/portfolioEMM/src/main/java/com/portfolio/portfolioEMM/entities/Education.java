@@ -23,22 +23,22 @@ public class Education {
 	private Long id;
 
 	@Column(name = "NAMEED", nullable = false)
-	private String nameEd;
+	private String name;
 
 	@Column(name = "TITLEED", nullable = false)
-	private String titleEd;
+	private String title;
 
 	@Column(name = "DESCRIPTIONED")
-	private String descriptionEd;
+	private String description;
 
 	@Column(name = "DATESTARTED", nullable = false)
-	private Date dateStartEd;
+	private Date dateStart;
 
 	@Column(name = "DATEENDED")
-	private Date dateEndEd;
+	private Date dateEnd;
 
 	@Column(name = "IMAGEED")
-	private String imageEd;
+	private String image;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
@@ -48,15 +48,15 @@ public class Education {
 		super();
 	}
 
-	public Education(String nameEd, String titleEd, String descriptionEd, Date dateStartEd, Date dateEndEd,
-			String imageEd, Person person) {
+	public Education(String name, String title, String description, Date dateStart, Date dateEnd,
+			String image, Person person) {
 		super();
-		this.nameEd = nameEd;
-		this.titleEd = titleEd;
-		this.descriptionEd = descriptionEd;
-		this.dateStartEd = dateStartEd;
-		this.dateEndEd = dateEndEd;
-		this.imageEd = imageEd;
+		this.name = name;
+		this.title = title;
+		this.description = description;
+		this.dateStart = dateStart;
+		this.dateEnd = dateEnd;
+		this.image = image;
 		this.person = person;
 	}
 
@@ -68,52 +68,52 @@ public class Education {
 		this.id = id;
 	}
 
-	public String getNameEd() {
-		return nameEd;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameEd(String nameEd) {
-		this.nameEd = nameEd;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getTitleEd() {
-		return titleEd;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitleEd(String titleEd) {
-		this.titleEd = titleEd;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getDescriptionEd() {
-		return descriptionEd;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriptionEd(String descriptionEd) {
-		this.descriptionEd = descriptionEd;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Date getDateStartEd() {
-		return dateStartEd;
+	public Date getDateStart() {
+		return dateStart;
 	}
 
-	public void setDateStartEd(Date dateStartEd) {
-		this.dateStartEd = dateStartEd;
+	public void setDateStart(Date dateStart) {
+		this.dateStart = dateStart;
 	}
 
-	public Date getDateEndEd() {
-		return dateEndEd;
+	public Date getDateEnd() {
+		return dateEnd;
 	}
 
-	public void setDateEndEd(Date dateEndEd) {
-		this.dateEndEd = dateEndEd;
+	public void setDateEnd(Date dateEnd) {
+		this.dateEnd = dateEnd;
 	}
 
-	public String getImageEd() {
-		return imageEd;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImageEd(String imageEd) {
-		this.imageEd = imageEd;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public Person getPerson() {

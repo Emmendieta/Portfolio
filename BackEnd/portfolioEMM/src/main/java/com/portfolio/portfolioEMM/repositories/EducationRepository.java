@@ -20,6 +20,8 @@ public interface EducationRepository extends JpaRepository<Education, Long> {
 	@Query("SELECT edu FROM Education edu")
 	public List<Education> findEducations();
 
+	Optional<Education> findByPersonIdAndNameAndTitle(Long personId, String name, String title);
+
 	@Modifying
 	@Transactional
 	Optional<Education> deleteEducationById(Long id);

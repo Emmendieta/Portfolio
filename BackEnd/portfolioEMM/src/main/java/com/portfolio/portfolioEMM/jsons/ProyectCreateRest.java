@@ -26,6 +26,9 @@ public class ProyectCreateRest {
 	@JsonProperty("dateEnd")
 	private Date dateEnd;
 
+	@JsonProperty("personId")
+	private Long personId;
+
 	public String getName() {
 		return name;
 	}
@@ -72,6 +75,14 @@ public class ProyectCreateRest {
 
 	public void setDateEnd(Date dateEnd) {
 		this.dateEnd = dateEnd;
+	}
+
+	public Long getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 
 }

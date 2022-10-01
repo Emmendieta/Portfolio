@@ -17,7 +17,9 @@ public interface HardSoftService {
 	
 	HardSoftRest findHardSoftById(Long id) throws PortfolioException;
 	
-	public String editHardSoftById(Long id) throws PortfolioException;
+	HardSoftRest findHardSoftByName(String name) throws PortfolioException;
+	
+	public String updateHardSoftById(Long id, HardSoftRest hardSoftRest) throws PortfolioException;
 	
 	public String deleteHardSoftById(Long id) throws PortfolioException;
 	

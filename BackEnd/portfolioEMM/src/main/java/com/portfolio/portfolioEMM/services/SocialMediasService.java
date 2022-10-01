@@ -17,7 +17,7 @@ public interface SocialMediasService {
 
 	SocialMediasRest findSocialMediaById(Long id) throws PortfolioException;
 
-	public String editSocialMediaById(Long id) throws PortfolioException;
+	public String updateSocialMediaById(Long id, SocialMediasRest socialMediasRest) throws PortfolioException;
 
 	public String deleteSocialMediaById(Long id) throws PortfolioException;
 

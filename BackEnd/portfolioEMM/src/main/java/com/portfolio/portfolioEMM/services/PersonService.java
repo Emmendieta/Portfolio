@@ -17,7 +17,7 @@ public interface PersonService {
 
 	PersonRest getPersonById(Long id) throws PortfolioException;
 
-	public String editPersonById(Long id) throws PortfolioException;
+	public String updatePersonById(Long id, PersonRest personRest) throws PortfolioException;
 
 	public String deletePersonById(Long id) throws PortfolioException;
 

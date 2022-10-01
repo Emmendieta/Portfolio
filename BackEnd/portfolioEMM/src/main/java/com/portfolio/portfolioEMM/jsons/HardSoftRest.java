@@ -18,6 +18,9 @@ public class HardSoftRest {
 	@JsonProperty("image")
 	private String image;
 
+	@JsonProperty("personId")
+	private Long personId;
+
 	public Long getId() {
 		return id;
 	}
@@ -48,6 +51,14 @@ public class HardSoftRest {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Long getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 
 }

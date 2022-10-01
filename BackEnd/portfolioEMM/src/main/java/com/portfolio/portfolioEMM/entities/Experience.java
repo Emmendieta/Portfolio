@@ -23,22 +23,22 @@ public class Experience {
 	private Long id;
 
 	@Column(name = "NAMEEX", nullable = false)
-	private String nameEx;
+	private String name;
 
 	@Column(name = "TITLEEX", nullable = false)
-	private String titleEx;
+	private String title;
 
 	@Column(name = "ACTIVITIESEX", nullable = false)
-	private String activitiesEx;
+	private String activities;
 
 	@Column(name = "DATESTARTEX", nullable = false)
-	private Date dateStartEx;
+	private Date dateStart;
 
 	@Column(name = "DATEENDEX")
-	private Date dateEndEX;
+	private Date dateEnd;
 
 	@Column(name = "IMAGEEX")
-	private String imageEx;
+	private String image;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PERSON_ID", nullable = false, unique = true)
@@ -48,15 +48,16 @@ public class Experience {
 		super();
 	}
 
-	public Experience(String nameEx, String titleEx, String activitiesEx, Date dateStartEx, Date dateEndEX,
-			String imageEx, Person person) {
+	public Experience(Long id, String name, String title, String activities, Date dateStart, Date dateEnd, String image,
+			Person person) {
 		super();
-		this.nameEx = nameEx;
-		this.titleEx = titleEx;
-		this.activitiesEx = activitiesEx;
-		this.dateStartEx = dateStartEx;
-		this.dateEndEX = dateEndEX;
-		this.imageEx = imageEx;
+		this.id = id;
+		this.name = name;
+		this.title = title;
+		this.activities = activities;
+		this.dateStart = dateStart;
+		this.dateEnd = dateEnd;
+		this.image = image;
 		this.person = person;
 	}
 
@@ -68,52 +69,52 @@ public class Experience {
 		this.id = id;
 	}
 
-	public String getNameEx() {
-		return nameEx;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameEx(String nameEx) {
-		this.nameEx = nameEx;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getTitleEx() {
-		return titleEx;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitleEx(String titleEx) {
-		this.titleEx = titleEx;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getActivitiesEx() {
-		return activitiesEx;
+	public String getActivities() {
+		return activities;
 	}
 
-	public void setActivitiesEx(String activitiesEx) {
-		this.activitiesEx = activitiesEx;
+	public void setActivities(String activities) {
+		this.activities = activities;
 	}
 
-	public Date getDateStartEx() {
-		return dateStartEx;
+	public Date getDateStart() {
+		return dateStart;
 	}
 
-	public void setDateStartEx(Date dateStartEx) {
-		this.dateStartEx = dateStartEx;
+	public void setDateStart(Date dateStart) {
+		this.dateStart = dateStart;
 	}
 
-	public Date getDateEndEX() {
-		return dateEndEX;
+	public Date getDateEnd() {
+		return dateEnd;
 	}
 
-	public void setDateEndEX(Date dateEndEX) {
-		this.dateEndEX = dateEndEX;
+	public void setDateEnd(Date dateEnd) {
+		this.dateEnd = dateEnd;
 	}
 
-	public String getImageEx() {
-		return imageEx;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImageEx(String imageEx) {
-		this.imageEx = imageEx;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public Person getPerson() {

@@ -18,7 +18,9 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 	Optional<Experience> findExperienceById(Long id);
 
 	@Query("SELECT exp FROM Experience exp")
-	public List<Experience> findAllExperience();
+	public List<Experience> findExperiences();
+
+	Optional<Experience> findByPersonIdAndNameAndTitle(Long personId, String name, String title);
 
 	@Modifying
 	@Transactional

@@ -28,6 +28,9 @@ public class ExperienceRest {
 
 	@JsonProperty("image")
 	private String image;
+	
+	@JsonProperty("personId")
+	private Long personId;
 
 	public String getName() {
 		return name;
@@ -75,6 +78,22 @@ public class ExperienceRest {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 
 }
