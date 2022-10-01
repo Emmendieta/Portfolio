@@ -23,28 +23,28 @@ public class Person {
 	private Long id;
 
 	@Column(name = "NAMEP", nullable = false)
-	private String nameP;
+	private String name;
 
 	@Column(name = "LASTNAMEP", nullable = false)
-	private String lastNameP;
+	private String lastName;
 
 	@Column(name = "AGEP", nullable = false)
-	private Date ageP;
+	private Date age;
 
 	@Column(name = "TITLEP", nullable = false)
-	private String titleP;
+	private String title;
 
 	@Column(name = "ABOUTP")
-	private String aboutP;
+	private String about;
 
 	@Column(name = "PROVINCEP", nullable = false)
-	private String provinceP;
+	private String province;
 
 	@Column(name = "COUNTRYP", nullable = false)
-	private String countryP;
+	private String country;
 
 	@Column(name = "IMAGEP")
-	private String imageP;
+	private String image;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<Experience> experiences;
@@ -65,18 +65,19 @@ public class Person {
 		super();
 	}
 
-	public Person(String nameP, String lastNameP, Date ageP, String titleP, String aboutP, String provinceP,
-			String countryP, String imageP, List<Experience> experiences, List<Education> educations,
+	public Person(Long id, String name, String lastName, Date age, String title, String about, String province,
+			String country, String image, List<Experience> experiences, List<Education> educations,
 			List<HardSoft> hardAndSofts, List<Proyect> proyects, List<SocialMedias> socialMedias) {
 		super();
-		this.nameP = nameP;
-		this.lastNameP = lastNameP;
-		this.ageP = ageP;
-		this.titleP = titleP;
-		this.aboutP = aboutP;
-		this.provinceP = provinceP;
-		this.countryP = countryP;
-		this.imageP = imageP;
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+		this.age = age;
+		this.title = title;
+		this.about = about;
+		this.province = province;
+		this.country = country;
+		this.image = image;
 		this.experiences = experiences;
 		this.educations = educations;
 		this.hardAndSofts = hardAndSofts;
@@ -92,68 +93,68 @@ public class Person {
 		this.id = id;
 	}
 
-	public String getNameP() {
-		return nameP;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameP(String nameP) {
-		this.nameP = nameP;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastNameP() {
-		return lastNameP;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastNameP(String lastNameP) {
-		this.lastNameP = lastNameP;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public Date getAgeP() {
-		return ageP;
+	public Date getAge() {
+		return age;
 	}
 
-	public void setAgeP(Date ageP) {
-		this.ageP = ageP;
+	public void setAge(Date age) {
+		this.age = age;
 	}
 
-	public String getTitleP() {
-		return titleP;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitleP(String titleP) {
-		this.titleP = titleP;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getAboutP() {
-		return aboutP;
+	public String getAbout() {
+		return about;
 	}
 
-	public void setAboutP(String aboutP) {
-		this.aboutP = aboutP;
+	public void setAbout(String about) {
+		this.about = about;
 	}
 
-	public String getProvinceP() {
-		return provinceP;
+	public String getProvince() {
+		return province;
 	}
 
-	public void setProvinceP(String provinceP) {
-		this.provinceP = provinceP;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
-	public String getCountryP() {
-		return countryP;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setCountryP(String countryP) {
-		this.countryP = countryP;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
-	public String getImageP() {
-		return imageP;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImageP(String imageP) {
-		this.imageP = imageP;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public List<Experience> getExperiences() {
@@ -195,5 +196,4 @@ public class Person {
 	public void setSocialMedias(List<SocialMedias> socialMedias) {
 		this.socialMedias = socialMedias;
 	}
-
 }
