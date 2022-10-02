@@ -43,7 +43,6 @@ public class SocialMediasServiceImpl implements SocialMediasService {
 	public static final String PERSON_NO = "PERSON NOT FOUND!";
 	public static final String SOCIAL_EXIST = "SOCIAL MEDIA ALREDY EXISTS!";
 
-	@Override
 	public String createSocialMedia(SocialMediasCreateRest socialMediasCreateRest) throws PortfolioException {
 
 		final Person personId = personRepository.findById(socialMediasCreateRest.getPersonId())

@@ -24,9 +24,6 @@ public class PersonServiceImpl implements PersonService {
 	@Autowired
 	PersonRepository personRepository;
 
-	@Autowired
-	PersonRest personRest;
-
 	public static final ModelMapper modelMapper = new ModelMapper();
 	private static final Logger LOGGER = LoggerFactory.getLogger(EducactionServiceImpl.class);
 	public static final String INTERNAL_ERROR = "INTERNAL SERVER_ERROR";
@@ -42,6 +39,7 @@ public class PersonServiceImpl implements PersonService {
 
 	public String createPerson(PersonCreateRest personCreateRest) throws PortfolioException {
 
+		final PersonRest personRest = new PersonRest();
 		final Person personId = personRepository.findById(personRest.getId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
@@ -83,7 +81,6 @@ public class PersonServiceImpl implements PersonService {
 		return modelMapper.map(getPersonEntity(id), PersonRest.class);
 	}
 
-	@Override
 	public String updatePersonById(Long id, PersonRest personRest) throws PortfolioException {
 
 		final Person personId = personRepository.findById(id)
