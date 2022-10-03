@@ -16,7 +16,7 @@ public class SwaggerConfig {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.emm.portfolio")).paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage("com.portfolio.portfolioEMM")).paths(PathSelectors.any())
 				.build();
 	}
 }

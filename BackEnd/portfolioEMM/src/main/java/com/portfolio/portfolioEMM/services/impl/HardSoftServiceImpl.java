@@ -54,7 +54,7 @@ public class HardSoftServiceImpl implements HardSoftService {
 		}
 		HardSoft hs = new HardSoft();
 		hs.setName(hardSoftCreateRest.getName());
-		hs.setPercent(hardSoftCreateRest.getPorcent());
+		hs.setPercent(hardSoftCreateRest.getPercent());
 		hs.setImage(hardSoftCreateRest.getImage());
 		hs.setPerson(personId);
 
@@ -69,31 +69,31 @@ public class HardSoftServiceImpl implements HardSoftService {
 
 	}
 
-	public List<HardSoftRest> findAllHardSoft() throws PortfolioException {
+	public List<HardSoftRest> getAllHardSoft() throws PortfolioException {
 		final List<HardSoft> hsEntity = hardSoftRepository.findHards();
 		return hsEntity.stream().map(service -> modelMapper.map(service, HardSoftRest.class))
 				.collect(Collectors.toList());
 	}
 
-	public HardSoftRest findHardSoftById(Long id) throws PortfolioException {
+	public HardSoftRest getHardSoftById(Long id) throws PortfolioException {
 		return modelMapper.map(getHSEntity(id), HardSoftRest.class);
 	}
 
-	public HardSoftRest findHardSoftByName(String name) throws PortfolioException {
+	public HardSoftRest getHardSoftByName(String name) throws PortfolioException {
 		return modelMapper.map(getHSEntityName(name), HardSoftRest.class);
 	}
 
-	public String updateHardSoftById(Long id, HardSoftRest hardSoftRest) throws PortfolioException {
+	public String updateHardSoftById(Long id, HardSoftCreateRest hardSoftCreateRest) throws PortfolioException {
 
-		final Person personId = personRepository.findById(hardSoftRest.getPersonId())
+		final Person personId = personRepository.findById(hardSoftCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
-		if (hardSoftRepository.findByPersonIdAndName(personId.getId(), hardSoftRest.getName()).isPresent()) {
+		if (hardSoftRepository.findHsById(id).isPresent()) {
 
-			HardSoft hs = getHSEntity(id);
-			hs.setName(hardSoftRest.getName());
-			hs.setPercent(hardSoftRest.getPorcent());
-			hs.setImage(hardSoftRest.getImage());
+			HardSoft hs = hardSoftRepository.findHsById(id).get();
+			hs.setName(hardSoftCreateRest.getName());
+			hs.setPercent(hardSoftCreateRest.getPercent());
+			hs.setImage(hardSoftCreateRest.getImage());
 			hs.setPerson(personId);
 
 			try {
@@ -102,14 +102,17 @@ public class HardSoftServiceImpl implements HardSoftService {
 				LOGGER.error(HYS_NO_UPTDATE, e);
 				throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
 			}
+			return HYS_UPTDATE;
+		} else {
+			throw new InternalServerErrorException(HYS_NO_DELETED, HYS_NO_DELETED);
 		}
-		return HYS_UPTDATE;
+
 	}
 
 	public String deleteHardSoftById(Long id) throws PortfolioException {
 		hardSoftRepository.findHsById(id).orElseThrow(() -> new NotFountException(HYS_NO, HYS_OK));
 		try {
-			hardSoftRepository.deleteAll();
+			hardSoftRepository.deleteHardById(id);
 		} catch (Exception e) {
 			LOGGER.error(HYS_NO_DELETED, e);
 			throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);

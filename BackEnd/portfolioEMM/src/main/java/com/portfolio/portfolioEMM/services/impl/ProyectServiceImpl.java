@@ -82,19 +82,20 @@ public class ProyectServiceImpl implements ProyectService {
 		return modelMapper.map(getProyectEntity(id), ProyectRest.class);
 	}
 
-	public String updateProyectById(Long id, ProyectRest proyectRest) throws PortfolioException {
-		final Person personId = personRepository.findById(proyectRest.getPersonId())
+	public String updateProyectById(Long id, ProyectCreateRest proyectCreateRest) throws PortfolioException {
+
+		final Person personId = personRepository.findById(proyectCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
-		if (proyectRepository.findByPersonIdAndName(personId.getId(), proyectRest.getName()).isPresent()) {
+		if (proyectRepository.findProyectById(id).isPresent()) {
 
-			Proyect proyect = getProyectEntity(id);
-			proyect.setName(proyectRest.getName());
-			proyect.setLink(proyectRest.getLink());
-			proyect.setDescription(proyectRest.getDescription());
-			proyect.setDateStart(proyectRest.getDateStart());
-			proyect.setDateEnd(proyectRest.getDateEnd());
-			proyect.setImage(proyectRest.getImage());
+			Proyect proyect = proyectRepository.findProyectById(id).get();
+			proyect.setName(proyectCreateRest.getName());
+			proyect.setDescription(proyectCreateRest.getDescription());
+			proyect.setLink(proyectCreateRest.getLink());
+			proyect.setDateStart(proyectCreateRest.getDateStart());
+			proyect.setDateEnd(proyectCreateRest.getDateEnd());
+			proyect.setImage(proyectCreateRest.getImage());
 			proyect.setPerson(personId);
 
 			try {

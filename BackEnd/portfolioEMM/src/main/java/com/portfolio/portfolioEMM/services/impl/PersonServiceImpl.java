@@ -37,26 +37,24 @@ public class PersonServiceImpl implements PersonService {
 	public static final String PERSON_NOT_FOUND = "PERSON NOT FOUND!";
 	public static final String PERSON_EXIST = "PERSON ALREDY EXISTS!";
 
-	public String createPerson(PersonCreateRest personCreateRest) throws PortfolioException {
+	public String createPerson(PersonRest personRest) throws PortfolioException {
 
-		final PersonRest personRest = new PersonRest();
-		final Person personId = personRepository.findById(personRest.getId())
-				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
+		Long personId = personRest.getId();
 
-		if (personRepository.findById(personId.getId()).isPresent()) {
+		if (personRepository.findById(personId).isPresent()) {
 
 			throw new NotFountException(PERSON_EXIST, PERSON_EXIST);
 
 		} else {
 			Person person = new Person();
-			person.setName(personCreateRest.getName());
-			person.setLastName(personCreateRest.getLastName());
-			person.setAge(personCreateRest.getAge());
-			person.setTitle(personCreateRest.getTitle());
-			person.setAbout(personCreateRest.getAbout());
-			person.setProvince(personCreateRest.getProvince());
-			person.setCountry(personCreateRest.getCountry());
-			person.setImage(personCreateRest.getImage());
+			person.setName(personRest.getName());
+			person.setLastName(personRest.getLastName());
+			person.setAge(personRest.getAge());
+			person.setTitle(personRest.getTitle());
+			person.setAbout(personRest.getAbout());
+			person.setProvince(personRest.getProvince());
+			person.setCountry(personRest.getCountry());
+			person.setImage(personRest.getImage());
 
 			try {
 				personRepository.save(person);
@@ -81,22 +79,22 @@ public class PersonServiceImpl implements PersonService {
 		return modelMapper.map(getPersonEntity(id), PersonRest.class);
 	}
 
-	public String updatePersonById(Long id, PersonRest personRest) throws PortfolioException {
+	public String updatePersonById(Long id, PersonCreateRest personCreateRest) throws PortfolioException {
 
 		final Person personId = personRepository.findById(id)
 				.orElseThrow(() -> new NotFountException(PERSON_NOT_FOUND, PERSON_NOT_FOUND));
 
 		if (personRepository.findById(personId.getId()).isPresent()) {
 
-			Person person = getPersonEntity(id);
-			person.setName(personRest.getName());
-			person.setLastName(personRest.getLastName());
-			person.setAge(personRest.getAge());
-			person.setTitle(personRest.getTitle());
-			person.setAbout(personRest.getAbout());
-			person.setProvince(personRest.getProvince());
-			person.setCountry(personRest.getCountry());
-			person.setImage(personRest.getImage());
+			Person person = personRepository.findById(id).get();
+			person.setName(personCreateRest.getName());
+			person.setLastName(personCreateRest.getLastName());
+			person.setAge(personCreateRest.getAge());
+			person.setTitle(personCreateRest.getTitle());
+			person.setAbout(personCreateRest.getAbout());
+			person.setProvince(personCreateRest.getProvince());
+			person.setCountry(personCreateRest.getCountry());
+			person.setImage(personCreateRest.getImage());
 			person.setId(id);
 
 			try {

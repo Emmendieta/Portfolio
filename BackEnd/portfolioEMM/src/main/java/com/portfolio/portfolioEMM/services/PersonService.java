@@ -10,14 +10,14 @@ import com.portfolio.portfolioEMM.jsons.PersonRest;
 
 public interface PersonService {
 
-	String createPerson(PersonCreateRest personCreateRest) throws PortfolioException;
+	public String createPerson(PersonRest personRest) throws PortfolioException;
 
 	@Query("SELECT per FROM Person pers")
 	public List<PersonRest> getAllPersons() throws PortfolioException;
 
 	PersonRest getPersonById(Long id) throws PortfolioException;
 
-	public String updatePersonById(Long id, PersonRest personRest) throws PortfolioException;
+	public String updatePersonById(Long id, PersonCreateRest personCreateRest) throws PortfolioException;
 
 	public String deletePersonById(Long id) throws PortfolioException;
 

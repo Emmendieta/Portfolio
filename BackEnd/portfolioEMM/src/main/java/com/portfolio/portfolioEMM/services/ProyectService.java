@@ -17,7 +17,7 @@ public interface ProyectService {
 
 	ProyectRest findProyectById(Long id) throws PortfolioException;
 
-	public String updateProyectById(Long id, ProyectRest proyectRest) throws PortfolioException;
+	public String updateProyectById(Long id, ProyectCreateRest proyectCreateRest) throws PortfolioException;
 
 	public String deleteProyectById(Long id) throws PortfolioException;
 

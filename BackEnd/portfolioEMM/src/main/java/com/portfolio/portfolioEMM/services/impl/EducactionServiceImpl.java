@@ -55,7 +55,7 @@ public class EducactionServiceImpl implements EducationService {
 		Education education = new Education();
 		education.setName(educationCreateRest.getName());
 		education.setTitle(educationCreateRest.getTitle());
-		education.setDescription(educationCreateRest.getTitle());
+		education.setDescription(educationCreateRest.getDescription());
 		education.setDateStart(educationCreateRest.getDateStart());
 		education.setDateEnd(educationCreateRest.getDateEnd());
 		education.setImage(educationCreateRest.getImage());
@@ -72,7 +72,7 @@ public class EducactionServiceImpl implements EducationService {
 
 	}
 
-	public List<EducationRest> findAllEducations() throws PortfolioException {
+	public List<EducationRest> getAllEducations() throws PortfolioException {
 		final List<Education> educationEntity = educationRepository.findEducations();
 		return educationEntity.stream().map(service -> modelMapper.map(service, EducationRest.class))
 				.collect(Collectors.toList());
@@ -82,21 +82,19 @@ public class EducactionServiceImpl implements EducationService {
 		return modelMapper.map(getEducationEntity(id), EducationRest.class);
 	}
 
-	public String editEducaction(Long id, EducationRest educationRest) throws PortfolioException {
-		final Person personId = personRepository.findById(educationRest.getPersonId())
+	public String editEducaction(Long id, EducationCreateRest educationCreateRest) throws PortfolioException {
+		final Person personId = personRepository.findById(educationCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
-		if (educationRepository
-				.findByPersonIdAndNameAndTitle(personId.getId(), educationRest.getName(), educationRest.getTitle())
-				.isPresent()) {
+		if (educationRepository.findEducationById(id).isPresent()) {
 
-			Education education = getEducationEntity(id);
-			education.setName(educationRest.getName());
-			education.setTitle(educationRest.getTitle());
-			education.setDescription(educationRest.getDescription());
-			education.setDateStart(educationRest.getDateStart());
-			education.setDateEnd(educationRest.getDateEnd());
-			education.setImage(educationRest.getImage());
+			Education education = educationRepository.findEducationById(id).get();
+			education.setName(educationCreateRest.getName());
+			education.setTitle(educationCreateRest.getTitle());
+			education.setDescription(educationCreateRest.getDescription());
+			education.setDateStart(educationCreateRest.getDateStart());
+			education.setDateEnd(educationCreateRest.getDateEnd());
+			education.setImage(educationCreateRest.getImage());
 			education.setPerson(personId);
 
 			try {

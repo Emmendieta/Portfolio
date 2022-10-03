@@ -2,7 +2,6 @@ package com.portfolio.portfolioEMM.entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,16 +39,16 @@ public class Education {
 	@Column(name = "IMAGEED")
 	private String image;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PERSON_ID", nullable = false, unique = true)
 	private Person person;
 
 	public Education() {
 		super();
 	}
 
-	public Education(String name, String title, String description, Date dateStart, Date dateEnd,
-			String image, Person person) {
+	public Education(String name, String title, String description, Date dateStart, Date dateEnd, String image,
+			Person person) {
 		super();
 		this.name = name;
 		this.title = title;

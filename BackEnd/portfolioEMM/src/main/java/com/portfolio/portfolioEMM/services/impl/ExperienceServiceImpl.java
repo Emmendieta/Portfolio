@@ -72,32 +72,30 @@ public class ExperienceServiceImpl implements ExperienceService {
 
 	}
 
-	public List<ExperienceRest> findAllExperiences() throws PortfolioException {
-
-		final List<Experience> experienceEntity = experienceRepository.findExperiences();
+	public List<ExperienceRest> getAllExperiences() throws PortfolioException {
+		final List<Experience> experienceEntity = experienceRepository.findAll();
 		return experienceEntity.stream().map(service -> modelMapper.map(service, ExperienceRest.class))
 				.collect(Collectors.toList());
 	}
 
 	public ExperienceRest getExperienceById(Long id) throws PortfolioException {
-		return modelMapper.map(getExperienceById(id), ExperienceRest.class);
+		return modelMapper.map(getExperienceEntity(id), ExperienceRest.class);
 	}
 
-	public String updateExpierenceById(Long id, ExperienceRest experienceRest) throws PortfolioException {
-		final Person personId = personRepository.findById(experienceRest.getPersonId())
+	public String updateExpierenceById(Long id, ExperienceCreateRest experienceCreateRest) throws PortfolioException {
+
+		final Person personId = personRepository.findById(experienceCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
-		if (experienceRepository
-				.findByPersonIdAndNameAndTitle(personId.getId(), experienceRest.getName(), experienceRest.getTitle())
-				.isPresent()) {
+		if (experienceRepository.findById(id).isPresent()) {
 
-			Experience experience = ExgetExperienceEntity(id);
-			experience.setName(experienceRest.getName());
-			experience.setTitle(experienceRest.getTitle());
-			experience.setActivities(experienceRest.getActivity());
-			experience.setDateStart(experienceRest.getDateStart());
-			experience.setDateEnd(experienceRest.getDateEnd());
-			experience.setImage(experienceRest.getImage());
+			Experience experience = experienceRepository.findExperienceById(id).get();
+			experience.setName(experienceCreateRest.getName());
+			experience.setImage(experienceCreateRest.getImage());
+			experience.setTitle(experienceCreateRest.getTitle());
+			experience.setActivities(experienceCreateRest.getActivity());
+			experience.setDateStart(experienceCreateRest.getDateStart());
+			experience.setDateEnd(experienceCreateRest.getDateEnd());
 			experience.setPerson(personId);
 
 			try {
@@ -108,8 +106,9 @@ public class ExperienceServiceImpl implements ExperienceService {
 			}
 
 			return EXPERIENCE_UPTDATE;
+
 		} else {
-			return EXPERIENCE_NO_UPTDATE;
+			throw new InternalServerErrorException(EXPERIENCE_NO_UPTDATE, EXPERIENCE_NO_UPTDATE);
 		}
 
 	}
@@ -138,7 +137,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 		}
 	}
 
-	private Experience ExgetExperienceEntity(Long experienceId) throws PortfolioException {
+	private Experience getExperienceEntity(Long experienceId) throws PortfolioException {
 		return experienceRepository.findExperienceById(experienceId)
 				.orElseThrow(() -> new NotFountException("SNOT-404-1", NOT_FOUND));
 	}

@@ -12,8 +12,8 @@ public class HardSoftRest {
 	@JsonProperty("name")
 	private String name;
 
-	@JsonProperty("porcent")
-	private int porcent;
+	@JsonProperty("percent")
+	private int percent;
 
 	@JsonProperty("image")
 	private String image;
@@ -37,12 +37,12 @@ public class HardSoftRest {
 		this.name = name;
 	}
 
-	public int getPorcent() {
-		return porcent;
+	public int getPercent() {
+		return percent;
 	}
 
-	public void setPorcent(int porcent) {
-		this.porcent = porcent;
+	public void setPercent(int percent) {
+		this.percent = percent;
 	}
 
 	public String getImage() {

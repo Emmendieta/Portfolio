@@ -40,7 +40,7 @@ public class Proyect {
 	@Column(name = "DATEENDPRO")
 	private Date dateEnd;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
 	private Person person;
 

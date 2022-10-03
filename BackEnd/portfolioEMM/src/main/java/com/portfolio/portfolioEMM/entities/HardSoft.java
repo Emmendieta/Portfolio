@@ -1,6 +1,5 @@
 package com.portfolio.portfolioEMM.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,7 +28,7 @@ public class HardSoft {
 	@Column(name = "IMAGEH")
 	private String image;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
 	private Person person;
 

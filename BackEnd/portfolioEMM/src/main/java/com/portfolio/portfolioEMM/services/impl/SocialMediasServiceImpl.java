@@ -51,6 +51,8 @@ public class SocialMediasServiceImpl implements SocialMediasService {
 		if (socialMediaRepository.findByPersonIdAndName(personId.getId(), socialMediasCreateRest.getName())
 				.isPresent()) {
 			throw new NotFountException(SOCIAL_EXIST, SOCIAL_EXIST);
+		} else {
+
 		}
 
 		SocialMedias socialMedias = new SocialMedias();
@@ -79,27 +81,30 @@ public class SocialMediasServiceImpl implements SocialMediasService {
 		return modelMapper.map(getSocialMediasEntity(id), SocialMediasRest.class);
 	}
 
-	public String updateSocialMediaById(Long id, SocialMediasRest socialMediasRest) throws PortfolioException {
-		final Person personId = personRepository.findById(socialMediasRest.getPersonId())
+	public String updateSocialMediaById(Long id, SocialMediasCreateRest socialMediasCreateRest)
+			throws PortfolioException {
+
+		final Person personId = personRepository.findById(socialMediasCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
-		if (socialMediaRepository.findByPersonIdAndName(personId.getId(), socialMediasRest.getName()).isPresent()) {
+		if (socialMediaRepository.findSocialMediaById(id).isPresent()) {
 
-			SocialMedias socialMedias = getSocialMediasEntity(id);
-			socialMedias.setName(socialMediasRest.getName());
-			socialMedias.setImage(socialMediasRest.getImage());
-			socialMedias.setUrl(socialMediasRest.getUrl());
+			SocialMedias socialMedias = socialMediaRepository.findSocialMediaById(id).get();
+			socialMedias.setName(socialMediasCreateRest.getName());
+			socialMedias.setImage(socialMediasCreateRest.getImage());
+			socialMedias.setUrl(socialMediasCreateRest.getUrl());
 			socialMedias.setPerson(personId);
 
 			try {
 				socialMediaRepository.save(socialMedias);
+				return SOCIAL_UPTDATE;
 			} catch (Exception e) {
 				LOGGER.error(SOCIAL_NO, e);
 				throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
 			}
-			return SOCIAL_UPTDATE;
+
 		} else {
-			return SOCIAL_NO_UPTDATE;
+			throw new InternalServerErrorException(SOCIAL_NO_UPTDATE, SOCIAL_NO_UPTDATE);
 		}
 	}
 

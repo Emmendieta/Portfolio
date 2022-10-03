@@ -2,7 +2,6 @@ package com.portfolio.portfolioEMM.entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,7 +39,7 @@ public class Experience {
 	@Column(name = "IMAGEEX")
 	private String image;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PERSON_ID", nullable = false, unique = true)
 	private Person person;
 

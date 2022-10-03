@@ -25,7 +25,7 @@ public class ExperienceCreateRest {
 
 	@JsonProperty("image")
 	private String image;
-	
+
 	@JsonProperty("personId")
 	private Long personId;
 
@@ -82,6 +82,20 @@ public class ExperienceCreateRest {
 	}
 
 	public void setPersonId(Long personId) {
+		this.personId = personId;
+	}
+
+	public ExperienceCreateRest() {
+	}
+
+	public ExperienceCreateRest(String name, String title, String activity, Date dateStart, Date dateEnd, String image,
+			Long personId) {
+		this.name = name;
+		this.title = title;
+		this.activity = activity;
+		this.dateStart = dateStart;
+		this.dateEnd = dateEnd;
+		this.image = image;
 		this.personId = personId;
 	}
 

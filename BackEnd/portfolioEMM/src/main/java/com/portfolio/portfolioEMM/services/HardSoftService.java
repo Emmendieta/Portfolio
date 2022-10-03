@@ -13,13 +13,13 @@ public interface HardSoftService {
 	String createHardSoft(HardSoftCreateRest hardSoftCreateRest) throws PortfolioException;
 	
 	@Query("SELECT hs FROM Hardsoft hs")
-	public List<HardSoftRest> findAllHardSoft() throws PortfolioException;
+	public List<HardSoftRest> getAllHardSoft() throws PortfolioException;
 	
-	HardSoftRest findHardSoftById(Long id) throws PortfolioException;
+	HardSoftRest getHardSoftById(Long id) throws PortfolioException;
 	
-	HardSoftRest findHardSoftByName(String name) throws PortfolioException;
+	HardSoftRest getHardSoftByName(String name) throws PortfolioException;
 	
-	public String updateHardSoftById(Long id, HardSoftRest hardSoftRest) throws PortfolioException;
+	public String updateHardSoftById(Long id, HardSoftCreateRest hardSoftCreateRest) throws PortfolioException;
 	
 	public String deleteHardSoftById(Long id) throws PortfolioException;
 	
