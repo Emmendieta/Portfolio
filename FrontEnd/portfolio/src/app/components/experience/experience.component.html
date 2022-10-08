@@ -10,17 +10,17 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <table class="table">
                     <tbody>
-                        <tr class="tableTr">
+                        <tr class="tableTr" *ngFor="let experience of exper">
                             <td class="expIcon">
                                 <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="../../../assets/facebook.png">
                             </td>
                             <td class="expDescription">
-                                <h2 id="col-1">Titulo de Experiencia</h2>
-                                <h3 id ="col-2">Cargo en Experiencia</h3>
-                                <h4 id="dateExp">Fecha de Inicio</h4> 
+                                <h2 id="col-1">{{experience.name}}</h2>
+                                <h3 id ="col-2">{{experience.title}}</h3>
+                                <h4 id="dateExp">{{experience.dateStart}}</h4> 
                                 <h4 id="dateExp">-</h4>
-                                <h4 id="dateExp">Fecha de fin</h4>
-                                <h4 id="col-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sequi laudantium rerum, temporibus deleniti, consectetur reprehenderit nisi ex, officiis architecto quo vitae dicta? Facere, veritatis laudantium? Dicta vel repudiandae tenetur?</h4> 
+                                <h4 id="dateExp">{{experience.dateEnd}}</h4>
+                                <h4 id="col-2">{{experience.activity}}</h4> 
                             </td>
                             <td class="editionExp">
                                 <a>
@@ -30,28 +30,6 @@
                                     <img id="addExperience" src="../../../assets/trash.png">
                                 </a>
                             </td>
-                        </tr>
-                        <tr class="tableTr">
-                            <td class="expIcon">
-                                <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="../../../assets/facebook.png">
-                            </td>
-                            <td class="expDescription">
-                                <h2 id="col-1">Titulo de Experiencia</h2>
-                                <h3 id ="col-2">Cargo en Experiencia</h3>
-                                <h4 id="dateExp">Fecha de Inicio</h4> 
-                                <h4 id="dateExp">-</h4>
-                                <h4 id="dateExp">Fecha de fin</h4>
-                                <h4 id="col-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sequi laudantium rerum, temporibus deleniti, consectetur reprehenderit nisi ex, officiis architecto quo vitae dicta? Facere, veritatis laudantium? Dicta vel repudiandae tenetur?</h4> 
-                            </td>
-                            <td class="editionExp">
-                                <a>
-                                    <img id="addExperience" src="../../../assets/pen.png">
-                                </a>
-                                <a>
-                                    <img id="addExperience" src="../../../assets/trash.png">
-                                </a>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

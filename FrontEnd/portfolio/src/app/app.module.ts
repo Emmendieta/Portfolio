@@ -17,6 +17,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Person } from './models/person.model';
+
 
 
 
@@ -42,7 +44,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     HttpClientModule,
     NgCircleProgressModule.forRoot({
-      
     })
   ],
   providers: [],

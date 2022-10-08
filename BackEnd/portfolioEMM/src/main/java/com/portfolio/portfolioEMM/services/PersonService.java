@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
+import com.portfolio.portfolioEMM.entities.Person;
 import com.portfolio.portfolioEMM.exceptions.PortfolioException;
 import com.portfolio.portfolioEMM.jsons.PersonCreateRest;
 import com.portfolio.portfolioEMM.jsons.PersonRest;
@@ -23,4 +24,5 @@ public interface PersonService {
 
 	@Query("DELETE per FROM Person per")
 	public String deleteAllPersons() throws PortfolioException;
+	
 }

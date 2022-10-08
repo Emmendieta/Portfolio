@@ -2,18 +2,18 @@
     <div class="portfolio">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 profile">
-                <img id="profileImg" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+                <img id="profileImg" src={{person.image}}>
                 <a href="">
                     <img id="editIcon" src="../../../assets/pen.png">
                 </a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 profileName">
-                <h2 id="nameAbout">{{Nombre}}</h2>
-                <h3 id="titleAbout">{{Titulo}}</h3>
+                <h2 id="nameAbout">{{person.name}} {{person.lastName}}</h2>
+                <h3 id="titleAbout">{{person.title}}</h3>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 profileDescription">
                 <h1 id="aboutMe">Acerca de mí</h1>
-                <p id="descriptionAbout">{{longText}}</p>
+                <p id="descriptionAbout">{{person.about}}</p>
             </div>
         </div>
     </div>       

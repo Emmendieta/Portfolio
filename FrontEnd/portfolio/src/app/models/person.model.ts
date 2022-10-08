@@ -1,23 +1,12 @@
-export class person {
+export class Person {
     id?: number;
-    nameP: string;
-    lastNameP: string;
-    ageP: Date;
-    titleP: string;
-    aboutP: string;
-    provinceP: string;
-    countryP: string;
-    imageP: string;
+    name: string;
+    lastName: string;
+    age: any;
+    title: string;
+    about: string;
+    province: string;
+    country: string;
+    image: string;
 
-    constructor(nameP: string, lastNameP: string, ageP: Date, titleP: string, aboutP: string, provinceP: string, 
-        countryP: string, imageP: string){
-        this.nameP = nameP;
-        this.lastNameP = lastNameP;
-        this.ageP = ageP;
-        this.titleP = titleP;
-        this.aboutP = aboutP;
-        this.provinceP = provinceP;
-        this.countryP = countryP;
-        this.imageP = imageP;
-    }
 }
