@@ -16,6 +16,7 @@ import { HardSoftComponent } from './components/hard-soft/hard-soft.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -39,6 +40,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    HttpClientModule,
     NgCircleProgressModule.forRoot({
       
     })
