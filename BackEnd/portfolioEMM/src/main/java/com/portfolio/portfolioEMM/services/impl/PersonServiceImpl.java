@@ -33,35 +33,27 @@ public class PersonServiceImpl implements PersonService {
 	public static final String PERSON_NO_DELETE = "Error deleting Person";
 	public static final String PERSON_NO = "Person doesn´t save!";
 	public static final String PERSON_DELETED = "Person has been deleted!";
-	public static final String ALL_PERSONS_DELETED = "All Persons has been deleted!";
+	public static final String PEOPLE_DELETED = "All people has been deleted!";
 	public static final String PERSON_NOT_FOUND = "PERSON NOT FOUND!";
 	public static final String PERSON_EXIST = "PERSON ALREDY EXISTS!";
 
-	public String createPerson(PersonRest personRest) throws PortfolioException {
+	public String createPerson(PersonCreateRest personCreateRest) throws PortfolioException {
 
-		Long personId = personRest.getId();
+		Person person = new Person();
+		person.setName(personCreateRest.getName());
+		person.setLastName(personCreateRest.getLastName());
+		person.setAge(personCreateRest.getAge());
+		person.setTitle(personCreateRest.getTitle());
+		person.setAbout(personCreateRest.getAbout());
+		person.setProvince(personCreateRest.getProvince());
+		person.setCountry(personCreateRest.getCountry());
+		person.setImage(personCreateRest.getImage());
 
-		if (personRepository.findById(personId).isPresent()) {
-
-			throw new NotFountException(PERSON_EXIST, PERSON_EXIST);
-
-		} else {
-			Person person = new Person();
-			person.setName(personRest.getName());
-			person.setLastName(personRest.getLastName());
-			person.setAge(personRest.getAge());
-			person.setTitle(personRest.getTitle());
-			person.setAbout(personRest.getAbout());
-			person.setProvince(personRest.getProvince());
-			person.setCountry(personRest.getCountry());
-			person.setImage(personRest.getImage());
-
-			try {
-				personRepository.save(person);
-			} catch (Exception e) {
-				LOGGER.error(PERSON_NO, e);
-				throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
-			}
+		try {
+			personRepository.save(person);
+		} catch (Exception e) {
+			LOGGER.error(PERSON_NO, e);
+			throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
 		}
 
 		return PERSON_OK;
@@ -129,7 +121,7 @@ public class PersonServiceImpl implements PersonService {
 			LOGGER.error(INTERNAL_ERROR, e);
 			throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
 		}
-		return ALL_PERSONS_DELETED;
+		return PEOPLE_DELETED;
 	}
 
 	private Person getPersonEntity(Long personId) throws PortfolioException {

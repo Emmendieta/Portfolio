@@ -33,10 +33,10 @@ public class PersonController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "person/"
 			+ "createPerson", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> createPerson(@RequestBody PersonRest personRest)
+	public PortfolioResponse<String> createPerson(@RequestBody PersonCreateRest personCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
-				personService.createPerson(personRest));
+				personService.createPerson(personCreateRest));
 	}
 
 	@ResponseStatus(HttpStatus.OK)

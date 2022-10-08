@@ -10,7 +10,7 @@ import com.portfolio.portfolioEMM.jsons.PersonRest;
 
 public interface PersonService {
 
-	public String createPerson(PersonRest personRest) throws PortfolioException;
+	public String createPerson(PersonCreateRest personCreateRest) throws PortfolioException;
 
 	@Query("SELECT per FROM Person pers")
 	public List<PersonRest> getAllPersons() throws PortfolioException;

@@ -116,7 +116,7 @@ public class SocialMediasServiceImpl implements SocialMediasService {
 			LOGGER.error(INTERNAL_ERROR, e);
 			throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
 		}
-		return ALL_SOCIALS_DELETED;
+		return SOCIAL_DELETED;
 	}
 
 	public String deleteAllSocialMedias() throws PortfolioException {
