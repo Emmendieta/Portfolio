@@ -28,7 +28,7 @@ public class Experience {
 	private String title;
 
 	@Column(name = "ACTIVITIESEX", nullable = false)
-	private String activities;
+	private String activity;
 
 	@Column(name = "DATESTARTEX", nullable = false)
 	private Date dateStart;
@@ -47,13 +47,13 @@ public class Experience {
 		super();
 	}
 
-	public Experience(Long id, String name, String title, String activities, Date dateStart, Date dateEnd, String image,
+	public Experience(Long id, String name, String title, String activity, Date dateStart, Date dateEnd, String image,
 			Person person) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.title = title;
-		this.activities = activities;
+		this.activity = activity;
 		this.dateStart = dateStart;
 		this.dateEnd = dateEnd;
 		this.image = image;
@@ -84,12 +84,12 @@ public class Experience {
 		this.title = title;
 	}
 
-	public String getActivities() {
-		return activities;
+	public String getActivity() {
+		return activity;
 	}
 
-	public void setActivities(String activities) {
-		this.activities = activities;
+	public void setActivity(String activity) {
+		this.activity = activity;
 	}
 
 	public Date getDateStart() {

@@ -41,7 +41,7 @@ public class SocialMediasController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/" + "findById" + "/{" + "id"
+	@RequestMapping(value = "socialMedia/" + "findById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<SocialMediasRest> findSocialMediaById(@RequestParam Long id) throws PortfolioException {
 		return new PortfolioResponse<SocialMediasRest>(SUCCES, HTTP, OK, socialMediasService.findSocialMediaById(id));
@@ -56,7 +56,7 @@ public class SocialMediasController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/" + "updateSocialMedias" + "/{" + "id"
+	@RequestMapping(value = "socialMedia/" + "updateSocialMedias/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateSocialMedia(@RequestParam Long id,
 			@RequestBody SocialMediasCreateRest socialMediaCreateRest) throws PortfolioException {
@@ -65,7 +65,7 @@ public class SocialMediasController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/" + "deleteById" + "/{" + "id"
+	@RequestMapping(value = "socialMedia/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteSocialMediaById(@RequestParam Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, HTTP, OK, socialMediasService.deleteSocialMediaById(id));

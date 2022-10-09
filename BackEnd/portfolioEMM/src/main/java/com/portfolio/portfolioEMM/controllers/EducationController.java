@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +22,7 @@ import com.portfolio.portfolioEMM.services.EducationService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping(path = "portfolio" + "v1/")
+@RequestMapping(path = "portfolio" + "/v1/")
 public class EducationController {
 
 	@Autowired
@@ -40,7 +41,7 @@ public class EducationController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education" + "/{" + "id"
+	@RequestMapping(value = "education/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<EducationRest> findEducationById(@RequestParam Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -55,7 +56,7 @@ public class EducationController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/" + "updte" + "/{" + "id"
+	@RequestMapping(value = "education/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateEducationById(@RequestParam Long id,
 			@RequestBody EducationCreateRest educationCreateRest) throws PortfolioException {
@@ -64,10 +65,10 @@ public class EducationController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/" + "deleteById" + "/{" + "id"
+	@RequestMapping(value = "education/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> deleteById(@RequestParam Long id) throws PortfolioException {
-		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
+	public PortfolioResponse<String> deleteById(@PathVariable Long id) throws PortfolioException {
+		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
 				educationService.deleteEducationById(id));
 	}
 

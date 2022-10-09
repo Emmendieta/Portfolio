@@ -40,7 +40,7 @@ public class ExperienceController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience" + "/{" + "id"
+	@RequestMapping(value = "experience/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<ExperienceRest> getById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<>("Succes", String.valueOf(HttpStatus.OK), "OK",
@@ -56,7 +56,7 @@ public class ExperienceController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience/" + "update" + "/{" + "id"
+	@RequestMapping(value = "experience/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateExperience(@PathVariable("id") Long id, @RequestBody ExperienceCreateRest experienceCreateRest)
 			throws PortfolioException {

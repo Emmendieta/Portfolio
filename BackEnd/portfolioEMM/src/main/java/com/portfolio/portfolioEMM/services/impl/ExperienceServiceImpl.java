@@ -55,7 +55,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 		Experience experience = new Experience();
 		experience.setName(experienceCreateRest.getName());
 		experience.setTitle(experienceCreateRest.getTitle());
-		experience.setActivities(experienceCreateRest.getActivity());
+		experience.setActivity(experienceCreateRest.getActivity());
 		experience.setDateStart(experienceCreateRest.getDateStart());
 		experience.setDateEnd(experienceCreateRest.getDateEnd());
 		experience.setImage(experienceCreateRest.getImage());
@@ -93,7 +93,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 			experience.setName(experienceCreateRest.getName());
 			experience.setImage(experienceCreateRest.getImage());
 			experience.setTitle(experienceCreateRest.getTitle());
-			experience.setActivities(experienceCreateRest.getActivity());
+			experience.setActivity(experienceCreateRest.getActivity());
 			experience.setDateStart(experienceCreateRest.getDateStart());
 			experience.setDateEnd(experienceCreateRest.getDateEnd());
 			experience.setPerson(personId);

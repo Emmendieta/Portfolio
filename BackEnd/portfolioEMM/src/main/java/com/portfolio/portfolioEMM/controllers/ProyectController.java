@@ -40,7 +40,7 @@ public class ProyectController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/" + "getById" + "/{" + "id"
+	@RequestMapping(value = "proyect/" + "getById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<ProyectRest> getProyectById(@RequestParam Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, proyectService.findProyectById(id));
@@ -54,7 +54,7 @@ public class ProyectController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/" + "updateById" + "/{" + "id"
+	@RequestMapping(value = "proyect/" + "updateById/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateProyect(@RequestParam Long id,
 			@RequestBody ProyectCreateRest proyectCreateRest) throws PortfolioException {
@@ -63,7 +63,7 @@ public class ProyectController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/" + "deleteById" + "/{" + "id"
+	@RequestMapping(value = "proyect/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteProyectById(@RequestParam Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,

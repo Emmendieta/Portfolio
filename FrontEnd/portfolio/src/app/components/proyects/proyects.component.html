@@ -3,69 +3,29 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
                 <h1>Proyectos</h1>
-                <a href="">
+                <a style="cursor:pointer;">
                     <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
                 </a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <table class="table">
                     <tbody>
-                        <tr class="tableTr">
+                        <tr class="tableTr" *ngFor="let proyect of proy">
                             <td class="expIcon">
                                 <img class="img-fluid" src="../../../assets/facebook.png">
                             </td>
                             <td class="proyectDescrption">
-                                <h2 id="col-1">Nombre de proyecto</h2>
+                                <h2 id="col-1">{{proyect.name}}</h2>
                                 <h3 id ="col-2">Cargo en Experiencia</h3>
                                 <h4 id="dateExp">Año de Finalización:</h4> 
-                                <h4 id="dateExp">Fecha de fin</h4>
-                                <p id="col-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sequi laudantium rerum, temporibus deleniti, consectetur reprehenderit nisi ex, officiis architecto quo vitae dicta? Facere, veritatis laudantium? Dicta vel repudiandae tenetur?</p> 
+                                <h4 id="dateExp">{{proyect.dateEnd}}</h4>
+                                <p id="col-2">{{proyect.description}}</p> 
                             </td>
                             <td class="editionExp">
-                                <a>
+                                <a style="cursor:pointer;">
                                     <img id="addExperience" src="../../../assets/pen.png">
                                 </a>
-                                <a>
-                                    <img id="addExperience" src="../../../assets/trash.png">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="tableTr">
-                            <td class="expIcon">
-                                <img class="img-fluid" src="../../../assets/facebook.png">
-                            </td>
-                            <td class="proyectDescrption">
-                                <h2 id="col-1">Nombre de proyecto</h2>
-                                <h3 id ="col-2">Cargo en Experiencia</h3>
-                                <h4 id="dateExp">Año de Finalización:</h4> 
-                                <h4 id="dateExp">Fecha de fin</h4>
-                                <p id="col-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sequi laudantium rerum, temporibus deleniti, consectetur reprehenderit nisi ex, officiis architecto quo vitae dicta? Facere, veritatis laudantium? Dicta vel repudiandae tenetur?</p> 
-                            </td>
-                            <td class="editionExp">
-                                <a>
-                                    <img id="addExperience" src="../../../assets/pen.png">
-                                </a>
-                                <a>
-                                    <img id="addExperience" src="../../../assets/trash.png">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="tableTr">
-                            <td class="expIcon">
-                                <img class="img-fluid" src="../../../assets/facebook.png">
-                            </td>
-                            <td class="proyectDescrption">
-                                <h2 id="col-1">Nombre de proyecto</h2>
-                                <h3 id ="col-2">Cargo en Experiencia</h3>
-                                <h4 id="dateExp">Año de Finalización:</h4> 
-                                <h4 id="dateExp">Fecha de fin</h4>
-                                <p id="col-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sequi laudantium rerum, temporibus deleniti, consectetur reprehenderit nisi ex, officiis architecto quo vitae dicta? Facere, veritatis laudantium? Dicta vel repudiandae tenetur?</p> 
-                            </td>
-                            <td class="editionExp">
-                                <a>
-                                    <img id="addExperience" src="../../../assets/pen.png">
-                                </a>
-                                <a>
+                                <a style="cursor:pointer;" (click)="deleteProyect(proyect.id)">
                                     <img id="addExperience" src="../../../assets/trash.png">
                                 </a>
                             </td>
