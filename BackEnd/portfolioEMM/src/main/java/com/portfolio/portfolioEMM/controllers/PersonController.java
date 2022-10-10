@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,16 +42,16 @@ public class PersonController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "person/" + "{" + "personId"
-			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<PersonRest> getPersonById(@RequestParam Long personId) throws PortfolioException {
+	@GetMapping(value = "person/" + "{" + "personId"
+			+ "}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public PortfolioResponse<PersonRest> getPersonById(@PathVariable Long personId) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				personService.getPersonById(personId));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "person/"
-			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "person/"
+			+ "getAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<PersonRest>> getAllPersons() throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, personService.getAllPersons());
 	}

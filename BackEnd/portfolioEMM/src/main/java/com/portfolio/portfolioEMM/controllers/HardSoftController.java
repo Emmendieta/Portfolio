@@ -59,7 +59,7 @@ public class HardSoftController {
 	@RequestMapping(value = "hardAndSoft/"
 			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<HardSoftRest>> getAllHardAndSoft() throws PortfolioException {
-		return new PortfolioResponse<>(OK, String.valueOf(HttpStatus.OK), OK, hardSoftService.getAllHardSoft());
+		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, hardSoftService.getAllHardSoft());
 	}
 
 	@ResponseStatus(HttpStatus.OK)
