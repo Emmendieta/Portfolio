@@ -7,5 +7,4 @@ export class Proyect {
     dateStart: Date;
     dateEnd: Date;
     personId: number;
-
 }

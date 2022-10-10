@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,9 +17,14 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { Person } from './models/person.model';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
 
-
+const appRoutes: Routes = [
+  {path: "", component: HomeComponent},
+  {path: "login", component: LoginComponent}
+]
 
 
 @NgModule({
@@ -34,6 +39,8 @@ import { Person } from './models/person.model';
     HardSoftComponent,
     ProyectsComponent,
     FooterComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +50,12 @@ import { Person } from './models/person.model';
     MatIconModule,
     MatCardModule,
     HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes
+    ),
     NgCircleProgressModule.forRoot({
-    })
+    }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

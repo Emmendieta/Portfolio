@@ -12,14 +12,15 @@
                     <tbody>
                         <tr class="tableTr" *ngFor="let proyect of proy">
                             <td class="expIcon">
-                                <img class="img-fluid" src="../../../assets/facebook.png">
+                                <img class="img-fluid" src={{proyect.image}}>
                             </td>
                             <td class="proyectDescrption">
                                 <h2 id="col-1">{{proyect.name}}</h2>
-                                <h3 id ="col-2">Cargo en Experiencia</h3>
-                                <h4 id="dateExp">Año de Finalización:</h4> 
-                                <h4 id="dateExp">{{proyect.dateEnd}}</h4>
-                                <p id="col-2">{{proyect.description}}</p> 
+                                <h3 id ="col-2">Link: {{proyect.link}}</h3>
+                                <h4 id="dateExp">Año de Inicio: {{proyect.dateStart}}</h4> 
+                                <h4 id="dateExp">Año de Finalización: {{proyect.dateEnd}}</h4>
+                                <p id="col-2">{{proyect.description}}</p>
+                                <p> </p> 
                             </td>
                             <td class="editionExp">
                                 <a style="cursor:pointer;">

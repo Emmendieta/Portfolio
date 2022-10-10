@@ -18,4 +18,8 @@ export class PersonService {
     return this.http.get(this.baseURL + '{personId}?personId=' + 1);
   }
 
+  updatePersonById(id: number, person: Person){
+    return this.http.put(this.baseURL + "update/" + `${id}`, person);
+  }
+
 }

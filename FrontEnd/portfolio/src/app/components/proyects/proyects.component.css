@@ -16,6 +16,10 @@
     color: grey;
 }
 
+.expIcon{
+width: 250px;
+}
+
 #addExperience{
     margin: 5px;
 }
@@ -32,6 +36,9 @@
         max-height: 75px; 
         max-width: 75px;
     }
+    .expIcon{
+        width: 50px;
+        }
 }
 
 
@@ -41,6 +48,9 @@
         max-height: 100px; 
         max-width: 100px;
     }
+    .expIcon{
+        width: 150px;
+        }
 }
 
 /*Para pantallas MD*/
@@ -49,6 +59,9 @@
         max-height: 150px; 
         max-width: 150px;
     }
+    .expIcon{
+        width: 150px;
+        }
 }
 
 /*Para pantallas LG*/
@@ -60,6 +73,9 @@
     .proyectDescrption{
         padding-top: 35px;
     }
+    .expIcon{
+        width: 250px;
+        }
 }
 
 /*Para pantallas XL*/
@@ -74,4 +90,7 @@
     .proyectDescrption{
         padding-top: 35px;
     }
+    .expIcon{
+        width: 250px;
+        }
 }

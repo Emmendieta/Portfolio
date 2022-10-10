@@ -26,4 +26,5 @@ export class FooterComponent implements OnInit {
       this.person = result.data
     })
   }
+  
 }

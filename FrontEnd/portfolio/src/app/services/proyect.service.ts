@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Proyect } from '../models/proyect.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class ProyectService {
     return this.http.put(this.baseURL + "updateById/" + `${id}`, proyect);
   }
 
-  deletePoryectById(id: number) {
+  deletePoryectById(id: number): Observable<any> {
     return this.http.delete(this.baseURL + "deleteById/" + `${id}`);
   }
 }

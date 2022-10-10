@@ -25,5 +25,4 @@ export class AboutComponent implements OnInit {
       this.person = result.data
     })
   }
-
 }
