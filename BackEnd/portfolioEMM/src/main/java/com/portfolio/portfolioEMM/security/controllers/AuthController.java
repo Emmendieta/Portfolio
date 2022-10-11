@@ -66,24 +66,24 @@ public class AuthController {
 		User user = new User(newUser.getName(), newUser.getUserName(), newUser.getEmail(),
 				passwordEncoder.encode(newUser.getPassword()));
 
-		Set<Rol> roles = new HashSet<>();
-		roles.add(rolService.getByRolName(RolName.ROL_USER).get());
+		Set<Rol> rols = new HashSet<>();
+		rols.add(rolService.getByRolName(RolName.ROLE_USER).get());
 
 		if (newUser.getRols().contains("admin"))
-			roles.add(rolService.getByRolName(RolName.ROL_ADMIN).get());
-		user.setRols(roles);
+			rols.add(rolService.getByRolName(RolName.ROLE_ADMIN).get());
+		user.setRols(rols);
 		userService.save(user);
 
 		return new ResponseEntity(new Message("User saved!"), HttpStatus.CREATED);
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<JwtJson> login(@Valid @RequestBody LoginUser loginUsuario, BindingResult bindingResult) {
+	public ResponseEntity<JwtJson> login(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return new ResponseEntity(new Message("Campos mal puestos"), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(new Message("Error: Wrong fields!"), HttpStatus.BAD_REQUEST);
 
 		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginUsuario.getUserName(), loginUsuario.getPassword()));
+				new UsernamePasswordAuthenticationToken(loginUser.getUserName(), loginUser.getPassword()));
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -95,26 +95,5 @@ public class AuthController {
 
 		return new ResponseEntity(jwtDto, HttpStatus.OK);
 	}
-
-	/*
-	 * @PostMapping("/login") public ResponseEntity<JwtJson>
-	 * login(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult) {
-	 * if (bindingResult.hasErrors()) { return new ResponseEntity(new
-	 * ErrorDto("Error: Invalid input!"), HttpStatus.BAD_REQUEST); } Authentication
-	 * authentication = authenticationManager.authenticate( new
-	 * UsernamePasswordAuthenticationToken(loginUser.getNameUser(),
-	 * loginUser.getPassword()));
-	 * 
-	 * SecurityContextHolder.getContext().setAuthentication(authentication);
-	 * 
-	 * String jwt = jwtProvider.generateToke(authentication);
-	 * 
-	 * UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-	 * 
-	 * JwtJson jwtJson = new JwtJson(jwt, userDetails.getUsername(),
-	 * userDetails.getAuthorities());
-	 * 
-	 * return new ResponseEntity(jwtJson, HttpStatus.OK); }
-	 */
 
 }

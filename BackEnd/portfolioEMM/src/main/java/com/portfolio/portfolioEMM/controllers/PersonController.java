@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,9 +35,10 @@ public class PersonController {
 	private static final String SUCCES = "Succes";
 	private static final String OK = "OK";
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "person/"
-			+ "createPerson", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "person/"
+			+ "createPerson", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createPerson(@RequestBody PersonCreateRest personCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -42,11 +46,11 @@ public class PersonController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping(value = "person/" + "{" + "personId"
+	@GetMapping(value = "person/" + "{" + "id"
 			+ "}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<PersonRest> getPersonById(@PathVariable Long personId) throws PortfolioException {
+	public PortfolioResponse<PersonRest> getPersonById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
-				personService.getPersonById(personId));
+				personService.getPersonById(id));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
@@ -56,6 +60,7 @@ public class PersonController {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, personService.getAllPersons());
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "person/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -65,14 +70,16 @@ public class PersonController {
 				personService.updatePersonById(id, personCreateRest));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "person/" + "deleteById/" + "{" + "id"
-			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> deletePersonById(@RequestParam Long id) throws PortfolioException {
+	@DeleteMapping(value = "person/" + "deleteById/" + "{" + "id"
+			+ "}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public PortfolioResponse<String> deletePersonById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				personService.deletePersonById(id));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "person/"
 			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)

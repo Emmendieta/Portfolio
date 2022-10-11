@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,7 @@ public class ExperienceController {
 	private static final String SUCCES = "Succes";
 	private static final String OK = "OK";
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "experience/"
 			+ "createExperience", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -55,6 +57,7 @@ public class ExperienceController {
 				experienceService.getAllExperiences());
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "experience/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -64,6 +67,7 @@ public class ExperienceController {
 				experienceService.updateExpierenceById(id, experienceCreateRest));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "experience/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -72,6 +76,7 @@ public class ExperienceController {
 				experienceService.deleteExperienceById(id));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "experience/"
 			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)

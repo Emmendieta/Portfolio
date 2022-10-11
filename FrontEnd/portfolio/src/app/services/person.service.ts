@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Person } from '../models/person.model';
 import { environment } from '../../environments/environment';
 
@@ -15,7 +14,8 @@ export class PersonService {
   public constructor(private http: HttpClient) { }
 
   getPersonId(id: number){
-    return this.http.get(this.baseURL + '{personId}?personId=' + 1);
+    return this.http.get(this.baseURL + `${id}`+ 1);
+      //'{personId}?personId=' + 1);
   }
 
   updatePersonById(id: number, person: Person){

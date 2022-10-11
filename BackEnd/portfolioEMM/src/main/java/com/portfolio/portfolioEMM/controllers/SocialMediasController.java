@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ public class SocialMediasController {
 	private static final String OK = "OK";
 	private static final String HTTP = String.valueOf(HttpStatus.OK);
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/"
 			+ "createSocialMedia", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -55,6 +57,7 @@ public class SocialMediasController {
 				socialMediasService.findAllSocialMedias());
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/" + "updateSocialMedias/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -64,6 +67,7 @@ public class SocialMediasController {
 				socialMediasService.updateSocialMediaById(id, socialMediaCreateRest));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -71,6 +75,7 @@ public class SocialMediasController {
 		return new PortfolioResponse<String>(SUCCES, HTTP, OK, socialMediasService.deleteSocialMediaById(id));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/"
 			+ "deleteAllSocialMedias", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)

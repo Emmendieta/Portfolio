@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,7 @@ public class ProyectController {
 	private static final String SUCCES = "Succes";
 	private static final String OK = "OK";
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/"
 			+ "createProyet", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -54,6 +56,7 @@ public class ProyectController {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, proyectService.findAllProyects());
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/" + "updateById/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -63,6 +66,7 @@ public class ProyectController {
 				proyectService.updateProyectById(id, proyectCreateRest));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -71,6 +75,7 @@ public class ProyectController {
 				proyectService.deleteProyectById(id));
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/"
 			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
