@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,9 +70,8 @@ public class ExperienceController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience/" + "deleteById/" + "{" + "id"
-			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> deleteById(@PathVariable Long id) throws PortfolioException {
+	@DeleteMapping("/experience/" + "deleteById/" + "{" + "id}")
+	public PortfolioResponse<String> deleteById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
 				experienceService.deleteExperienceById(id));
 	}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 import { Proyect } from '../../models/proyect.model';
 import { ProyectService } from '../../services/proyect.service';
 
@@ -8,12 +9,19 @@ import { ProyectService } from '../../services/proyect.service';
   styleUrls: ['./proyects.component.css']
 })
 export class ProyectsComponent implements OnInit {
-  proy: Proyect[] = [];
 
-  constructor(private proyectService: ProyectService) { }
+  proy: Proyect[] = [];
+  logged = false;
+
+  constructor(private proyectService: ProyectService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.loadProyect();
+    if(this.tokenService.getToken()){
+      this.logged = true;
+    } else {
+      this.logged = false;
+    }
   }
 
   loadProyect(){

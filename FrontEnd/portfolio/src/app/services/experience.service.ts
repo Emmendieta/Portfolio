@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExperienceService {
-  baseURL = environment.URL + "experience/"
+  baseURL = environment.URL + 'experience/'
 
   constructor(private http: HttpClient) { }
 
@@ -27,10 +27,10 @@ export class ExperienceService {
   }
 
   updateExperienceById(id: number, experience:Experience){
-    return this.http.put(this.baseURL + "upate/" + `${id}`, experience);
+    return this.http.put(this.baseURL + "update/" + `${id}`, experience);
   }
 
-  deleteExperienceById(id: number): Observable<any>{
-    return this.http.delete(this.baseURL + "deleteById/"+ `${id}`);
+  public deleteExperienceById(id: number): Observable<any>{
+    return this.http.delete<any>(this.baseURL + 'deleteById/'+ `${id}`);
   }
 }

@@ -3,30 +3,30 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
                 <h1>Experiencia</h1>
-                <a style="cursor:pointer;">
+                <a style="cursor:pointer;" *ngIf="logged">
                     <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
                 </a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <table class="table">
                     <tbody>
-                        <tr class="tableTr" *ngFor="let experience of exper">
+                        <tr class="tableTr" *ngFor="let Experience of expe">
                             <td class="expIcon">
                                 <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="../../../assets/facebook.png">
                             </td>
                             <td class="expDescription">
-                                <h2 id="col-1">{{experience.name}}</h2>
-                                <h3 id ="col-2">{{experience.title}}</h3>
-                                <h4 id="dateExp">{{experience.dateStart}}</h4> 
+                                <h2 id="col-1">{{Experience.name}}</h2>
+                                <h3 id ="col-2">{{Experience.title}}</h3>
+                                <h4 id="dateExp">{{Experience.dateStart}}</h4> 
                                 <h4 id="dateExp">-</h4>
-                                <h4 id="dateExp">{{experience.dateEnd}}</h4>
-                                <h4 id="col-2">{{experience.activity}}</h4> 
+                                <h4 id="dateExp">{{Experience.dateEnd}}</h4>
+                                <h4 id="col-2">{{Experience.activity}}</h4> 
                             </td>
-                            <td class="editionExp">
+                            <td class="editionExp" *ngIf="logged">
                                 <a style="cursor:pointer;">
                                     <img id="addExperience" src="../../../assets/pen.png">
                                 </a>
-                                <a style="cursor:pointer;" (click)="deleteExperience(experience.id)">
+                                <a style="cursor:pointer;" (click)="deleteExperience(Experience.id)">
                                     <img id="addExperience" src="../../../assets/trash.png">
                                 </a>
                             </td>

@@ -7,5 +7,4 @@ dateStart: Date;
 dateEnd: Date;
 image: string;
 personId: number;
-
 }

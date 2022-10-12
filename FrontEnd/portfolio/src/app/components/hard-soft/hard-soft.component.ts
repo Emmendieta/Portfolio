@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 import { HardSoft } from '../../models/hardSoft.model';
 import { HardSoftService } from '../../services/hard-soft.service';
 
@@ -8,12 +9,19 @@ import { HardSoftService } from '../../services/hard-soft.service';
   styleUrls: ['./hard-soft.component.css']
 })
 export class HardSoftComponent implements OnInit {
-  hys: HardSoft[] = [];
 
-  constructor(private hardSoftService: HardSoftService) { }
+  hys: HardSoft[] = [];
+  logged = false;
+
+  constructor(private hardSoftService: HardSoftService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.loadHardSoft();
+    if(this.tokenService.getToken()){
+      this.logged = true;
+    } else {
+      this.logged = false;
+    }
   }
 
   loadHardSoft(): void {

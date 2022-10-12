@@ -57,7 +57,6 @@ public class HardSoftController {
 				hardSoftService.getHardSoftByName(name));
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "hardAndSoft/"
 			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

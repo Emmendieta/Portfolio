@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/models/experience.model';
+import { TokenService } from 'src/app/services/token.service';
 import { ExperienceService } from '../../services/experience.service';
 
 @Component({
@@ -7,27 +8,50 @@ import { ExperienceService } from '../../services/experience.service';
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent implements OnInit {
-  exper: Experience[] = [];
-  constructor(private experienceService: ExperienceService) { }
 
+export class ExperienceComponent implements OnInit {
+
+  expe: Experience[] = [];
+
+
+  constructor(private experienceService: ExperienceService, private tokenService: TokenService) { }
+
+  logged = false;
+  
   ngOnInit(): void {
     this.loadExperience();
+    if (this.tokenService.getToken()){
+      this.logged = true;
+    } else {
+      this.logged = false;
+    }
   }
 
   loadExperience(): void{
     this.experienceService.getAllExperience().subscribe((result: any) =>{
-      this.exper = result.data
+      this.expe = result.data
     })
   }
 
-  deleteExperience(id?: number) {
+  deleteExperience(id?: number){
     if(id != undefined){
       this.experienceService.deleteExperienceById(id).subscribe(
+        data => {
+          this.loadExperience();
+        }, err => {
+          alert("No se pudo borrar la experiencia");
+        }
+      )
+    }
+  }
+
+  /*deleteExperience(id?: number) {
+    if(id != undefined){
+      this.experienceService.delete(id).subscribe(
         data => {this.loadExperience();
         }, err => {
           alert("Error: no se pudo borrar");
         })
     }
-  }
+  }*/
 }

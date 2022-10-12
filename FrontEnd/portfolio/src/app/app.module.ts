@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { interceptorProvider } from './services/interceptor-service';
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatCardModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes
     ),
@@ -57,7 +60,9 @@ const appRoutes: Routes = [
     }),
     
   ],
-  providers: [],
+  providers: [
+    interceptorProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,6 +20,7 @@
         <a href="https://www.facebook.com/emilianomanuel.mendieta/">
             <img id="linkedIn" src="../../../assets/linkedin.png">
         </a>
-        <button [routerLink]="['login']" type="button" class="btn btn-dark">Login</button> 
+        <button (click)="login()" *ngIf="!logged" type="button" class="btn btn-dark">{{textButtonLogged}}</button> 
+        <button (click)="logOut()" *ngIf="logged" type="button" class="btn btn-dark">{{textButtonNoLogged}}</button> 
 </div>
     

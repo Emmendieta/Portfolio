@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EducationService } from 'src/app/services/education.service';
+import { TokenService } from 'src/app/services/token.service';
 import { Education } from '../../models/education.model';
 
 @Component({
@@ -8,11 +9,18 @@ import { Education } from '../../models/education.model';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
+
   edu: Education[] = [];
-  constructor(private educationService: EducationService) { }
+  logged = false;
+  constructor(private educationService: EducationService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.loadEducation();
+    if(this.tokenService.getToken()){
+      this.logged = true;
+    } else {
+      this.logged = false;
+    }
   }
 
   loadEducation(): void{

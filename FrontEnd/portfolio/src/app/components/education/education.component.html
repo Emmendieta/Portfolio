@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
                 <h1>Educacion</h1>
-                <a style="cursor:pointer;">
+                <a *ngIf="logged" style="cursor:pointer;">
                     <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
                 </a>
             </div>
@@ -22,7 +22,7 @@
                                 <h4 id="dateExp">{{education.dateEnd}}</h4>
                                 <h4 id="col-2">{{education.description}}</h4> 
                             </td>
-                            <td class="editionExp">
+                            <td *ngIf="logged" class="editionExp">
                                 <a style="cursor:pointer;">
                                     <img id="addExperience" src="../../../assets/pen.png">
                                 </a>
