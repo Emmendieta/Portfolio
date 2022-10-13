@@ -10,12 +10,13 @@ import { environment } from '../../environments/environment';
 export class PersonService {
 
   baseURL = environment.URL + 'person/';
+  public idNum = 1;
 
   public constructor(private http: HttpClient) { }
 
-  getPersonId(id: number){
-    return this.http.get(this.baseURL + `${id}`+ 1);
-      //'{personId}?personId=' + 1);
+
+  getPersonId(){
+    return this.http.get(this.baseURL+ + `${this.idNum}`)
   }
 
   updatePersonById(id: number, person: Person){

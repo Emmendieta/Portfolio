@@ -15,15 +15,15 @@ export class ExperienceService {
   constructor(private http: HttpClient) { }
 
   createExperience(experience: Experience): Observable<any>{
-    return this.http.post(this.baseURL + "createExperience", experience);
+    return this.http.post<any>(this.baseURL + "createExperience", experience);
   }
 
   getAllExperience(){
     return this.http.get(this.baseURL + "GetAll");
   }
 
-  getExperienceById(id: number){
-    return this.http.get(this.baseURL + `${id}`);
+  getExperienceById(id: number): Observable<Experience>{
+    return this.http.get<Experience>(this.baseURL + `${id}`);
   }
 
   updateExperienceById(id: number, experience:Experience){

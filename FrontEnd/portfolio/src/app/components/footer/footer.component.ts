@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit {
   }
 
   getPerson(){
-    this.personService.getPersonId(this.personId).subscribe((result: any) => {
+    this.personService.getPersonId().subscribe((result: any) => {
       this.person = result.data
     })
   }

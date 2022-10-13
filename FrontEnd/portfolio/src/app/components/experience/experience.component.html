@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
                 <h1>Experiencia</h1>
-                <a style="cursor:pointer;" *ngIf="logged">
+                <a style="cursor:pointer;" *ngIf="logged" routerLink="/addExperience">
                     <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
                 </a>
             </div>
@@ -24,7 +24,7 @@
                             </td>
                             <td class="editionExp" *ngIf="logged">
                                 <a style="cursor:pointer;">
-                                    <img id="addExperience" src="../../../assets/pen.png">
+                                    <img id="addExperience"routerLink="/editExperience/{{Experience.id}}" src="../../../assets/pen.png">
                                 </a>
                                 <a style="cursor:pointer;" (click)="deleteExperience(Experience.id)">
                                     <img id="addExperience" src="../../../assets/trash.png">

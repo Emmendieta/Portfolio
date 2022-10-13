@@ -28,8 +28,8 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  getPerson(){
-    this.personService.getPersonId(this.personId).subscribe((result: any) =>{
+  public getPerson(){
+    this.personService.getPersonId().subscribe((result: any) =>{
       this.person = result.data
     })
   }

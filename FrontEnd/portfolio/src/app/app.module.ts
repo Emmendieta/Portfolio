@@ -22,10 +22,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './services/interceptor-service';
+import { AddExperienceComponent } from './components/experience/add-experience.component';
+import { EditExperienceComponent } from './components/experience/edit-experience.component';
+
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},
-  {path: "login", component: LoginComponent}
+  {path: "login", component: LoginComponent},
+  {path: "addExperience", component: AddExperienceComponent },
+  {path: "editExperience/:id", component: EditExperienceComponent},
 ]
 
 
@@ -43,6 +48,8 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    AddExperienceComponent,
+    EditExperienceComponent,
   ],
   imports: [
     BrowserModule,
