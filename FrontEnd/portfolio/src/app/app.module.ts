@@ -24,13 +24,17 @@ import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './services/interceptor-service';
 import { AddExperienceComponent } from './components/experience/add-experience.component';
 import { EditExperienceComponent } from './components/experience/edit-experience.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
   {path: "addExperience", component: AddExperienceComponent },
-  {path: "editExperience/:id", component: EditExperienceComponent},
+  {path: 'editExperience/:id', component: EditExperienceComponent},
 ]
 
 
@@ -60,6 +64,10 @@ const appRoutes: Routes = [
     MatCardModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
     RouterModule.forRoot(
       appRoutes
     ),

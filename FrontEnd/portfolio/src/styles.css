@@ -61,6 +61,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding-left: 0.5rem;
 }
 
+#btnEdition{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+#componentEdition {
+    color: aliceblue;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 
 /*Para pantallas XS*/
 @media (max-width: 575.9px){

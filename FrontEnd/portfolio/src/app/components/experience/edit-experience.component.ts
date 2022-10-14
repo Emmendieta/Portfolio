@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from '../../services/experience.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experience } from '../../models/experience.model';
+import { FormBuilder,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-experience',
@@ -10,26 +11,26 @@ import { Experience } from '../../models/experience.model';
 })
 export class EditExperienceComponent implements OnInit {
 
-  editExp: Experience;
+  experience: Experience;
+  private id: number;
 
   constructor(private experienceService: ExperienceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-    this.experienceService.getExperienceById(id).subscribe(
-      {next: (data) => {
-        this.editExp = data;
-      },
-      error: (err) => {
-        alert("Error: Experience has not been modify!");
-        this.router.navigate(['']);
-      }}
-    )
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.getExp();
+
+  }
+
+  getExp(){
+    this.experienceService.getExperienceById(this.id).subscribe((result: any) =>{
+      this.experience = result.data;
+    })
   }
 
   updateExperience(): void {
     const id = this.route.snapshot.params['id'];
-    this.experienceService.updateExperienceById(id, this.editExp).subscribe(
+    this.experienceService.updateExperienceById(id, this.experience).subscribe(
       {next: (data) => {
         alert("Experience has been modify!");
         this.router.navigate(['']);

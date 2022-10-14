@@ -15,6 +15,6 @@ constructor(name: string, title: string, activity: string, dateStart: Date, date
     this.dateStart = dateStart;
     this.dateEnd = dateEnd;
     this.image = image;
-    this.personId = personId;
+    this.personId = 1;
 }
 }

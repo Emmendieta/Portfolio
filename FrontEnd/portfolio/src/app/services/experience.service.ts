@@ -26,8 +26,8 @@ export class ExperienceService {
     return this.http.get<Experience>(this.baseURL + `${id}`);
   }
 
-  updateExperienceById(id: number, experience:Experience){
-    return this.http.put(this.baseURL + "update/" + `${id}`, experience);
+  public updateExperienceById(id: number, experience:Experience): Observable<any>{
+    return this.http.put<any>(this.baseURL + "update/" + `${id}`, experience);
   }
 
   public deleteExperienceById(id: number): Observable<any>{

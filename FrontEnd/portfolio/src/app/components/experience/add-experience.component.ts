@@ -10,30 +10,21 @@ import { Experience } from '../../models/experience.model';
 })
 export class AddExperienceComponent implements OnInit {
 
-  nameExp: string =;
-  titleExp: string;
-  activityExp: string;
-  dateStartExp: Date;
-  dateEndExp: Date;
-  imageExp: string;
+  nameExp: string = "";
+  titleExp: string = "";
+  activityExp: string = "";
+  dateStartExp: Date = new Date();
+  dateEndExp: Date= new Date();
+  imageExp: string = "";
+  personId = 1;
 
   constructor(private experienceService: ExperienceService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {  }
 
-  setExperience(){
-    this.experience.name = this.nameExp;
-    this.experience.title = this.titleExp;
-    this.experience.activity = this.activityExp;
-    this.experience.dateStart = this.dateStartExp;
-    this.experience.dateEnd = this.dateEndExp;
-    this.experience.image = this.imageExp;
-    this.experience.personId = 1;
-  }
-
   createExperience(): void {
-    this.setExperience();
-    this.experienceService.createExperience(this.experience).subscribe(
+    const exp = new Experience(this.nameExp, this.titleExp, this.activityExp, this.dateStartExp, this.dateEndExp, this.imageExp, this.personId);
+    this.experienceService.createExperience(exp).subscribe(
         {next: (data) => {
           alert("Experience has been added!");
           this.router.navigate(['']);

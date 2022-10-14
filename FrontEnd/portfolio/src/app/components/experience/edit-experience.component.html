@@ -1,36 +1,34 @@
-
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="experience">
     <div class="portfolio">
         <div class="row">
+            <h1 id ="componentEdition">Edición de la Experiencia: {{experience.name}}: </h1>
             <form (ngSubmit)="updateExperience()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="nombreE">Nombre de la empresa</label>
-                    <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="editExp.name" required>
+                    <label id ="componentEdition" for="name">Nombre de la Institución: </label>
+                    <input  type="text" class="form-control" id="nameExp" name="name" [(ngModel)]="experience.name" required>
                 </div>
                 <div class="form-group">
-                    <label for="descripcionE">Cargo en dicha empresa:</label>
-                    <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="editExp.title" required>
+                    <label id ="componentEdition" for="title">Cargo que realiza/ba en la Institución: </label>
+                    <input type="text" class="form-control" id="titleExp" name="title" [(ngModel)]="experience.title" required>
                 </div>
                 <div class="form-group">
-                    <label for="descripcionE">Resumen de actividades que realiza:</label>
-                    <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="editExp.activity" required>
+                    <label id ="componentEdition" for="activity">Descripción de las actividades que realiza/ba: </label>
+                    <input type="text" class="form-control" id="activityExp" name="activity" [(ngModel)]="experience.activity" required>
                 </div>
                 <div class="form-group">
-                    <label for="descripcionE">Fecha de inicio:</label>
-                    <input type="date" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="editExp.dateStart" required>
-                </div>
+                    <label id ="componentEdition" for="image">Imagen o Logo de la Institución: </label>
+                    <input type="text" class="form-control" id="imageExp" name="image" [(ngModel)]="experience.image" required>
+                </div>  
                 <div class="form-group">
-                    <label for="descripcionE">fecha de finalizacion:</label>
-                    <input type="date" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="editExp.dateEnd" required>
-                </div>
+                    <label id ="componentEdition" for="dateStart">Fecha de inicio:</label>
+                    <input style="width:fit-content" type="date" class="form-control" id="dateStartExp" name="dateStart" [(ngModel)]="experience.dateStart" required>
+                </div>    
                 <div class="form-group">
-                    <label for="descripcionE">Imagen</label>
-                    <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="editExp.image" required>
-                </div>
-               
-                <button class="btn btn-primary">
-                    Agregar experiencia
-                </button>
+                    <label id ="componentEdition" for="dateEnd">fecha de finalización:</label>
+                    <input style="width:fit-content" type="date" class="form-control" id="dateEndExp" name="dateEnd" [(ngModel)]="experience.dateEnd" required>
+                </div>    
+                <button class="btn btn-primary" id="btnEdition">Editar experiencia</button>
             </form>
+        </div>
     </div>
 </div>
