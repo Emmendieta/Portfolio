@@ -1,0 +1,45 @@
+<div class="container-fluid"  *ngIf="person">
+    <div class="portfolio">
+        <div class="row">
+            <div>
+                <h1 id ="componentEdition">Edición de la Persona: {{person.name}}: </h1>
+                <form (ngSubmit)="updatePerson()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label id ="componentEdition" for="name">Nombre de la Persona: </label>
+                        <input type="text" class="form-control" id="namePer" name="name" [(ngModel)]="person.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="lastName">Apellido de la Persona: </label>
+                        <input type="text" class="form-control" id="lastNamePer" name="lastName" [(ngModel)]="person.lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="title">Titulo que desea verse con sus datos: </label>
+                        <input type="text" class="form-control" id="titlePer" name="title" [(ngModel)]="person.title" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="about">Descripción acerca de la Persona: </label>
+                        <input type="text" class="form-control" id="aboutPer" name="about" [(ngModel)]="person.about" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="province">Provincia donde se encuentra de la Persona: </label>
+                        <input type="text" class="form-control" id="provincePer" name="province" [(ngModel)]="person.province" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="country">País donde se encuentra la Persona: </label>
+                        <input type="text" class="form-control" id="countryPer" name="country" [(ngModel)]="person.country" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="image">URL de Imagen o Logo de la Institución: </label>
+                        <input type="text" class="form-control" id="imagePer" name="image" [(ngModel)]="person.image" required>
+                        <img src="{{person.image}}">
+                    </div>  
+                    <div class="form-group">
+                        <label id ="componentEdition" for="age">Fecha de Nacimiento: </label>
+                        <input style="width:fit-content" type="date" class="form-control" id="agePer" name="age" [(ngModel)]="person.age" required>
+                    </div>    
+                    <button class="btn btn-primary">Editar Persona</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

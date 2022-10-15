@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from '../../services/experience.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experience } from '../../models/experience.model';
-import { FormBuilder,  Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-edit-experience',

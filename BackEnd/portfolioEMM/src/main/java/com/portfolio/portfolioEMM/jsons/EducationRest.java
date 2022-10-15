@@ -29,7 +29,7 @@ public class EducationRest {
 	@JsonProperty("image")
 	private String image;
 
-	@JsonProperty("peronsId")
+	@JsonProperty("personId")
 	private Long personId;
 
 	public Long getId() {

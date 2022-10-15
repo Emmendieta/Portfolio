@@ -25,7 +25,7 @@ export class HardSoftService {
   }
 
   updateHardSoftById(id: number, hardSoft: HardSoft){
-    return this.http.put(this.baseURL + "udpate" + `${id}`, hardSoft);
+    return this.http.put(this.baseURL + "udpate/" + `${id}`, hardSoft);
   }
 
   deleteHardSoftById(id: number): Observable<any>{

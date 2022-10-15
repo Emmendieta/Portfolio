@@ -1,0 +1,39 @@
+<div class="container-fluid"  *ngIf="education">
+    <div class="portfolio">
+        <div class="row">
+            <div>
+                <h1 id ="componentEdition">Edición de la Educación: {{education.name}}: </h1>
+                <form (ngSubmit)="updateEducation()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label id ="componentEdition" for="name">Nombre de la instituciónn Educativa: </label>
+                        <input type="text" class="form-control" id="nameEdu" name="name" [(ngModel)]="education.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="title">Título obtenido: </label>
+                        <input type="text" class="form-control" id="titleEdu" name="title" [(ngModel)]="education.title" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="description">Descripción de las funciones que puede realizar: </label>
+                        <input type="text" class="form-control" id="descriptionEdu" name="description" [(ngModel)]="education.description" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="image">URL de Imagen o Logo de la Institución: </label>
+                        <input type="text" class="form-control" id="imageEdu" name="image" [(ngModel)]="education.image" required>
+                        <img src="{{education.image}}">
+                    </div>  
+                    <div class="form-group">
+                        <label id ="componentEdition" for="dateStart">Fecha de inicio: </label>
+                        <input style="width:fit-content" type="date" class="form-control" id="dateStartEdu" name="dateStart" [(ngModel)]="education.dateStart" required>
+                    </div>    
+                    <div class="form-group">
+                        <label id ="componentEdition" for="dateEnd">Fecha de finalización: </label>
+                        <input style="width:fit-content" type="date" class="form-control" id="dateEndEdu" name="dateEnd" [(ngModel)]="education.dateEnd" required>
+                    </div>
+                    <button class="btn btn-primary">
+                        Editar educacion
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 profile">
                 <img id="profileImg" src={{person.image}}>
-                <a *ngIf="logged" href="">
+                <a *ngIf="logged" routerLink="/editPerson/{{person.id}}">
                     <img id="editIcon" src="../../../assets/pen.png">
                 </a>
             </div>

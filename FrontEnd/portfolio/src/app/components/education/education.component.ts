@@ -10,10 +10,12 @@ import { Education } from '../../models/education.model';
 })
 export class EducationComponent implements OnInit {
 
-  edu: Education[] = [];
-  logged = false;
+  education: Education[] = [];
+
   constructor(private educationService: EducationService, private tokenService: TokenService) { }
 
+  logged = false;
+  
   ngOnInit(): void {
     this.loadEducation();
     if(this.tokenService.getToken()){
@@ -25,7 +27,7 @@ export class EducationComponent implements OnInit {
 
   loadEducation(): void{
     this.educationService.getAllEducation().subscribe((result: any) => {
-      this.edu = result.data;
+      this.education = result.data;
     }) 
   }
 

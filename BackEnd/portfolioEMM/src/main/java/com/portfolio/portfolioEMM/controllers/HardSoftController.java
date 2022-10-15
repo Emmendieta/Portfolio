@@ -45,12 +45,12 @@ public class HardSoftController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "hardAndSoft/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<HardSoftRest> getHardAndSoftById(@RequestParam Long id) throws PortfolioException {
+	public PortfolioResponse<HardSoftRest> getHardAndSoftById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, hardSoftService.getHardSoftById(id));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/" + "{" + "name"
+	@RequestMapping(value = "hardAndSoftName/" + "{" + "name"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<HardSoftRest> getHardAndSoftByName(@RequestParam String name) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -68,7 +68,7 @@ public class HardSoftController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "hardAndSoft/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> updateHardAndSoftSkillById(@RequestParam Long id,
+	public PortfolioResponse<String> updateHardAndSoftSkillById(@PathVariable("id") Long id,
 			@RequestBody HardSoftCreateRest hardSoftCreateRest) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				hardSoftService.updateHardSoftById(id, hardSoftCreateRest));

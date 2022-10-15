@@ -1,0 +1,23 @@
+<div class="container-fluid"  *ngIf="social">
+    <div class="portfolio">
+        <div class="row">
+            <div>
+                <h1 id ="componentEdition">Edición de la Social Network: {{social.name}}: </h1>
+                <form (ngSubmit)="updateSocial()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label id ="componentEdition" for="name">Nombre del Proyecto: </label>
+                        <input type="text" class="form-control" id="nameSocial" name="name" [(ngModel)]="social.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="url">URL de la Social Network: </label>
+                        <input type="text" class="form-control" id="urlSocial" name="url" [(ngModel)]="social.url" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="image">URL de Imagen o Logo de la Social Network: </label>
+                        <input type="text" class="form-control" id="imageSocial" name="image" [(ngModel)]="social.image" required>
+                        <img src="{{social.image}}">
+                    </div>  
+                    <button class="btn btn-primary">Editar Social Network</button>
+                </form>
+            </div>
+        </div>

@@ -28,6 +28,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AddEducationComponent } from './components/education/add-education.component';
+import { EditEducationComponent } from './components/education/edit-education.component';
+import { AddHardSoftComponent } from './components/hard-soft/add-hard-soft.component';
+import { EditHardSoftComponent } from './components/hard-soft/edit-hard-soft.component';
+import { AddProyectComponent } from './components/proyects/add-proyect.component';
+import { EditProyectComponent } from './components/proyects/edit-proyect.component';
+import { EditSocialsNetsComponent } from './components/socials-nets/edit-socials-nets.component';
+import { AddSocialsNetsComponent } from './components/socials-nets/add-socials-nets.component';
+import { EditPersonComponent } from './components/person/edit-person.component';
 
 
 const appRoutes: Routes = [
@@ -35,6 +44,15 @@ const appRoutes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "addExperience", component: AddExperienceComponent },
   {path: 'editExperience/:id', component: EditExperienceComponent},
+  {path: 'addEducation', component: AddEducationComponent},
+  {path: 'editEducation/:id', component: EditEducationComponent},
+  {path: 'addSkill', component: AddHardSoftComponent},
+  {path: 'editSkill/:id', component: EditHardSoftComponent},
+  {path: 'addProyect', component: AddProyectComponent},
+  {path: 'editProyect/:id', component: EditProyectComponent},
+  {path: 'addScialMedia', component: AddSocialsNetsComponent},
+  {path: 'editSocialMedia/:id', component: EditSocialsNetsComponent},
+  {path: 'editPerson/:id', component: EditPersonComponent},
 ]
 
 
@@ -54,6 +72,15 @@ const appRoutes: Routes = [
     LoginComponent,
     AddExperienceComponent,
     EditExperienceComponent,
+    AddEducationComponent,
+    EditEducationComponent,
+    AddHardSoftComponent,
+    EditHardSoftComponent,
+    AddProyectComponent,
+    EditProyectComponent,
+    EditSocialsNetsComponent,
+    AddSocialsNetsComponent,
+    EditPersonComponent,
   ],
   imports: [
     BrowserModule,

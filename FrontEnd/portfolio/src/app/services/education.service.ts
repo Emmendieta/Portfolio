@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EducationService {
-baseURL = environment.URL + "education/";
+baseURL = environment.URL + 'education/';
   constructor(private http: HttpClient) { }
 
   createEducation(education: Education){
@@ -19,12 +19,12 @@ baseURL = environment.URL + "education/";
     return this.http.get(this.baseURL + "getAll");
   }
 
-  getEducationById(id: number){
-    return this.http.get(this.baseURL + `${id}`);
+  getEducationById(id: number): Observable<Education>{
+    return this.http.get<Education>(this.baseURL + `${id}`);
   }
 
-  updateEducaction(id: number, education: Education){
-    return this.http.put(this.baseURL + "update" + `${id}`, education);
+  public updateEducationById(id: number, education: Education): Observable<any>{
+    return this.http.put<any>(this.baseURL + "update/" + `${id}`, education);
   }
 
   deleteEducationById(id: number): Observable<any>{

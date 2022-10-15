@@ -35,7 +35,7 @@ public class ProyectController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/"
-			+ "createProyet", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+			+ "createProyect", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createProyect(@RequestBody ProyectCreateRest proyectCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -45,7 +45,7 @@ public class ProyectController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/" + "getById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<ProyectRest> getProyectById(@RequestParam Long id) throws PortfolioException {
+	public PortfolioResponse<ProyectRest> getProyectById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, proyectService.findProyectById(id));
 	}
 
@@ -60,7 +60,7 @@ public class ProyectController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "proyect/" + "updateById/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> updateProyect(@RequestParam Long id,
+	public PortfolioResponse<String> updateProyect(@PathVariable("id") Long id,
 			@RequestBody ProyectCreateRest proyectCreateRest) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				proyectService.updateProyectById(id, proyectCreateRest));

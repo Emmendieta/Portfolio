@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="portfolio">
+        <div class="row">
+            <div>
+                <form (ngSubmit)="createHardSoft()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label id ="componentEdition" for="name">Nombre de la Skill: </label>
+                        <input type="text" class="form-control" id="nameEdu" name="name" [(ngModel)]="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="title">Porcentaje de la Skill:</label>
+                        <input type="text" class="form-control" id="titleEdu" name="title" [(ngModel)]="percent" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="image">URL de Imagen o Logo de la Skill: </label>
+                        <input type="text" class="form-control" id="imageEdu" name="image" [(ngModel)]="image" required>
+                        <img src="{{image}}">
+                    </div>  
+                    <button class="btn btn-primary">Crear Skill</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

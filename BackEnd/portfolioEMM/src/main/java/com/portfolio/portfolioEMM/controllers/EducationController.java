@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.portfolio.portfolioEMM.exceptions.PortfolioException;
 import com.portfolio.portfolioEMM.jsons.EducationCreateRest;
 import com.portfolio.portfolioEMM.jsons.EducationRest;
+import com.portfolio.portfolioEMM.jsons.ExperienceCreateRest;
+import com.portfolio.portfolioEMM.jsons.ExperienceRest;
 import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.EducationService;
 
@@ -45,11 +47,11 @@ public class EducationController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "education/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<EducationRest> findEducationById(@RequestParam Long id) throws PortfolioException {
+	public PortfolioResponse<EducationRest> getById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				educationService.getEducationById(id));
 	}
-
+	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "education/"
 			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,11 +63,11 @@ public class EducationController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "education/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> updateEducationById(@RequestParam Long id,
+	public PortfolioResponse<String> updateEducation(@PathVariable("id") Long id,
 			@RequestBody EducationCreateRest educationCreateRest) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
-				educationService.editEducaction(id, educationCreateRest));
-	}
+				educationService.updateEducationById(id, educationCreateRest));
+	}	
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)

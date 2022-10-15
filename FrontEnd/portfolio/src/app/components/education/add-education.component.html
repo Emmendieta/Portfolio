@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="portfolio">
+        <div class="row">
+            <form (ngSubmit)="createEducation()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label  id="componentEdition" for="nameExp">Nombre de la Educatión: </label>
+                    <input type="text" class="form-control" id="nameExp" name="name" [(ngModel)]="nameEdu" required >
+                </div>
+                <div class="form-group">
+                    <label id="componentEdition" for="descripcionE">Título otogado: </label>
+                    <input type="text" class="form-control" id="descripcionE" name="title" [(ngModel)]="titleEdu" required>
+                </div>
+                <div class="form-group">
+                    <label  id="componentEdition" for="descripcionE">Descripción de las actividades que realiza: </label>
+                    <input type="text" class="form-control" id="descripcionE" name="activity" [(ngModel)]="descriptionEdu" required>
+                </div>
+                <div class="form-group">
+                    <label  id="componentEdition" for="descripcionE">Imagen o Logo de la Educación: </label>
+                    <input type="text" class="form-control" id="descripcionE" name="imageExp" [(ngModel)]="imageEdu" required>
+                </div>
+                <div class="form-group">
+                    <label  id="componentEdition" for="descripcionE">Año de inicio: </label>
+                    <input style="width:fit-content" type="date" class="form-control" id="descripcionE" name="dateStartExp" [(ngModel)]="dateStartEdu" required>
+                </div>
+                <div class="form-group">
+                    <label  id="componentEdition" for="descripcionE">Año de finalización: </label>
+                    <input style="width:fit-content" type="date" class="form-control" id="descripcionE" name="dateEndExp" [(ngModel)]="dateEndEdu" required>
+                </div>
+                <button class="btn btn-primary" id="btnEdition">
+                    Agregar Educación
+                </button>
+            </form>
+    </div>
+</div>

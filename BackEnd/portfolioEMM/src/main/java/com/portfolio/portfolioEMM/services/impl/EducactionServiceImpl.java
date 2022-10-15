@@ -82,7 +82,8 @@ public class EducactionServiceImpl implements EducationService {
 		return modelMapper.map(getEducationEntity(id), EducationRest.class);
 	}
 
-	public String editEducaction(Long id, EducationCreateRest educationCreateRest) throws PortfolioException {
+	public String updateEducationById(Long id, EducationCreateRest educationCreateRest) throws PortfolioException {
+		
 		final Person personId = personRepository.findById(educationCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 

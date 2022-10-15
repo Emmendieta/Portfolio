@@ -12,7 +12,7 @@
                     <tbody>
                         <tr class="tableTr" *ngFor="let Experience of expe">
                             <td class="expIcon">
-                                <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="../../../assets/facebook.png">
+                                <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="{{Experience.image}}">
                             </td>
                             <td class="expDescription">
                                 <h2 id="col-1">{{Experience.name}}</h2>
@@ -26,7 +26,7 @@
                                 <a style="cursor:pointer;" routerLink="/editExperience/{{Experience.id}}" >
                                     <img id="addExperience" src="../../../assets/pen.png">
                                 </a>
-                                <a style="cursor:pointer;" (click)="deleteExperience(Experience.id)">
+                                <a style="cursor:pointer;" (click)="deleteExperience(Experience.id!)">
                                     <img id="addExperience" src="../../../assets/trash.png">
                                 </a>
                             </td>

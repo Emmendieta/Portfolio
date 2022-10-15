@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="portfolio">
+        <div class="row">
+            <form (ngSubmit)="createSocial()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label  id="componentEdition" for="name">Nombre de la Social Network: </label>
+                    <input type="text" class="form-control" id="nameSocial" name="name" [(ngModel)]="name" required >
+                </div>
+                <div class="form-group">
+                    <label id="componentEdition" for="url">URL de la Social Network: </label>
+                    <input type="text" class="form-control" id="urlSocial" name="url" [(ngModel)]="url" required>
+                </div>
+                <div class="form-group">
+                    <label  id="componentEdition" for="image">Imagen o Logo de la Social Network: </label>
+                    <input type="text" class="form-control" id="imageSKill" name="image" [(ngModel)]="image" required>
+                </div>
+                <button class="btn btn-primary" id="btnEdition">Agregar Social Net</button>
+            </form>
+        </div>
+    </div>
+</div>

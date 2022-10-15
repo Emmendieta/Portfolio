@@ -1,0 +1,25 @@
+<div class="container-fluid" *ngIf="skill">
+    <div class="portfolio">
+        <div class="row">
+            <div>
+                <h1 id ="componentEdition">Edición de la Skill: {{skill.name}}: </h1>
+                <form (ngSubmit)="updateSkill()" novalidate #f="ngForm">
+                    <div class="form-group">
+                        <label id ="componentEdition" for="name">Nombre de la Skill: </label>
+                        <input type="text" class="form-control" id="nameEdu" name="name" [(ngModel)]="skill.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="title">Porcentaje de la Skill:</label>
+                        <input type="text" class="form-control" id="titleEdu" name="title" [(ngModel)]="skill.percent" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="image">URL de Imagen o Logo de la Skill: </label>
+                        <input type="text" class="form-control" id="imageEdu" name="image" [(ngModel)]="skill.image" required>
+                        <img src="{{skill.image}}">
+                    </div>  
+                    <button class="btn btn-primary">Editar Skill</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

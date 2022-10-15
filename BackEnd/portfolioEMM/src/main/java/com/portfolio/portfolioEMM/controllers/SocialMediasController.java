@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,7 +46,7 @@ public class SocialMediasController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/" + "findById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<SocialMediasRest> findSocialMediaById(@RequestParam Long id) throws PortfolioException {
+	public PortfolioResponse<SocialMediasRest> findSocialMediaById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<SocialMediasRest>(SUCCES, HTTP, OK, socialMediasService.findSocialMediaById(id));
 	}
 
@@ -61,7 +62,7 @@ public class SocialMediasController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/" + "updateSocialMedias/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> updateSocialMedia(@RequestParam Long id,
+	public PortfolioResponse<String> updateSocialMedia(@PathVariable("id") Long id,
 			@RequestBody SocialMediasCreateRest socialMediaCreateRest) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES,String.valueOf(HttpStatus.OK), OK,
 				socialMediasService.updateSocialMediaById(id, socialMediaCreateRest));
@@ -71,7 +72,7 @@ public class SocialMediasController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "socialMedia/" + "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> deleteSocialMediaById(@RequestParam Long id) throws PortfolioException {
+	public PortfolioResponse<String> deleteSocialMediaById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, HTTP, OK, socialMediasService.deleteSocialMediaById(id));
 	}
 

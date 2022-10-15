@@ -7,10 +7,10 @@
             </div>
             <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4 col-xl-4 footContact">
                 <h2 id="textFootContact">Contacto:</h2>
-                <a style="cursor:pointer;">
+                <a >
                     <img id="addExperience" src="../../../assets/Gmail_icon_(2020).svg.png">
                 </a>
-                <a>
+                <a style="cursor:pointer;" routerLink="/editPerson/{{person.id}}">
                     <img *ngIf="logged" id="addExperience" src="../../../assets/pen.png">
                 </a>
             </div>

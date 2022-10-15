@@ -7,10 +7,23 @@
     justify-content: left;
 }
 
+.generalTitle{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .socialNets{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+.expIcon{
+    padding: 5px;
+}
+
+table{
+    display: contents;
 }
 
 .btn{
@@ -18,32 +31,11 @@
     margin-left: 5px;
 }
 
-#facebook{
+#idSocial{
     border-radius: 100%;
     box-shadow: 1px 1px 1px rgb(146, 133, 193);    
     width: 30px;
-    margin: 2.5px;
-}
-
-#instagram{
-    border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(212, 144, 144);
-    width: 30px;
-    margin: 2.5px;    
-}
-
-#gitHub{
-    border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(146, 133, 193);
-    width: 30px;
-    margin: 2.5px;    
-}
-
-#linkedIn{
-    border-radius: 100%;
-    box-shadow: 1px 1px 1px rgb(141, 111, 251);
-    width: 30px;
-    margin: 2.5px;
+    margin: 4px;
 }
 
 #argProg{

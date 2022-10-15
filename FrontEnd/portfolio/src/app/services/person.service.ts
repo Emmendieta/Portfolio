@@ -14,7 +14,6 @@ export class PersonService {
 
   public constructor(private http: HttpClient) { }
 
-
   getPersonId(){
     return this.http.get(this.baseURL+ + `${this.idNum}`)
   }

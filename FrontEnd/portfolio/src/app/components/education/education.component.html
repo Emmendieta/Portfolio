@@ -3,30 +3,30 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
                 <h1>Educacion</h1>
-                <a *ngIf="logged" style="cursor:pointer;">
+                <a *ngIf="logged" style="cursor:pointer;" routerLink="/addEducation">
                     <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
                 </a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <table class="table">
                     <tbody>
-                        <tr class="tableTr" *ngFor="let education of edu">
+                        <tr class="tableTr" *ngFor="let Education of education">
                             <td class="expIcon">
-                                <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="">
+                                <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="{{Education.image}}">
                             </td>
                             <td class="expDescription">
-                                <h2 id="col-1">{{education.name}}</h2>
-                                <h3 id ="col-2">{{education.title}}</h3>
-                                <h4 id="dateExp">{{education.dateStart}}</h4> 
+                                <h2 id="col-1">{{Education.name}}</h2>
+                                <h3 id ="col-2">{{Education.title}}</h3>
+                                <h4 id="dateExp">{{Education.dateStart | date: "yyyy"}}</h4> 
                                 <h4 id="dateExp">-</h4>
-                                <h4 id="dateExp">{{education.dateEnd}}</h4>
-                                <h4 id="col-2">{{education.description}}</h4> 
+                                <h4 id="dateExp">{{Education.dateEnd | date: "yyyy"}}</h4>
+                                <h4 id="col-2">{{Education.description}}</h4> 
                             </td>
-                            <td *ngIf="logged" class="editionExp">
-                                <a style="cursor:pointer;">
+                            <td class="editionExp" *ngIf="logged">
+                                <a style="cursor:pointer;" routerLink="/editEducation/{{Education.id}}"                                >
                                     <img id="addExperience" src="../../../assets/pen.png">
                                 </a>
-                                <a style="cursor:pointer;" (click)="deleteEducation(education.id!)">
+                                <a style="cursor:pointer;" (click)="deleteEducation(Education.id!)">
                                     <img id="addExperience" src="../../../assets/trash.png">
                                 </a>
                             </td>

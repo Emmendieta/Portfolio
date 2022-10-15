@@ -48,7 +48,7 @@ public class PersonController {
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "person/" + "{" + "id"
 			+ "}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<PersonRest> getPersonById(@PathVariable Long id) throws PortfolioException {
+	public PortfolioResponse<PersonRest> getPersonById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				personService.getPersonById(id));
 	}
@@ -64,7 +64,7 @@ public class PersonController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "person/" + "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> updatePerson(@RequestParam Long id, @RequestBody PersonCreateRest personCreateRest)
+	public PortfolioResponse<String> updatePerson(@PathVariable("id") Long id, @RequestBody PersonCreateRest personCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				personService.updatePersonById(id, personCreateRest));

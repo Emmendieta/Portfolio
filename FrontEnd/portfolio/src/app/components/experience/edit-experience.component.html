@@ -2,7 +2,7 @@
     <div class="portfolio">
         <div class="row">
             <h1 id ="componentEdition">Edición de la Experiencia: {{experience.name}}: </h1>
-            <form (ngSubmit)="updateExperience()" novalidate #f="ngForm">
+            <form (ngSubmit)="updateExperience()" validate #f="ngForm">
                 <div class="form-group">
                     <label id ="componentEdition" for="name">Nombre de la Institución: </label>
                     <input  type="text" class="form-control" id="nameExp" name="name" [(ngModel)]="experience.name" required>
@@ -16,8 +16,9 @@
                     <input type="text" class="form-control" id="activityExp" name="activity" [(ngModel)]="experience.activity" required>
                 </div>
                 <div class="form-group">
-                    <label id ="componentEdition" for="image">Imagen o Logo de la Institución: </label>
+                    <label id ="componentEdition" for="image">URL de Imagen o Logo de la Institución: </label>
                     <input type="text" class="form-control" id="imageExp" name="image" [(ngModel)]="experience.image" required>
+                    <img src="{{experience.image}}">
                 </div>  
                 <div class="form-group">
                     <label id ="componentEdition" for="dateStart">Fecha de inicio:</label>
