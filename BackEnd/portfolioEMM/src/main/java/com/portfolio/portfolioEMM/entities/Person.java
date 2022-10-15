@@ -11,7 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.portfolio.portfolioEMM.security.entities.User;
 
 @Entity
 @Table(name = "PERSON")
@@ -45,6 +48,12 @@ public class Person {
 
 	@Column(name = "IMAGEP")
 	private String image;
+	
+	@Column(name = "BANNERP")
+	private String banner;
+	
+	@Column(name = "EMAILP")
+	private String email;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<Experience> experiences;
@@ -60,14 +69,17 @@ public class Person {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<SocialMedias> socialMedias;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
+	private User user;
 
-	public Person() {
-		super();
-	}
+	public Person() {}
+	
 
 	public Person(Long id, String name, String lastName, Date age, String title, String about, String province,
-			String country, String image, List<Experience> experiences, List<Education> educations,
-			List<HardSoft> hardAndSofts, List<Proyect> proyects, List<SocialMedias> socialMedias) {
+			String country, String image, String banner, String email, List<Experience> experiences,
+			List<Education> educations, List<HardSoft> hardAndSofts, List<Proyect> proyects,
+			List<SocialMedias> socialMedias, List<User> users) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -78,11 +90,14 @@ public class Person {
 		this.province = province;
 		this.country = country;
 		this.image = image;
+		this.banner = banner;
+		this.email = email;
 		this.experiences = experiences;
 		this.educations = educations;
 		this.hardAndSofts = hardAndSofts;
 		this.proyects = proyects;
 		this.socialMedias = socialMedias;
+		this.user = user;
 	}
 
 	public Long getId() {
@@ -195,5 +210,35 @@ public class Person {
 
 	public void setSocialMedias(List<SocialMedias> socialMedias) {
 		this.socialMedias = socialMedias;
+	}
+
+
+	public String getBanner() {
+		return banner;
+	}
+
+
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

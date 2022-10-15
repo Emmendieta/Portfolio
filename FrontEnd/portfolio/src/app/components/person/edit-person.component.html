@@ -29,6 +29,15 @@
                         <input type="text" class="form-control" id="countryPer" name="country" [(ngModel)]="person.country" required>
                     </div>
                     <div class="form-group">
+                        <label id ="componentEdition" for="email">Email para mostrar de la Persona: </label>
+                        <input type="text" class="form-control" id="emailPer" name="email" [(ngModel)]="person.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label id ="componentEdition" for="banner">Banner descriptivo de la Persona: </label>
+                        <input type="text" class="form-control" id="bannerPer" name="banner" [(ngModel)]="person.banner" required>
+                        <img src="{{person.banner}}">
+                    </div>
+                    <div class="form-group">
                         <label id ="componentEdition" for="image">URL de Imagen o Logo de la Institución: </label>
                         <input type="text" class="form-control" id="imagePer" name="image" [(ngModel)]="person.image" required>
                         <img src="{{person.image}}">

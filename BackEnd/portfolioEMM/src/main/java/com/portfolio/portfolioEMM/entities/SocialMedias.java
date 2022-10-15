@@ -33,11 +33,9 @@ public class SocialMedias {
 	private Person person;
 
 	public SocialMedias() {
-		super();
 	}
 
 	public SocialMedias(String name, String image, String url, Person person) {
-		super();
 		this.name = name;
 		this.image = image;
 		this.url = url;

@@ -48,6 +48,8 @@ public class PersonServiceImpl implements PersonService {
 		person.setProvince(personCreateRest.getProvince());
 		person.setCountry(personCreateRest.getCountry());
 		person.setImage(personCreateRest.getImage());
+		person.setBanner(personCreateRest.getBanner());
+		person.setEmail(personCreateRest.getEmail());
 
 		try {
 			personRepository.save(person);
@@ -87,6 +89,8 @@ public class PersonServiceImpl implements PersonService {
 			person.setProvince(personCreateRest.getProvince());
 			person.setCountry(personCreateRest.getCountry());
 			person.setImage(personCreateRest.getImage());
+			person.setBanner(personCreateRest.getBanner());
+			person.setEmail(personCreateRest.getEmail());
 			person.setId(id);
 
 			try {

@@ -31,6 +31,12 @@ public class PersonCreateRest {
 
 	@JsonProperty("image")
 	private String image;
+	
+	@JsonProperty("banner")
+	private String banner;
+	
+	@JsonProperty("email")
+	private String email;
 
 	public String getName() {
 		return name;
@@ -94,6 +100,22 @@ public class PersonCreateRest {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getBanner() {
+		return banner;
+	}
+
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

@@ -9,6 +9,6 @@ export class SocialMedia{
         this.name = name;
         this.image = image;
         this.url = url;
-        this.personId = personId;
+        this.personId = 1;
     }
 }

@@ -44,12 +44,10 @@ public class Education {
 	private Person person;
 
 	public Education() {
-		super();
 	}
 
 	public Education(String name, String title, String description, Date dateStart, Date dateEnd, String image,
 			Person person) {
-		super();
 		this.name = name;
 		this.title = title;
 		this.description = description;

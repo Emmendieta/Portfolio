@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class FooterComponent implements OnInit {
 
-  public person: Person = new Person("", "", new Date(),"","","","","");
+  public person: Person = new Person("", "", new Date(),"","","","","", "", "");
   private personId: number;
   logged = false;
 

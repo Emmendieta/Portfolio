@@ -2,7 +2,6 @@ package com.portfolio.portfolioEMM.entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,12 +44,10 @@ public class Proyect {
 	private Person person;
 
 	public Proyect() {
-		super();
 	}
 
 	public Proyect(Long id, String name, String description, String link, String image, Date dateStart, Date dateEnd,
 			Person person) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;

@@ -33,11 +33,9 @@ public class HardSoft {
 	private Person person;
 
 	public HardSoft() {
-		super();
 	}
 
 	public HardSoft(String name, int percent, String image, Person person) {
-		super();
 		this.name = name;
 		this.percent = percent;
 		this.image = image;

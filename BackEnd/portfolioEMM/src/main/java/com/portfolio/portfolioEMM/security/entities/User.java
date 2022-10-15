@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.portfolio.portfolioEMM.entities.Person;
 
 @Entity
 @Table(name = "USER")
@@ -34,9 +37,13 @@ public class User {
 
 	@Column(name = "PASSWORD", unique = true, nullable = false)
 	private String password;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
+	private Person person;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "USER_ROL", joinColumns = @JoinColumn(name = "USER_id"), inverseJoinColumns = @JoinColumn(name = "ROL_id"))
+	@JoinTable(name = "USER_HAS_ROL", joinColumns = @JoinColumn(name = "USER_id"), inverseJoinColumns = @JoinColumn(name = "ROL_id"))
 	private Set<Rol> rols = new HashSet<>();
 
 	public User() {

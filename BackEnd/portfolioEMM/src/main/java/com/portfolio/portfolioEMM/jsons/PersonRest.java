@@ -34,6 +34,12 @@ public class PersonRest {
 
 	@JsonProperty("image")
 	private String image;
+	
+	@JsonProperty("banner")
+	private String banner;
+	
+	@JsonProperty("email")
+	private String email;
 
 	public String getName() {
 		return name;
@@ -105,6 +111,22 @@ public class PersonRest {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getBanner() {
+		return banner;
+	}
+
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

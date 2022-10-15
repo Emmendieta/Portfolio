@@ -21,22 +21,22 @@ public class Experience {
 	@Column(name = "ID", unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "NAMEEX", nullable = false)
+	@Column(name = "NAMEEXP", nullable = false)
 	private String name;
 
-	@Column(name = "TITLEEX", nullable = false)
+	@Column(name = "TITLEEXP", nullable = false)
 	private String title;
 
-	@Column(name = "ACTIVITIESEX", nullable = false)
+	@Column(name = "ACTIVITYEXP", nullable = false)
 	private String activity;
 
-	@Column(name = "DATESTARTEX", nullable = false)
+	@Column(name = "DATESTARTEXP", nullable = false)
 	private Date dateStart;
 
-	@Column(name = "DATEENDEX")
+	@Column(name = "DATEENDEXP")
 	private Date dateEnd;
 
-	@Column(name = "IMAGEEX")
+	@Column(name = "IMAGEEXP")
 	private String image;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -44,12 +44,10 @@ public class Experience {
 	private Person person;
 
 	public Experience() {
-		super();
 	}
 
 	public Experience(Long id, String name, String title, String activity, Date dateStart, Date dateEnd, String image,
 			Person person) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.title = title;
