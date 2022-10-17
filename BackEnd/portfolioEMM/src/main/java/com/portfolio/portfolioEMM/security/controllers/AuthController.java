@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.portfolioEMM.dtos.Message;
+import com.portfolio.portfolioEMM.entities.Person;
+import com.portfolio.portfolioEMM.exceptions.NotFountException;
+import com.portfolio.portfolioEMM.exceptions.PortfolioException;
+import com.portfolio.portfolioEMM.repositories.PersonRepository;
 import com.portfolio.portfolioEMM.security.entities.Rol;
 import com.portfolio.portfolioEMM.security.entities.User;
 import com.portfolio.portfolioEMM.security.enums.RolName;
@@ -33,8 +37,9 @@ import com.portfolio.portfolioEMM.security.services.RolService;
 import com.portfolio.portfolioEMM.security.services.UserService;
 
 @RestController
-@RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+//@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("portfolio/v1/auth/")
 public class AuthController {
 
 	@Autowired
@@ -52,8 +57,15 @@ public class AuthController {
 	@Autowired
 	JwtProvider jwtProvider;
 
-	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@Valid @RequestBody NewUser newUser, BindingResult bindingResult) {
+	@Autowired
+	PersonRepository personRepository;
+
+	public static final String PERSON_NO = "PERSON NOT FOUND!";
+
+	@PostMapping("newUser")
+	public ResponseEntity<?> newUser(@Valid @RequestBody NewUser newUser, BindingResult bindingResult)
+			throws PortfolioException {
+
 		if (bindingResult.hasErrors())
 			return new ResponseEntity<Object>(new Message("Error: Wrong type of input"), HttpStatus.BAD_REQUEST);
 
@@ -63,8 +75,15 @@ public class AuthController {
 		if (userService.existsByEmail(newUser.getEmail()))
 			return new ResponseEntity(new Message("Error: Email alredy exist!"), HttpStatus.BAD_REQUEST);
 
-		User user = new User(newUser.getName(), newUser.getUserName(), newUser.getEmail(),
-				passwordEncoder.encode(newUser.getPassword()));
+		final Person personId = personRepository.findById(newUser.getPersonId())
+				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
+		
+		User user = new User();
+		user.setName(newUser.getName());
+		user.setUserName(newUser.getUserName());
+		user.setEmail(newUser.getEmail());
+		user.setPassword(passwordEncoder.encode(newUser.getPassword()));
+		user.setPerson(personId);
 
 		Set<Rol> rols = new HashSet<>();
 		rols.add(rolService.getByRolName(RolName.ROLE_USER).get());
@@ -77,7 +96,7 @@ public class AuthController {
 		return new ResponseEntity(new Message("User saved!"), HttpStatus.CREATED);
 	}
 
-	@PostMapping("/login")
+	@PostMapping("login")
 	public ResponseEntity<JwtJson> login(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
 			return new ResponseEntity(new Message("Error: Wrong fields!"), HttpStatus.BAD_REQUEST);

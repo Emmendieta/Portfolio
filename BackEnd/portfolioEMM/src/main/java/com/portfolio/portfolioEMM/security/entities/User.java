@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.portfolio.portfolioEMM.entities.Person;
@@ -35,11 +36,11 @@ public class User {
 	@Column(name = "EMAIL", unique = true, nullable = false)
 	private String email;
 
-	@Column(name = "PASSWORD", unique = true, nullable = false)
+	@Column(name = "PASSWORD", nullable = false)
 	private String password;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PERSON_id", nullable = false)
 	private Person person;
 
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -47,13 +48,6 @@ public class User {
 	private Set<Rol> rols = new HashSet<>();
 
 	public User() {
-	}
-
-	public User(String name, String userName, String email, String password) {
-		this.name = name;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
 	}
 
 	public int getId() {
@@ -102,6 +96,14 @@ public class User {
 
 	public void setRols(Set<Rol> rols) {
 		this.rols = rols;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 }

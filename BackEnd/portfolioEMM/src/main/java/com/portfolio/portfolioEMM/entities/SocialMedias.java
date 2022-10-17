@@ -29,7 +29,7 @@ public class SocialMedias {
 	private String url;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
+	@JoinColumn(name = "PERSON_ID", nullable = false)
 	private Person person;
 
 	public SocialMedias() {

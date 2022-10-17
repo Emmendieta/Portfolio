@@ -128,10 +128,12 @@ public class PersonServiceImpl implements PersonService {
 		return PEOPLE_DELETED;
 	}
 
-	private Person getPersonEntity(Long personId) throws PortfolioException {
+	public Person getPersonEntity(Long personId) throws PortfolioException {
 		return personRepository.findById(personId)
 				.orElseThrow(() -> new NotFountException("SNOT-404-1", PERSON_NOT_FOUND));
 	}
+	
+
 
 
 }

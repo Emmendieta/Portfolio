@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       this.isLogginFail = true;
       this.errorMessage = err.error.message;
       console.log(this.errorMessage);
+      alert("Error: Por favor verifique sus credenciales!");
     }) 
   }
 }

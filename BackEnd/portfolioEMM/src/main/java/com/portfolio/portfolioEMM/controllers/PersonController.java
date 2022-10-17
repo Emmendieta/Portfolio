@@ -25,8 +25,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.PersonService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "/portfolio" + "/v1/")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+@RequestMapping(path = "portfolio/v1/person/")
 public class PersonController {
 
 	@Autowired
@@ -37,8 +38,7 @@ public class PersonController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@PostMapping(value = "person/"
-			+ "createPerson", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "createPerson", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createPerson(@RequestBody PersonCreateRest personCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -46,7 +46,7 @@ public class PersonController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping(value = "person/" + "{" + "id"
+	@GetMapping(value = "{" + "id"
 			+ "}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<PersonRest> getPersonById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -54,15 +54,14 @@ public class PersonController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping(value = "person/"
-			+ "getAll", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "getAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<PersonRest>> getAllPersons() throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, personService.getAllPersons());
 	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "person/" + "update/" + "{" + "id"
+	@RequestMapping(value = "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updatePerson(@PathVariable("id") Long id, @RequestBody PersonCreateRest personCreateRest)
 			throws PortfolioException {
@@ -72,7 +71,7 @@ public class PersonController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@DeleteMapping(value = "person/" + "deleteById/" + "{" + "id"
+	@DeleteMapping(value = "deleteById/" + "{" + "id"
 			+ "}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deletePersonById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -81,8 +80,7 @@ public class PersonController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "person/"
-			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAllPeople() throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				personService.deleteAllPersons());

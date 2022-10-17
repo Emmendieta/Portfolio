@@ -24,8 +24,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.EducationService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping(path = "portfolio" + "/v1/")
+//@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+@RequestMapping(path = "portfolio/v1/education/")
 public class EducationController {
 
 	@Autowired
@@ -36,8 +37,7 @@ public class EducationController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/"
-			+ "createEducation", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "createEducation", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createEducation(@RequestBody EducationCreateRest educationCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -45,7 +45,7 @@ public class EducationController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/" + "{" + "id"
+	@RequestMapping(value = "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<EducationRest> getById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -53,15 +53,14 @@ public class EducationController {
 	}
 	
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/"
-			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<EducationRest>> getAll() throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, educationService.getAllEducations());
 	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/" + "update/" + "{" + "id"
+	@RequestMapping(value = "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateEducation(@PathVariable("id") Long id,
 			@RequestBody EducationCreateRest educationCreateRest) throws PortfolioException {
@@ -71,7 +70,7 @@ public class EducationController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/" + "deleteById/" + "{" + "id"
+	@RequestMapping(value = "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
@@ -80,8 +79,7 @@ public class EducationController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "education/"
-			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAll() throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				educationService.deleteAllEducations());

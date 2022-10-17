@@ -23,8 +23,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.ExperienceService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "/portfolio" + "/v1/")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+@RequestMapping(path = "portfolio/v1/experience/")
 public class ExperienceController {
 
 	@Autowired
@@ -35,8 +36,7 @@ public class ExperienceController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience/"
-			+ "createExperience", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "createExperience", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createExperience(@RequestBody ExperienceCreateRest experienceCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -44,7 +44,7 @@ public class ExperienceController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience/" + "{" + "id"
+	@RequestMapping(value = "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<ExperienceRest> getById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>("Succes", String.valueOf(HttpStatus.OK), "OK",
@@ -52,8 +52,7 @@ public class ExperienceController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience/"
-			+ "GetAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "GetAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<ExperienceRest>> getAll() throws PortfolioException {
 		return new PortfolioResponse<>("Succes", String.valueOf(HttpStatus.OK), "OK",
 				experienceService.getAllExperiences());
@@ -62,7 +61,7 @@ public class ExperienceController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	//@PutMapping("experience/update/{id}")
-	@RequestMapping(value = "experience/" + "update/" + "{" + "id"
+	@RequestMapping(value = "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateExperience(@PathVariable("id") Long id, @RequestBody ExperienceCreateRest experienceCreateRest)
 			throws PortfolioException {
@@ -72,7 +71,7 @@ public class ExperienceController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@DeleteMapping("/experience/" + "deleteById/" + "{" + "id}")
+	@DeleteMapping("deleteById/" + "{" + "id}")
 	public PortfolioResponse<String> deleteById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
 				experienceService.deleteExperienceById(id));
@@ -80,8 +79,7 @@ public class ExperienceController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "experience/"
-			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAllExperiene() throws PortfolioException {
 		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
 				experienceService.deleteAllExperiences());

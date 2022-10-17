@@ -29,7 +29,7 @@ public class HardSoft {
 	private String image;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
+	@JoinColumn(name = "PERSON_ID", nullable = false)
 	private Person person;
 
 	public HardSoft() {

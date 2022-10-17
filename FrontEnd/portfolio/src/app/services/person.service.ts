@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
 import { environment } from '../../environments/environment';
+//import { environment } from 'src/environments/environment.prod';
 
 
 @Injectable({
@@ -9,7 +10,8 @@ import { environment } from '../../environments/environment';
 })
 export class PersonService {
 
-  baseURL = environment.URL + 'person/';
+  //baseURL = environment.URL + 'person/';
+  baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/person/";
   public idNum = 1;
 
   public constructor(private http: HttpClient) { }
@@ -19,7 +21,7 @@ export class PersonService {
   }
 
   updatePersonById(id: number, person: Person){
-    return this.http.put(this.baseURL + "update/" + `${id}`, person);
+    return this.http.put(this.baseURL + 'update/' + `${id}`, person);
   }
 
 }

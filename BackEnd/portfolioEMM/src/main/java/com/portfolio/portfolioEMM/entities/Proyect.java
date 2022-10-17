@@ -40,7 +40,7 @@ public class Proyect {
 	private Date dateEnd;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
+	@JoinColumn(name = "PERSON_ID", nullable = false)
 	private Person person;
 
 	public Proyect() {

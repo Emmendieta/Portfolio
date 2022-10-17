@@ -40,7 +40,7 @@ public class Experience {
 	private String image;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PERSON_ID", nullable = false, unique = true)
+	@JoinColumn(name = "PERSON_ID", nullable = false)
 	private Person person;
 
 	public Experience() {

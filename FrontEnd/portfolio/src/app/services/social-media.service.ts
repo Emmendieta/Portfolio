@@ -1,34 +1,36 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { SocialMedia } from '../models/socialMedia.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocialMediaService {
   
-  baseURL = environment.URL + "socialMedia/";
+  //baseURL = environment.URL + 'socialMedia/';
+  baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/socialMedia/";
   constructor(private http: HttpClient) { }
 
   createSocial(socialMedia: SocialMedia){
-    return this.http.post(this.baseURL + "createSocialMedia", socialMedia);
+    return this.http.post(this.baseURL + 'createSocialMedia', socialMedia);
   }
 
   getSocialById(id: number){
-    return this.http.get(this.baseURL + "findById/" + `${id}`);
+    return this.http.get(this.baseURL + 'findById/' + `${id}`);
   }
 
   getAllSocials(){
-    return this.http.get(this.baseURL + "findAll/");
+    return this.http.get(this.baseURL + 'findAll');
   }
 
   updateSocialById(id: number, socialMedia: SocialMedia){
-    return this.http.put(this.baseURL + "updateSocialMedias/"  + `${id}`, socialMedia);
+    return this.http.put(this.baseURL + 'updateSocialMedias/'  + `${id}`, socialMedia);
   }
 
   deleteSocialById(id: number): Observable<any> {
-    return this.http.delete(this.baseURL + "deleteById/" + `${id}`);
+    return this.http.delete(this.baseURL + 'deleteById/' + `${id}`);
   }
 }

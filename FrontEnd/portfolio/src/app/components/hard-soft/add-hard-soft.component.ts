@@ -29,7 +29,7 @@ export class AddHardSoftComponent implements OnInit {
       },
       error: (err) => {
         alert("Error: Skill has not been added!");
-        this.router.navigate[('')];
+        this.router.navigate(['']);
       }
     })
   }

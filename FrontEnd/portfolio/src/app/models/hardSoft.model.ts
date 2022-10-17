@@ -9,6 +9,6 @@ export class HardSoft {
         this.name = name;
         this.percent = percent;
         this.image = image;
-        this.personId = 1;
+        this.personId = this.personId;
     }
 }

@@ -48,10 +48,10 @@ public class Person {
 
 	@Column(name = "IMAGEP")
 	private String image;
-	
+
 	@Column(name = "BANNERP")
 	private String banner;
-	
+
 	@Column(name = "EMAILP")
 	private String email;
 
@@ -69,12 +69,12 @@ public class Person {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private List<SocialMedias> socialMedias;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "person")
 	private User user;
 
-	public Person() {}
-	
+	public Person() {
+	}
 
 	public Person(Long id, String name, String lastName, Date age, String title, String about, String province,
 			String country, String image, String banner, String email, List<Experience> experiences,
@@ -212,31 +212,25 @@ public class Person {
 		this.socialMedias = socialMedias;
 	}
 
-
 	public String getBanner() {
 		return banner;
 	}
-
 
 	public void setBanner(String banner) {
 		this.banner = banner;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public User getUser() {
 		return user;
 	}
-
 
 	public void setUser(User user) {
 		this.user = user;

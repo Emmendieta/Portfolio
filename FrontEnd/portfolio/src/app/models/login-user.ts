@@ -1,7 +1,7 @@
 export class LoginUser {
     
-    userName: string;
-    password: string;
+    public userName: string;
+    public password: string;
 
     constructor(userName: string, password: string){
         this.userName = userName;

@@ -22,8 +22,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.SocialMediasService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "/portfolio" + "/v1/")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+@RequestMapping(path = "/portfolio/v1/socialMedia/")
 public class SocialMediasController {
 
 	@Autowired
@@ -35,8 +36,7 @@ public class SocialMediasController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/"
-			+ "createSocialMedia", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "createSocialMedia", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createSocialMedia(@RequestBody SocialMediasCreateRest socialMediasCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, HTTP, OK,
@@ -44,15 +44,14 @@ public class SocialMediasController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/" + "findById/" + "{" + "id"
+	@RequestMapping(value = "findById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<SocialMediasRest> findSocialMediaById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<SocialMediasRest>(SUCCES, HTTP, OK, socialMediasService.findSocialMediaById(id));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/"
-			+ "findAll/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "findAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<SocialMediasRest>> findAllSocialMedias() throws PortfolioException {
 		return new PortfolioResponse<List<SocialMediasRest>>(SUCCES, HTTP, OK,
 				socialMediasService.findAllSocialMedias());
@@ -60,7 +59,7 @@ public class SocialMediasController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/" + "updateSocialMedias/" + "{" + "id"
+	@RequestMapping(value = "updateSocialMedias/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateSocialMedia(@PathVariable("id") Long id,
 			@RequestBody SocialMediasCreateRest socialMediaCreateRest) throws PortfolioException {
@@ -70,7 +69,7 @@ public class SocialMediasController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/" + "deleteById/" + "{" + "id"
+	@RequestMapping(value = "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteSocialMediaById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, HTTP, OK, socialMediasService.deleteSocialMediaById(id));
@@ -78,8 +77,7 @@ public class SocialMediasController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "socialMedia/"
-			+ "deleteAllSocialMedias", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "deleteAllSocialMedias", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAllSocialMedias() throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, HTTP, OK, socialMediasService.deleteAllSocialMedias());
 	}

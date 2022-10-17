@@ -37,6 +37,8 @@ import { EditProyectComponent } from './components/proyects/edit-proyect.compone
 import { EditSocialsNetsComponent } from './components/socials-nets/edit-socials-nets.component';
 import { AddSocialsNetsComponent } from './components/socials-nets/add-socials-nets.component';
 import { EditPersonComponent } from './components/person/edit-person.component';
+import { AddPersonComponent } from './components/person/add-person.component';
+import { NewUserComponent } from './components/login/new-user.component';
 
 
 const appRoutes: Routes = [
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
   {path: 'addScialMedia', component: AddSocialsNetsComponent},
   {path: 'editSocialMedia/:id', component: EditSocialsNetsComponent},
   {path: 'editPerson/:id', component: EditPersonComponent},
+  {path: 'newUser', component: NewUserComponent},
 ]
 
 
@@ -81,6 +84,8 @@ const appRoutes: Routes = [
     EditSocialsNetsComponent,
     AddSocialsNetsComponent,
     EditPersonComponent,
+    AddPersonComponent,
+    NewUserComponent,
   ],
   imports: [
     BrowserModule,

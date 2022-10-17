@@ -22,8 +22,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.HardSoftService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping(path = "portfolio" + "/v1/")
+//@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+@RequestMapping(path = "portfolio/v1/hardAndSoft/")
 public class HardSoftController {
 
 	@Autowired
@@ -34,8 +35,7 @@ public class HardSoftController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/"
-			+ "createHardAndSoft", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "createHardAndSoft", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createHardSoftSkill(@RequestBody HardSoftCreateRest hardSoftCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -43,14 +43,14 @@ public class HardSoftController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/" + "{" + "id"
+	@RequestMapping(value = "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<HardSoftRest> getHardAndSoftById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, hardSoftService.getHardSoftById(id));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoftName/" + "{" + "name"
+	@RequestMapping(value = "{" + "name"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<HardSoftRest> getHardAndSoftByName(@RequestParam String name) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -58,15 +58,14 @@ public class HardSoftController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/"
-			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<HardSoftRest>> getAllHardAndSoft() throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, hardSoftService.getAllHardSoft());
 	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/" + "update/" + "{" + "id"
+	@RequestMapping(value = "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateHardAndSoftSkillById(@PathVariable("id") Long id,
 			@RequestBody HardSoftCreateRest hardSoftCreateRest) throws PortfolioException {
@@ -76,7 +75,7 @@ public class HardSoftController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/" + "deleteById/" + "{" + "id"
+	@RequestMapping(value = "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -85,8 +84,7 @@ public class HardSoftController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "hardAndSoft/"
-			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAllHardSoft() throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				hardSoftService.deleteAllHardSoft());

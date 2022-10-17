@@ -22,8 +22,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.ProyectService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "/portfolio" + "/v1/")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
+@RequestMapping(path = "portfolio/v1/proyect/")
 public class ProyectController {
 
 	@Autowired
@@ -34,8 +35,7 @@ public class ProyectController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/"
-			+ "createProyect", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "createProyect", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> createProyect(@RequestBody ProyectCreateRest proyectCreateRest)
 			throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -43,22 +43,21 @@ public class ProyectController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/" + "getById/" + "{" + "id"
+	@RequestMapping(value = "getById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<ProyectRest> getProyectById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, proyectService.findProyectById(id));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/"
-			+ "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<ProyectRest>> getAllProyects() throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK, proyectService.findAllProyects());
 	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/" + "updateById/" + "{" + "id"
+	@RequestMapping(value = "updateById/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateProyect(@PathVariable("id") Long id,
 			@RequestBody ProyectCreateRest proyectCreateRest) throws PortfolioException {
@@ -68,7 +67,7 @@ public class ProyectController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/" + "deleteById/" + "{" + "id"
+	@RequestMapping(value = "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteProyectById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
@@ -77,8 +76,7 @@ public class ProyectController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "proyect/"
-			+ "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAllProyects() throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				proyectService.deleteAllProyects());

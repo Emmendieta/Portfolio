@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Education } from '../models/education.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+//import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EducationService {
-baseURL = environment.URL + 'education/';
+//baseURL = environment.URL + 'education/';
+baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/education/"
   constructor(private http: HttpClient) { }
 
   createEducation(education: Education){
-    return this.http.post(this.baseURL + "createEducation", education);
+    return this.http.post(this.baseURL + 'createEducation', education);
   }
 
   getAllEducation(){
-    return this.http.get(this.baseURL + "getAll");
+    return this.http.get(this.baseURL + 'getAll');
   }
 
   getEducationById(id: number): Observable<Education>{
@@ -24,10 +26,10 @@ baseURL = environment.URL + 'education/';
   }
 
   public updateEducationById(id: number, education: Education): Observable<any>{
-    return this.http.put<any>(this.baseURL + "update/" + `${id}`, education);
+    return this.http.put<any>(this.baseURL + 'update/' + `${id}`, education);
   }
 
   deleteEducationById(id: number): Observable<any>{
-    return this.http.delete(this.baseURL + "deleteById/"+ `${id}`);
+    return this.http.delete(this.baseURL + 'deleteById/' + `${id}`);
   }
 }

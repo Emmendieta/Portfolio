@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   URL: 'http://localhost:8080/portfolio/v1/',
-  URL2: 'http://localhost:8080/auth',
 };
 
 /*
