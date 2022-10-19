@@ -10,8 +10,8 @@ import { environment } from '../../environments/environment';
 })
 export class PersonService {
 
-  //baseURL = environment.URL + 'person/';
-  baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/person/";
+  baseURL = environment.URL + 'person/';
+  
   public idNum = 1;
 
   public constructor(private http: HttpClient) { }

@@ -11,22 +11,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.portfolioEMM.exceptions.PortfolioException;
 import com.portfolio.portfolioEMM.jsons.EducationCreateRest;
 import com.portfolio.portfolioEMM.jsons.EducationRest;
-import com.portfolio.portfolioEMM.jsons.ExperienceCreateRest;
-import com.portfolio.portfolioEMM.jsons.ExperienceRest;
 import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.EducationService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200/")
-@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
-@RequestMapping(path = "portfolio/v1/education/")
+@RequestMapping(path = "/portfolio/v1/education/")
+@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+
 public class EducationController {
 
 	@Autowired
@@ -45,13 +43,12 @@ public class EducationController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "{" + "id"
-			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "{" + "id" + "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<EducationRest> getById(@PathVariable Long id) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				educationService.getEducationById(id));
 	}
-	
+
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<EducationRest>> getAll() throws PortfolioException {
@@ -66,7 +63,7 @@ public class EducationController {
 			@RequestBody EducationCreateRest educationCreateRest) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				educationService.updateEducationById(id, educationCreateRest));
-	}	
+	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)

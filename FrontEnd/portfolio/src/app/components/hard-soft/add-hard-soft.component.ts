@@ -10,9 +10,9 @@ import { HardSoft } from '../../models/hardSoft.model';
 })
 export class AddHardSoftComponent implements OnInit {
 
-  name: string;
+  name: string = "";
   percent: number;
-  image: string;
+  image: string = "";
   personId: number = 1;
 
   constructor(private hardSoftService: HardSoftService, private router: Router) { }
@@ -21,6 +21,7 @@ export class AddHardSoftComponent implements OnInit {
   }
 
   createHardSoft(): void {
+    
     const hardSoftSkill = new HardSoft(this.name, this.percent, this.image, this.personId);
     this.hardSoftService.createHardSoft(hardSoftSkill).subscribe({
       next: (data) => {

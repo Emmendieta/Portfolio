@@ -9,8 +9,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class EducationService {
-//baseURL = environment.URL + 'education/';
-baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/education/"
+baseURL = environment.URL + 'education/';
+
   constructor(private http: HttpClient) { }
 
   createEducation(education: Education){

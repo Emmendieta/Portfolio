@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,9 +21,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.ProyectService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
-@RequestMapping(path = "portfolio/v1/proyect/")
+@RequestMapping(path = "/portfolio/v1/proyect/")
+@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
 public class ProyectController {
 
 	@Autowired

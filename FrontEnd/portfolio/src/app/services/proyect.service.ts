@@ -9,8 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProyectService {
- //baseURL = environment.URL + 'proyect/'
- baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/proyect/";
+ baseURL = environment.URL + 'proyect/'
 
   constructor(private http: HttpClient) { }
 

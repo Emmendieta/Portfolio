@@ -35,7 +35,24 @@ table{
     border-radius: 100%;
     box-shadow: 1px 1px 1px rgb(146, 133, 193);    
     width: 30px;
+    height: 30px;
     margin: 4px;
+}  
+
+
+
+#arg, #inti{
+    width: 65px;
+    display: flex;
+    align-items: left;
+}
+
+#arg{    
+    padding-top: 12px;
+}
+
+#inti {
+    padding-top: 8px;
 }
 
 #argProg{

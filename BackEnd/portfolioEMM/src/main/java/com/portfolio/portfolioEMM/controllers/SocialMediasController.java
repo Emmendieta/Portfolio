@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,9 +21,9 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.SocialMediasService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
 @RequestMapping(path = "/portfolio/v1/socialMedia/")
+@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
 public class SocialMediasController {
 
 	@Autowired
@@ -46,7 +45,8 @@ public class SocialMediasController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "findById/" + "{" + "id"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<SocialMediasRest> findSocialMediaById(@PathVariable("id") Long id) throws PortfolioException {
+	public PortfolioResponse<SocialMediasRest> findSocialMediaById(@PathVariable("id") Long id)
+			throws PortfolioException {
 		return new PortfolioResponse<SocialMediasRest>(SUCCES, HTTP, OK, socialMediasService.findSocialMediaById(id));
 	}
 
@@ -63,7 +63,7 @@ public class SocialMediasController {
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> updateSocialMedia(@PathVariable("id") Long id,
 			@RequestBody SocialMediasCreateRest socialMediaCreateRest) throws PortfolioException {
-		return new PortfolioResponse<String>(SUCCES,String.valueOf(HttpStatus.OK), OK,
+		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				socialMediasService.updateSocialMediaById(id, socialMediaCreateRest));
 	}
 

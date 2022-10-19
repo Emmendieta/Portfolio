@@ -1,21 +1,20 @@
-import { LoginUser } from './login-user';
-
-export class NewUser extends LoginUser {
+export class NewUser {
     
-    name: string;
-    email: string;
+    name!: string;
+    userName!: string;
+    password!: string;
+    email!: string;
     personId: number;
-    rols: string[];
+    authorities!: string[];
 
 
-    constructor(name: string, userName: string, password: string, email: string, personId: number, rols: string[]){
-        super(userName, password);
+    constructor(name: string, userName: string, password: string, email: string, personId: number, authorities: string[]){
         this.name = name;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.personId = personId;
-        this.rols = rols;
+        this.authorities = authorities;
         
     }
     

@@ -22,9 +22,10 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.HardSoftService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200/")
-@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
-@RequestMapping(path = "portfolio/v1/hardAndSoft/")
+@RequestMapping(path = "/portfolio/v1/hardAndSoft/")
+@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+
 public class HardSoftController {
 
 	@Autowired
@@ -50,7 +51,7 @@ public class HardSoftController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "{" + "name"
+	@RequestMapping(value = "getByName/" + "{" + "name"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<HardSoftRest> getHardAndSoftByName(@RequestParam String name) throws PortfolioException {
 		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,

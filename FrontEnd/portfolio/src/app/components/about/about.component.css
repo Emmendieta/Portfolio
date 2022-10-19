@@ -1,10 +1,3 @@
-/*.container-fluid{
-    width: 100%;
-    padding-bottom: 10px;
-    padding-left: 2.2%;
-    padding-right: 2.2%;
-
-}*/
 .container-fluid{
     padding-bottom: 10px;
 }
@@ -13,12 +6,6 @@
     border-bottom-right-radius: 20px;
     border-bottom: 2px solid blue;
     box-shadow: 1px 1px 5px rgb(146, 133, 193);
-
-   /* position: relative;
-    top: 0;
-    left: 0;
-    z-index: 2;*/
-
 }
 
 .profile{
@@ -27,15 +14,17 @@
     padding-left: 0;
     justify-content: center;
 }
-/*
-.profile{
-    align-items: center;
-    padding-left: 50px;
-}*/
+
+.profileName{
+    overflow: hidden;
+}
+
+.profileDescription{
+    overflow: hidden;   
+}
+
 
 #profileImg{
-    max-width: 225px;
-    max-height: 225px;
     border-radius: 90%;
     margin-top: -75px;
 }
@@ -67,9 +56,9 @@
         padding-left: 0;
     }
     #profileImg{
-        margin-top: -15%;
-        max-width: 85%;
-        max-height: 85%;
+        margin-top: -30px;
+        height: 90px;
+        width: 90px;
     }
     #nameAbout{
         text-align: center;
@@ -99,8 +88,8 @@
         padding-left: 0%;
     }
     #profileImg{
-        max-width: 95%;
-        max-height: 95%;
+        height: 170px;
+        width: 170px;
     }
 
     #nameAbout{
@@ -123,8 +112,8 @@
         margin-top: -10%;
     }
     #profileImg{
-        max-width: 95%;
-        max-height: 95%;
+        width: 200px;
+        height: 200px;
         
     }
     #editIcon{
@@ -136,7 +125,7 @@
 
 }
 
-@media(min-width: 1200.01px){
+@media(min-width: 1200.01px) and (max-width: 1799.99px){
 
     .profile{
         margin-top: -10%;
@@ -158,10 +147,8 @@
         display: flex;
     }
     #profileImg{
-       max-width: 100%;
-        max-height: 100%;
-       
-        
+        width: 280px;
+        height: 280px;       
     }
     #editIcon{
         margin-top: 75px;
@@ -180,4 +167,16 @@
         font-size: large;
     }
 
+}
+
+@media(min-width: 1800px){
+    #profileImg{
+        width: 350px;
+        height: 350px;       
+    }
+
+    #addExperience{
+        width: 45px;
+        height: 45px;
+    }
 }

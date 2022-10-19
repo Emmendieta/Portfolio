@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HardSoftService {
- //baseURL = environment.URL + 'hardAndSoft/';
- baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/hardAndSoft/";
+ baseURL = environment.URL + 'hardAndSoft/';
+ 
 
   constructor(private http: HttpClient) { }
 

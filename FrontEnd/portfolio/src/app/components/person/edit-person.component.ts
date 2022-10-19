@@ -10,7 +10,7 @@ import { Person } from '../../models/person.model';
 })
 export class EditPersonComponent implements OnInit {
 
-  person: Person;
+  public person: Person = new Person("", "", new Date(),"","","","","", "", "");
   private personId: number;
   
   constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute) { }

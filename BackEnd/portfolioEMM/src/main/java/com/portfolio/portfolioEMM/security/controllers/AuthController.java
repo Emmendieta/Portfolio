@@ -37,9 +37,9 @@ import com.portfolio.portfolioEMM.security.services.RolService;
 import com.portfolio.portfolioEMM.security.services.UserService;
 
 @RestController
-@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
-//@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("portfolio/v1/auth/")
+@RequestMapping("/portfolio/v1/auth/")
+//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
 	@Autowired

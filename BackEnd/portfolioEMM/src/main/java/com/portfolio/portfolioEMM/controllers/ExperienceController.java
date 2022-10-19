@@ -9,7 +9,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,9 +22,10 @@ import com.portfolio.portfolioEMM.responses.PortfolioResponse;
 import com.portfolio.portfolioEMM.services.ExperienceService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://frontendportfolioemm.web.app/")
-@RequestMapping(path = "portfolio/v1/experience/")
+@RequestMapping(path = "/portfolio/v1/experience/")
+@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+
 public class ExperienceController {
 
 	@Autowired
@@ -44,8 +44,7 @@ public class ExperienceController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "{" + "id"
-			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "{" + "id" + "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<ExperienceRest> getById(@PathVariable("id") Long id) throws PortfolioException {
 		return new PortfolioResponse<>("Succes", String.valueOf(HttpStatus.OK), "OK",
 				experienceService.getExperienceById(id));
@@ -60,11 +59,11 @@ public class ExperienceController {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
-	//@PutMapping("experience/update/{id}")
+	// @PutMapping("experience/update/{id}")
 	@RequestMapping(value = "update/" + "{" + "id"
 			+ "}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PortfolioResponse<String> updateExperience(@PathVariable("id") Long id, @RequestBody ExperienceCreateRest experienceCreateRest)
-			throws PortfolioException {
+	public PortfolioResponse<String> updateExperience(@PathVariable("id") Long id,
+			@RequestBody ExperienceCreateRest experienceCreateRest) throws PortfolioException {
 		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				experienceService.updateExpierenceById(id, experienceCreateRest));
 	}

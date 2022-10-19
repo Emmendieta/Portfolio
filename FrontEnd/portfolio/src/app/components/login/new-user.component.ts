@@ -10,10 +10,10 @@ import { NewUser } from '../../models/new-user';
 })
 export class NewUserComponent implements OnInit {
 
-  name: string;
-  userName: string;
-  email: string;
-  password: string;
+  name: string = "";
+  userName: string = "";
+  email: string = "";
+  password: string = "";
   personId = 1;
   rols: string[] = ['admin'];
 
@@ -23,7 +23,7 @@ export class NewUserComponent implements OnInit {
   }
 
   createNewUser(): void {
-    const newUser = new NewUser(this.name, this.userName, this.email, this.password, this.personId, this.rols);
+    const newUser = new NewUser(this.name, this.userName,this.password, this.email, this.personId, this.rols);
     this.authService.newUser(newUser).subscribe({
       next: (data) => {
         alert("User has been added!");

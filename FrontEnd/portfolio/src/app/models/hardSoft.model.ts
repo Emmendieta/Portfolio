@@ -1,14 +1,15 @@
 export class HardSoft {
+
     id?: number;
     name: string;
     percent: number;
     image: string;
     personId: number;
 
-    constructor(name: string, percent: number, image: string, personId:number) {
+    constructor(name: string, percent: number, image: string, personId: number) {
         this.name = name;
         this.percent = percent;
         this.image = image;
-        this.personId = this.personId;
+        this.personId = 1;
     }
 }

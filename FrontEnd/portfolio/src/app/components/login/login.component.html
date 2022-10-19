@@ -13,9 +13,9 @@
               <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
 
                 <div class="form-outline form-white mb-4">
-                  <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg"
+                  <input type="text" id="userName" name="userName" class="form-control form-control-lg"
                     [(ngModel)]="userName" required  />
-                  <label class="form-label" for="nombreUsuario">Usuario</label>
+                  <label class="form-label" for="userName">Usuario</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">

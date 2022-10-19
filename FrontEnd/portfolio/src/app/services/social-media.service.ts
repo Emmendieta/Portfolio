@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class SocialMediaService {
   
-  //baseURL = environment.URL + 'socialMedia/';
-  baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/socialMedia/";
+  baseURL = environment.URL + 'socialMedia/';
+
   constructor(private http: HttpClient) { }
 
   createSocial(socialMedia: SocialMedia){

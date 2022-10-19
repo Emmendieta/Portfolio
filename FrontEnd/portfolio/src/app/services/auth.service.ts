@@ -11,9 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  //baseURL = environment.URL + 'auth/';
-  baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/auth/"
-  
+  baseURL = environment.URL + 'auth/';
 
   constructor(private http: HttpClient) { }
 

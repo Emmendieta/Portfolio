@@ -11,8 +11,8 @@
                 <table class="table">
                     <tbody>
                         <tr class="tableTr" *ngFor="let Experience of expe">
-                            <td class="expIcon">
-                                <img class="img-fluid"  style="max-height: 50px; max-width: 50px" src="{{Experience.image}}">
+                            <td style="text-align: center;" class="expIcon">
+                                <img class="img-fluid"   id="logoEdit" style="max-height: 50px; max-width: 50px" src={{Experience.image}}>
                             </td>
                             <td class="expDescription">
                                 <h2 id="col-1">{{Experience.name}}</h2>

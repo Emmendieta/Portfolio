@@ -11,8 +11,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ExperienceService {
-  //baseURL = environment.URL + 'experience/'
-  baseURL = "https://portfolioemm.herokuapp.com/portfolio/v1/experience/";
+  baseURL = environment.URL + 'experience/'
 
   constructor(private http: HttpClient) { }
 
