@@ -18,29 +18,15 @@
     padding: 15px;
 }
 
-.skillDescription{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 40px;
-    margin-top: -10px;
-    color: aliceblue;
-    text-align: center;
-}
-
 #addExperience{
     margin: 5px;
 }
 
 @media (max-width: 575.9px){
-    .skillDescription{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: -10px;
-        padding-right: 30px;
-        color: aliceblue;
-        text-align: center;
+    .row, .fullSkill{
+        overflow-x: auto;
+        white-space: nowrap; 
     }
 }
+
 

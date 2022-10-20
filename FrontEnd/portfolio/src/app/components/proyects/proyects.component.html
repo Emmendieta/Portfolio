@@ -4,10 +4,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
                 <h1>Proyectos</h1>
                 <a *ngIf="logged" style="cursor:pointer;"routerLink="/addProyect/">
-                    <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
+                    <img id="addExperience" src="../../../assets/plus-circle-fill.png">
                 </a>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tableClass">
                 <table class="table">
                     <tbody>
                         <tr class="tableTr" *ngFor="let proyect of proy">
@@ -16,11 +16,10 @@
                             </td>
                             <td class="proyectDescrption">
                                 <h2 id="col-1">{{proyect.name}}</h2>
-                                <h3 id ="col-2">Link: {{proyect.link}}</h3>
-                                <h4 id="dateExp">Año de Inicio: {{proyect.dateStart | date: "yyyy"}}</h4> 
-                                <h4 id="dateExp">Año de Finalización: {{proyect.dateEnd  | date: "yyyy"}}</h4>
-                                <p id="col-2">{{proyect.description}}</p>
-                                <p>FALTA QUE DIRECCION EL LINK</p> 
+                                <h3 id ="col-2">Link: <a href={{proyect.link}}>Haz Click aquí para ir al proyecto</a></h3>
+                                <h4 id="dateExp">Inicio: {{proyect.dateStart | date: "yyyy"}} - </h4> 
+                                <h4 id="dateExp">Finalización: {{proyect.dateEnd  | date: "yyyy"}}</h4>
+                                <p id="col-2">Descripción: {{proyect.description}}</p>
                             </td>
                             <td *ngIf="logged" class="editionExp">
                                 <a style="cursor:pointer;" routerLink="/editProyect/{{proyect.id}}">

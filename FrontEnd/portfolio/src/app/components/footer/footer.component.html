@@ -1,16 +1,16 @@
 <div class="container-fluid">
     <div class="portfolio">
         <div class="row">
-            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8 col-xl-8 footDesciption">
+            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 footDesciption">
                 <h1 id="textFoot">{{person.name}} {{person.lastName}}</h1>
                 <h2 id="textFoot">{{person.province}}, {{person.country}}</h2>
             </div>
-            <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4 col-xl-4 footContact">
-                <h2 id="textFootContact">Contacto:</h2>
-                <a >
-                    <img id="addExperience" src="../../../assets/Gmail_icon_(2020).svg.png">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 footContact">
+                <a style="padding-right: 15px;">
+                    <img style="cursor:pointer; margin-bottom: 8px;" (click)="showContact()" id="addExperience" src="../../../assets/Gmail_icon_(2020).svg.png">
                 </a>
-                <a style="cursor:pointer;" routerLink="/editPerson/{{person.id}}">
+                <h3 id="textFoot" *ngIf="showMail" >{{person.email}}</h3>
+                <a style="cursor:pointer; margin-bottom: 10px;" routerLink="/editPerson/{{person.id}}">
                     <img *ngIf="logged" id="addExperience" src="../../../assets/pen.png">
                 </a>
             </div>

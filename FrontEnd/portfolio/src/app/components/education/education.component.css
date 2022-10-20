@@ -19,3 +19,10 @@
 #addExperience{
     margin: 5px;
 }
+@media(max-width: 575.9px){
+    .row, .tableClass{
+        overflow-x: auto;
+        white-space: nowrap; 
+    }
+}
+

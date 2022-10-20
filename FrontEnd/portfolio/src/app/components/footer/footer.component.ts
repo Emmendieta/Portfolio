@@ -14,6 +14,7 @@ export class FooterComponent implements OnInit {
   public person: Person = new Person("", "", new Date(),"","","","","", "", "");
   private personId: number;
   logged = false;
+  showMail: boolean = false;
 
   constructor(private personService: PersonService, private route: ActivatedRoute, private tokenService: TokenService) { }
 
@@ -32,6 +33,10 @@ export class FooterComponent implements OnInit {
     this.personService.getPersonId().subscribe((result: any) => {
       this.person = result.data
     })
+  }
+
+  showContact(){
+    this.showMail = !this.showMail;
   }
   
 }

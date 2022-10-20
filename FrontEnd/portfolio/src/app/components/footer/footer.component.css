@@ -22,11 +22,7 @@
     align-items: center;
 }
 
-#textFootContact{
-    margin: 0;
-    padding-right: 15px;
-    color: grey;
-}
+
 
 #textFoot{
     padding-top: 10px;
@@ -40,10 +36,20 @@
 /*Para pantallas XS*/
 @media (max-width: 575.9px){
 
+    .row, .footDesciption, .footContact{
+        overflow-x: auto;
+        white-space: nowrap; 
+    }
+
     .footDesciption{
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    #textFoot{
+        width: 100% !important;
+        overflow-x: scroll;
+        white-space: nowrap; 
     }
 }
 

@@ -1,40 +1,3 @@
-<!--<div class="container-fluid">
-    <div class="portfolio">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 generalTitle">
-                <h1>Hard & Soft Skills</h1>
-                <a *ngIf="logged" style="cursor:pointer;" routerLink="/addSkill/">
-                    <img class="img-fluid" id="addExperience" src="../../../assets/plus-circle-fill.png">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 circleHAndS" *ngFor="let hardSoft of hys">
-                <circle-progress
-                [percent]="(hardSoft.percent)"
-                [radius]="60"
-                [backgroundColor]="'trasparent'"
-                [outerStrokeWidth]="7"
-                [outerStrokeColor]="'green'"
-                [innerStrokeWidth]="1"
-                [innerStrokeColor]="'grey'"
-                [animation]="true"
-                [animationDuration]="750"
-                [title]="(hardSoft.name)"
-                [showUnits]="false"  
-                [showSubtitle]="false"> 
-                </circle-progress>
-                <div *ngIf="logged">
-                    <a style="cursor:pointer;" routerLink="/editSkill/{{hardSoft.id}}">
-                        <img id="addExperience" src="../../../assets/pen.png">
-                    </a>
-                    <a style="cursor:pointer;" (click)="deleteHardSoft(hardSoft.id)">
-                        <img id="addExperience" src="../../../assets/trash.png">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
 <div class="container-fluid">
     <div class="portfolio">
         <div class="row">
@@ -57,9 +20,15 @@
                     [animation]="true"
                     [animationDuration]="750"
                     [showTitle]="true"
+                    [unitsFontSize]="'10'"
+                    [titleFontSize]="'10'"
+                    [subtitleFontSize]="'15'"
+                    [titleColor]="'white'"
+                    [unitsColor]="'white'"
                     [showUnits]="true"  
                     [showSubtitle]="true"
-                    > 
+                    [subtitle]="(hardSoft.name)"
+                    [lazy]="true"> 
                     </circle-progress>
                     <div *ngIf="logged">
                         <a style="cursor:pointer;" routerLink="/editSkill/{{hardSoft.id}}">
@@ -69,9 +38,6 @@
                             <img id="addExperience" src="../../../assets/trash.png">
                         </a>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 skillDescription">
-                    <a>{{hardSoft.name}}: {{hardSoft.percent}}%</a>
                 </div>
             </div>
         </div>

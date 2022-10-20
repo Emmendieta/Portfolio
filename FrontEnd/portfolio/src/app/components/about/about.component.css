@@ -169,10 +169,19 @@
 
 }
 
+@media(max-width: 575.9px){
+    #nameAbout, #titleAbout, #descriptionAbout, #aboutMe{
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
 @media(min-width: 1800px){
     #profileImg{
         width: 350px;
-        height: 350px;       
+        height: 350px; 
+        margin-top: -250px;
+
     }
 
     #addExperience{
