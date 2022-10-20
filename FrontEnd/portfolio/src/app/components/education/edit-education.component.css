@@ -1,15 +1,12 @@
-.container-fluid {
-    padding: 10%;
-    width: 100%;
-    height: 100%;
-
+.gradient-custom{
+    background-color: darkcyan;
 }
 
 .row{
-    border-top: 2px solid blue;
-    border-bottom: 2px solid blue;
-    width: 100% !important;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+#dateStartEdu, #dateEndEdu{
+    text-align: center;
 }

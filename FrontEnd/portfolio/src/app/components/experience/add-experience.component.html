@@ -1,34 +1,49 @@
-<div class="container-fluid">
-    <div class="portfolio">
-        <div class="row">
-            <form (ngSubmit)="createExperience()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label  id="componentEdition" for="nameExp">Nombre de la Institución: </label>
-                    <input type="text" class="form-control" id="nameExp" name="name" [(ngModel)]="nameExp" required >
-                </div>
-                <div class="form-group">
-                    <label id="componentEdition" for="descripcionE">Cargo que realiza/ba en la Institución: </label>
-                    <input type="text" class="form-control" id="descripcionE" name="title" [(ngModel)]="titleExp" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="descripcionE">Descripción de las actividades que realiza/ba: </label>
-                    <input type="text" class="form-control" id="descripcionE" name="activity" [(ngModel)]="activityExp" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="descripcionE">Imagen o Logo de la Institución: </label>
-                    <input type="text" class="form-control" id="descripcionE" name="imageExp" [(ngModel)]="imageExp" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="descripcionE">Fecha de inicio: </label>
-                    <input style="width:fit-content" type="date" class="form-control" id="descripcionE" name="dateStartExp" [(ngModel)]="dateStartExp" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="descripcionE">fecha de finalización: </label>
-                    <input style="width:fit-content" type="date" class="form-control" id="descripcionE" name="dateEndExp" [(ngModel)]="dateEndExp" required>
-                </div>
-                <button class="btn btn-primary" id="btnEdition">
-                    Agregar experiencia
-                </button>
-            </form>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <h2 class="fw-bold mb-2 text-uppercase">Creación de la Experiencia</h2>
+                <p class="text-white-50 mb-5">Por favor, ingresa los datos solicitados:</p>
+                <form style="overflow: hidden;" #f="ngForm" (ngSubmit)="createExperience()" novalidate>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="nameExp" name="name" class="form-control form-control-lg" [(ngModel)]="nameExp" required  />
+                    <label class="form-label" for="nameExp">Nombre de la Institución</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="titleExp" name="title" class="form-control form-control-lg" [(ngModel)]="titleExp"
+                      required />
+                    <label class="form-label" for="titleExp">Cargo que realiza/ba en la Institución</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="activityExp" name="activity" class="form-control form-control-lg" [(ngModel)]="activityExp"
+                      required />
+                    <label class="form-label" for="activityExp">Descripción de las actividades que realiza/ba</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="imageExp" name="image" class="form-control form-control-lg" [(ngModel)]="imageExp"
+                      required />
+                    <label class="form-label" for="imageExp">URL de Imagen o Logo de la Institución</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="date" id="dateStartExp" name="dateStart" class="form-control form-control-lg" [(ngModel)]="dateStartExp"
+                      required />
+                    <label class="form-label" for="dateStartExp">Fecha de inicio</label>                 
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="date" id="dateEndExp" name="dateEnd" class="form-control form-control-lg" [(ngModel)]="dateEndExp"
+                      required />
+                    <label class="form-label" for="dateEndExp">Fecha de finalización</label>                 
+                  </div>
+                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
+                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-5" type="submit">Crear</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+</section>

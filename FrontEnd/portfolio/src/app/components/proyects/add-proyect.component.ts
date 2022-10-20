@@ -23,15 +23,15 @@ export class AddProyectComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createSkill(): void {
-    const skill = new Proyect(this.name, this.description, this.link, this.image, this.dateStart, this.dateEnd, this.personId);
-    this.proyectService.createProyect(skill).subscribe({
+  createProyect(): void {
+    const proyect = new Proyect(this.name, this.description, this.link, this.image, this.dateStart, this.dateEnd, this.personId);
+    this.proyectService.createProyect(proyect).subscribe({
       next: (data) => {
-        alert("Skill has been added!");
+        alert("Proyect has been added!");
         this.router.navigate(['']);
       }, 
       error: (err) => {
-        alert("Skill has not been added!");
+        alert("Error: Proyect has not been added!");
         this.router.navigate(['']);
       }
     })

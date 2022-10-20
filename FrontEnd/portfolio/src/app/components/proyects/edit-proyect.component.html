@@ -1,37 +1,51 @@
-<div class="container-fluid"  *ngIf="proyect">
-    <div class="portfolio">
-        <div class="row">
-            <div>
-                <h1 id ="componentEdition">Edición del Proyecto: {{proyect.name}}: </h1>
-                <form (ngSubmit)="updateProyect()" novalidate #f="ngForm">
-                    <div class="form-group">
-                        <label id ="componentEdition" for="name">Nombre del Proyecto: </label>
-                        <input type="text" class="form-control" id="namePro" name="name" [(ngModel)]="proyect.name" required>
-                    </div>
-                    <div class="form-group">
-                        <label id ="componentEdition" for="description">Descripción del Proyecto: </label>
-                        <input type="text" class="form-control" id="descriptionPro" name="description" [(ngModel)]="proyect.description" required>
-                    </div>
-                    <div class="form-group">
-                        <label id ="componentEdition" for="link">Link del Proyecto: </label>
-                        <input type="text" class="form-control" id="linkPro" name="link" [(ngModel)]="proyect.link" required>
-                    </div>
-                    <div class="form-group">
-                        <label id ="componentEdition" for="image">URL de Imagen o Logo del Proyecto: </label>
-                        <input type="text" class="form-control" id="imagePro" name="image" [(ngModel)]="proyect.image" required>
-                        <img src="{{proyect.image}}">
-                    </div>  
-                    <div class="form-group">
-                        <label id ="componentEdition" for="dateStart">Fecha de inicio: </label>
-                        <input style="width:fit-content" type="date" class="form-control" id="dateStartPro" name="dateStart" [(ngModel)]="proyect.dateStart" required>
-                    </div>    
-                    <div class="form-group">
-                        <label id ="componentEdition" for="dateEnd">Fecha de finalización: </label>
-                        <input style="width:fit-content" type="date" class="form-control" id="dateEndPro" name="dateEnd" [(ngModel)]="proyect.dateEnd" required>
-                    </div>
-                    <button class="btn btn-primary">Editar Proyecto</button>
+<section class="vh-100 gradient-custom" *ngIf="proyect">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <h2 class="fw-bold mb-2 text-uppercase">Edición del Proyecto</h2>
+                <p class="text-white-50 mb-5">Por favor, ingresa los datos solicitados:</p>
+                <form style="overflow: hidden;" #f="ngForm" (ngSubmit)="updateProyect()" novalidate>
+                    <div class="form-outline form-white mb-4">
+                        <input type="text" id="namePro" name="name" class="form-control form-control-lg"
+                          [(ngModel)]="proyect.name" required  />
+                        <label class="form-label" for="name">Nombre del Proyecto</label>
+                      </div>
+                    <div class="form-outline form-white mb-4">
+                        <input type="text" id="descriptionPro" name="description" class="form-control form-control-lg" [(ngModel)]="proyect.description"
+                          required />
+                        <label class="form-label" for="description">Breve Descripción del Proyecto</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="linkPro" name="link" class="form-control form-control-lg" [(ngModel)]="proyect.link"
+                          required />
+                        <label class="form-label" for="link">URL del Proyecto</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="imagePro" name="image" class="form-control form-control-lg" [(ngModel)]="proyect.image"
+                          required />
+                        <label class="form-label" for="image">Image o logo del Proyecto</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="date" id="dateStartPro" name="dateStart" class="form-control form-control-lg" [(ngModel)]="proyect.dateStart"
+                          required />
+                        <label class="form-label" for="dateStart">Fecha de Inicio</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="date" id="dateEndPro" name="dateEnd" class="form-control form-control-lg" [(ngModel)]="proyect.dateEnd"
+                          required />
+                        <label class="form-label" for="dateEnd">Fecha de Finalización</label>
+                      </div>
+                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
+                  <button style="margin: 5px" class="btn btn-outline-light btn-lg px-5" type="submit">Editar</button>
                 </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+</section>
+

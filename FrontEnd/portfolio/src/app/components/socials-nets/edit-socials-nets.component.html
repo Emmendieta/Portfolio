@@ -1,23 +1,36 @@
-<div class="container-fluid"  *ngIf="social">
-    <div class="portfolio">
-        <div class="row">
-            <div>
-                <h1 id ="componentEdition">Edición de la Social Network: {{social.name}}: </h1>
-                <form (ngSubmit)="updateSocial()" novalidate #f="ngForm">
-                    <div class="form-group">
-                        <label id ="componentEdition" for="name">Nombre del Proyecto: </label>
-                        <input type="text" class="form-control" id="nameSocial" name="name" [(ngModel)]="social.name" required>
-                    </div>
-                    <div class="form-group">
-                        <label id ="componentEdition" for="url">URL de la Social Network: </label>
-                        <input type="text" class="form-control" id="urlSocial" name="url" [(ngModel)]="social.url" required>
-                    </div>
-                    <div class="form-group">
-                        <label id ="componentEdition" for="image">URL de Imagen o Logo de la Social Network: </label>
-                        <input type="text" class="form-control" id="imageSocial" name="image" [(ngModel)]="social.image" required>
-                        <img src="{{social.image}}">
-                    </div>  
-                    <button class="btn btn-primary">Editar Social Network</button>
+<section class="vh-100 gradient-custom" *ngIf="social">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <h2 class="fw-bold mb-2 text-uppercase">Edición de la Red Social</h2>
+                <p class="text-white-50 mb-5">Por favor, ingresa los datos solicitados:</p>
+                <form style="overflow: hidden;" #f="ngForm" (ngSubmit)="updateSocial()" novalidate>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="nameSocial" name="name" class="form-control form-control-lg"
+                      [(ngModel)]="social.name" required  />
+                    <label class="form-label" for="name">Nombre de la Red Social</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="urlSocial" name="url" class="form-control form-control-lg" [(ngModel)]="social.url"
+                      required />
+                    <label class="form-label" for="url">URL de la Social Network</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" id="imageSocial" name="image" class="form-control form-control-lg" [(ngModel)]="social.image"
+                      required />
+                    <label class="form-label" for="image">Imagen o Logo de la Red Social</label>                 
+                  </div>
+                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
+                  <button style="margin: 5px" class="btn btn-outline-light btn-lg px-5" type="submit">Editar</button>
                 </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+</section>
+

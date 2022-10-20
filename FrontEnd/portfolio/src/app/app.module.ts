@@ -52,7 +52,7 @@ const appRoutes: Routes = [
   {path: 'editSkill/:id', component: EditHardSoftComponent},
   {path: 'addProyect', component: AddProyectComponent},
   {path: 'editProyect/:id', component: EditProyectComponent},
-  {path: 'addScialMedia', component: AddSocialsNetsComponent},
+  {path: 'addSocialMedia', component: AddSocialsNetsComponent},
   {path: 'editSocialMedia/:id', component: EditSocialsNetsComponent},
   {path: 'editPerson/:id', component: EditPersonComponent},
   {path: 'newUser', component: NewUserComponent},

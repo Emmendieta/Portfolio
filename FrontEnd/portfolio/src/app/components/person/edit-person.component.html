@@ -1,4 +1,4 @@
-<div class="container-fluid"  *ngIf="person">
+<!--<div class="container-fluid"  *ngIf="person">
     <div class="portfolio">
         <div class="row">
             <div>
@@ -51,4 +51,77 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
+
+<section class="vh-100 gradient-custom" *ngIf="person">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <h2 class="fw-bold mb-2 text-uppercase">Edición de la Person</h2>
+                <p class="text-white-50 mb-5">Por favor, ingresa los datos solicitados:</p>
+                <form style="overflow: hidden;" #f="ngForm" (ngSubmit)="updatePerson()" novalidate>
+                    <div class="form-outline form-white mb-4">
+                        <input type="text" id="namePer" name="name" class="form-control form-control-lg"
+                          [(ngModel)]="person.name" required  />
+                        <label class="form-label" for="name">Nombre de la Person</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="lastNamePer" name="lastName" class="form-control form-control-lg"
+                          [(ngModel)]="person.lastName" required  />
+                        <label class="form-label" for="lastName">Apellido de la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="title" name="titlePer" class="form-control form-control-lg"
+                          [(ngModel)]="person.title" required  />
+                        <label class="form-label" for="title">Título a mostrar de la Persona</label>
+                      </div>
+                    <div class="form-outline form-white mb-4">
+                        <input type="text" id="aboutPer" name="about" class="form-control form-control-lg" [(ngModel)]="person.about"
+                          required />
+                        <label class="form-label" for="about">Breve Descripción acerca de la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="provincePer" name="province" class="form-control form-control-lg" [(ngModel)]="person.province"
+                          required />
+                        <label class="form-label" for="province">Provincia donde está radicada la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="countryPer" name="country" class="form-control form-control-lg" [(ngModel)]="person.country"
+                          required />
+                        <label class="form-label" for="country">País donde está radicada la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="emailPer" name="email" class="form-control form-control-lg" [(ngModel)]="person.email"
+                          required />
+                        <label class="form-label" for="email">Correo Electrónico de la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="imagePer" name="image" class="form-control form-control-lg" [(ngModel)]="person.image"
+                          required />
+                        <label class="form-label" for="image">Foto de Perfil de la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="bannerPer" name="banner" class="form-control form-control-lg" [(ngModel)]="person.banner"
+                          required />
+                        <label class="form-label" for="banner">Banner descriptivo de la Persona</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="date" id="agePer" name="age" class="form-control form-control-lg" [(ngModel)]="person.age"
+                          required />
+                        <label class="form-label" for="age">Fecha de nacimiento de la Persona</label>
+                      </div>
+                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
+                  <button style="margin: 5px" class="btn btn-outline-light btn-lg px-5" type="submit">Editar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
