@@ -70,7 +70,7 @@ public class EducationController {
 	@RequestMapping(value = "deleteById/" + "{" + "id"
 			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteById(@PathVariable Long id) throws PortfolioException {
-		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
+		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				educationService.deleteEducationById(id));
 	}
 

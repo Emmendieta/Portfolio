@@ -46,14 +46,14 @@ public class ExperienceController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "{" + "id" + "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<ExperienceRest> getById(@PathVariable("id") Long id) throws PortfolioException {
-		return new PortfolioResponse<>("Succes", String.valueOf(HttpStatus.OK), "OK",
+		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				experienceService.getExperienceById(id));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "GetAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<List<ExperienceRest>> getAll() throws PortfolioException {
-		return new PortfolioResponse<>("Succes", String.valueOf(HttpStatus.OK), "OK",
+		return new PortfolioResponse<>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				experienceService.getAllExperiences());
 	}
 
@@ -72,7 +72,7 @@ public class ExperienceController {
 	@ResponseStatus(HttpStatus.OK)
 	@DeleteMapping("deleteById/" + "{" + "id}")
 	public PortfolioResponse<String> deleteById(@PathVariable("id") Long id) throws PortfolioException {
-		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
+		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				experienceService.deleteExperienceById(id));
 	}
 
@@ -80,7 +80,7 @@ public class ExperienceController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "deleteAll", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PortfolioResponse<String> deleteAllExperiene() throws PortfolioException {
-		return new PortfolioResponse<String>(OK, String.valueOf(HttpStatus.OK), OK,
+		return new PortfolioResponse<String>(SUCCES, String.valueOf(HttpStatus.OK), OK,
 				experienceService.deleteAllExperiences());
 	}
 
