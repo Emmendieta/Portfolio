@@ -30,7 +30,7 @@ public class HardSoftServiceImpl implements HardSoftService {
 	PersonRepository personRepository;
 
 	public static final ModelMapper modelMapper = new ModelMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(EducactionServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(HardSoftServiceImpl.class);
 	public static final String NOT_FOUND = "HARD OR SOFT SKILL NOT FOUND";
 	public static final String INTERNAL_ERROR = "INTERNAL SERVER_ERROR";
 	public static final String HYS_OK = "Hard or Soft SKill save!";

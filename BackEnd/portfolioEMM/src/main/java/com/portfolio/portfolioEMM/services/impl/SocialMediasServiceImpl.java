@@ -30,7 +30,7 @@ public class SocialMediasServiceImpl implements SocialMediasService {
 	PersonRepository personRepository;
 
 	public static final ModelMapper modelMapper = new ModelMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(EducactionServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SocialMediasServiceImpl.class);
 	public static final String NOT_FOUND = "SOCIAL MEDIA NOT FOUND";
 	public static final String INTERNAL_ERROR = "INTERNAL SERVER_ERROR";
 	public static final String SOCIAL_OK = "Social Media save!";

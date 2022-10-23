@@ -48,8 +48,12 @@ public class SocialMediasServiceTest {
 	private final static String COUNTRY = "country";
 	private final static String BANNER = "banner";
 	private final static String EMAIL = "email@email.com";
+	private static final String SOCIAL_DELETED = "Social Media has been deleted!";
+	public static final String ALL_SOCIALS_DELETED = "All Social Medias has been deleted!";
+	
 
 	SocialMediasCreateRest SOCIAL_MEDIA_CREAT_REST = new SocialMediasCreateRest();
+	SocialMediasRest SOCIAL_MEDIA_REST = new SocialMediasRest();
 
 	private static final Person PERSON = new Person();
 	private static final SocialMedias SOCIAL_MEDIA = new SocialMedias();
@@ -102,6 +106,12 @@ public class SocialMediasServiceTest {
 		SOCIAL_MEDIA_CREAT_REST.setImage(IMAGE);
 		SOCIAL_MEDIA_CREAT_REST.setUrl(URL);
 		SOCIAL_MEDIA_CREAT_REST.setPersonId(PERSON_ID);
+		
+		SOCIAL_MEDIA_REST.setId(SOCIAL_ID);
+		SOCIAL_MEDIA_REST.setName(NAME);
+		SOCIAL_MEDIA_REST.setUrl(URL);
+		SOCIAL_MEDIA_REST.setImage(IMAGE);
+		SOCIAL_MEDIA_REST.setPersonId(PERSON_ID);
 
 	}
 
@@ -147,7 +157,7 @@ public class SocialMediasServiceTest {
 	}
 
 	@Test(expected = PortfolioException.class)
-	public void getSOcialMediaByIdTestError() throws PortfolioException {
+	public void getSocialMediaByIdTestError() throws PortfolioException {
 		Mockito.when(socialMediaRepository.findSocialMediaById(SOCIAL_ID)).thenReturn(Optional.empty());
 		socialMediasServiceImpl.findSocialMediaById(SOCIAL_ID);
 		fail();
@@ -173,6 +183,66 @@ public class SocialMediasServiceTest {
 		assertNotNull(response);
 		assertFalse(response.isEmpty());
 		assertEquals(response.size(), 1);
+	}
+	
+	@Test
+	public void updateSocialMediaByIdTest() throws PortfolioException {
+		Mockito.when(personRepository.findById(PERSON_ID)).thenReturn(OPTIONAL_PERSON);
+		Mockito.when(socialMediaRepository.findSocialMediaById(SOCIAL_MEDIA_REST.getId())).thenReturn(OPTIONAL_SOCIAL_MEDIA);
+		Mockito.when(socialMediaRepository.save(Mockito.any(SocialMedias.class))).thenReturn(new SocialMedias());
+		socialMediasServiceImpl.updateSocialMediaById(SOCIAL_ID, SOCIAL_MEDIA_CREAT_REST);
+	}
+	
+	@Test(expected = PortfolioException.class)
+	public void updateSocialMediaByIdPersonTestError() throws PortfolioException {
+		Mockito.when(personRepository.findById(PERSON_ID)).thenReturn(OPTIONAL_PERSON_EMPTY);
+		socialMediasServiceImpl.updateSocialMediaById(SOCIAL_ID, SOCIAL_MEDIA_CREAT_REST);
+		fail();
+	}
+	
+	@Test(expected = PortfolioException.class)
+	public void updateSocialMediaByIdNotFoundTestError() throws PortfolioException {
+		Mockito.when(personRepository.findById(PERSON_ID)).thenReturn(OPTIONAL_PERSON);
+		Mockito.when(socialMediaRepository.findSocialMediaById(SOCIAL_MEDIA_REST.getId())).thenReturn(OPTIONAL_SOCIAL_MEDIA_EMPTY);
+		socialMediasServiceImpl.updateSocialMediaById(SOCIAL_ID, SOCIAL_MEDIA_CREAT_REST);
+		fail();
+	}
+	
+	@Test(expected = PortfolioException.class)
+	public void updateSocialMediaByIdServerTestError() throws PortfolioException {
+		Mockito.when(personRepository.findById(PERSON_ID)).thenReturn(OPTIONAL_PERSON);
+		Mockito.when(socialMediaRepository.findSocialMediaById(SOCIAL_MEDIA_REST.getId())).thenReturn(OPTIONAL_SOCIAL_MEDIA);
+		Mockito.doThrow(Exception.class).when(socialMediaRepository).save(Mockito.any(SocialMedias.class));
+		socialMediasServiceImpl.updateSocialMediaById(SOCIAL_ID, SOCIAL_MEDIA_CREAT_REST);
+		fail();
+	}
+	
+	@Test
+	public void deleteSocialMediaByIdTest() throws PortfolioException {
+		Mockito.when(socialMediaRepository.findSocialMediaById(SOCIAL_MEDIA_REST.getId())).thenReturn(OPTIONAL_SOCIAL_MEDIA);
+		socialMediasServiceImpl.deleteSocialMediaById(SOCIAL_ID);
+	}
+	
+	@Test(expected = PortfolioException.class)
+	public void deleteSocialMediaByIdTestEror() throws PortfolioException {
+		Mockito.doThrow(Exception.class).when(socialMediaRepository).deleteSocialMediaById(SOCIAL_ID);
+		final String response = socialMediasServiceImpl.deleteSocialMediaById(SOCIAL_ID);
+		assertEquals(response, SOCIAL_DELETED);
+		fail();
+	}
+	
+	@Test
+	public void deletedeleteAllSocialMediasTest() throws PortfolioException {
+		Mockito.when(socialMediaRepository.findSocialMedias()).thenReturn(SOCIAL_MEDIA_LIST);
+		socialMediasServiceImpl.deleteAllSocialMedias();
+	}
+	
+	@Test(expected = PortfolioException.class)
+	public void deletedeleteAllSocialMediasTestError() throws PortfolioException {
+		Mockito.doThrow(Exception.class).when(socialMediaRepository).deleteAll();
+		final String response = socialMediasServiceImpl.deleteAllSocialMedias();
+		assertEquals(response, ALL_SOCIALS_DELETED);
+		fail();
 	}
 
 }

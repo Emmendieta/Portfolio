@@ -1,37 +1,5 @@
-<!--div class="container-fluid">
-    <div class="portfolio">
-        <div class="row">
-            <form (ngSubmit)="createSkill()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label  id="componentEdition" for="name">Nombre del Proyecto: </label>
-                    <input type="text" class="form-control" id="nameSkill" name="name" [(ngModel)]="name" required >
-                </div>
-                <div class="form-group">
-                    <label id="componentEdition" for="descripcion">Descripción del Proyecto: </label>
-                    <input type="text" class="form-control" id="descripcionSkill" name="description" [(ngModel)]="description" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="link">URL del Proyecto: </label>
-                    <input type="text" class="form-control" id="linkSkill" name="link" [(ngModel)]="link" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="image">Imagen o Logo del Proyecto: </label>
-                    <input type="text" class="form-control" id="imageSKill" name="image" [(ngModel)]="image" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="dateStart">Fecha de inicio: </label>
-                    <input style="width:fit-content" type="date" class="form-control" id="dateStartSkill" name="dateStart" [(ngModel)]="dateStart" required>
-                </div>
-                <div class="form-group">
-                    <label  id="componentEdition" for="dateEnd">Fecha de finalización: </label>
-                    <input style="width:fit-content" type="date" class="form-control" id="dateEndSkill" name="dateEnd" [(ngModel)]="dateEnd" required>
-                </div>
-                <button class="btn btn-primary" id="btnEdition">Agregar Skill</button>
-            </form>
-    </div>
-</div>-->
-
-<section class="vh-100 gradient-custom">
+<div class="background">
+  <section class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -81,3 +49,4 @@
       </div>
     </div>
   </section>
+</div>

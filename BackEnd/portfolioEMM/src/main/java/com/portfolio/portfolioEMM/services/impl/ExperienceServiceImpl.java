@@ -30,7 +30,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 	PersonRepository personRepository;
 
 	public static final ModelMapper modelMapper = new ModelMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(EducactionServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExperienceServiceImpl.class);
 	public static final String NOT_FOUND = "EXPERIENCE NOT FOUND";
 	public static final String INTERNAL_ERROR = "INTERNAL SERVER ERROR";
 	public static final String EXPERIENCE_OK = "Experience save!";
@@ -44,6 +44,36 @@ public class ExperienceServiceImpl implements ExperienceService {
 	public static final String EXPERIENCE_EXIST = "Experience ALREDY EXISTS!";
 
 	public String createExperience(ExperienceCreateRest experienceCreateRest) throws PortfolioException {
+		final Person personId = personRepository.findById(experienceCreateRest.getPersonId())
+				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
+
+		if (experienceRepository.findByPersonIdAndNameAndTitle(personId.getId(), experienceCreateRest.getName(),
+				experienceCreateRest.getTitle()).isPresent()) {
+			throw new NotFountException(EXPERIENCE_EXIST, EXPERIENCE_EXIST);
+		}
+
+		Experience experience = new Experience();
+		experience.setName(experienceCreateRest.getName());
+		experience.setTitle(experienceCreateRest.getTitle());
+		experience.setActivity(experienceCreateRest.getActivity());
+		experience.setDateStart(experienceCreateRest.getDateStart());
+		experience.setDateEnd(experienceCreateRest.getDateEnd());
+		experience.setImage(experienceCreateRest.getImage());
+		experience.setPerson(personId);
+
+		try {
+			experienceRepository.save(experience);
+		} catch (Exception e) {
+			LOGGER.error(EXPERIENCE_NO, e);
+			throw new InternalServerErrorException(INTERNAL_ERROR, INTERNAL_ERROR);
+		}
+
+		return EXPERIENCE_OK;
+
+	}
+	
+	
+	/*public String createExperience(ExperienceCreateRest experienceCreateRest) throws PortfolioException {
 		final Person personId = personRepository.findById(experienceCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
@@ -70,7 +100,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 
 		return EXPERIENCE_OK;
 
-	}
+	}*/
 
 	public List<ExperienceRest> getAllExperiences() throws PortfolioException {
 		final List<Experience> experienceEntity = experienceRepository.findAll();
@@ -87,7 +117,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 		final Person personId = personRepository.findById(experienceCreateRest.getPersonId())
 				.orElseThrow(() -> new NotFountException(PERSON_NO, PERSON_NO));
 
-		if (experienceRepository.findById(id).isPresent()) {
+		if (experienceRepository.findExperienceById(id).isPresent()) {
 
 			Experience experience = experienceRepository.findExperienceById(id).get();
 			experience.setName(experienceCreateRest.getName());

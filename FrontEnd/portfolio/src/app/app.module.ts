@@ -96,7 +96,7 @@ const appRoutes: Routes = [
     MatCardModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,

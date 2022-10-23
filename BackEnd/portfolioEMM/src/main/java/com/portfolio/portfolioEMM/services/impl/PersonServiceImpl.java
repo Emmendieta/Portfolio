@@ -25,7 +25,7 @@ public class PersonServiceImpl implements PersonService {
 	PersonRepository personRepository;
 
 	public static final ModelMapper modelMapper = new ModelMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(EducactionServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(PersonServiceImpl.class);
 	public static final String INTERNAL_ERROR = "INTERNAL SERVER_ERROR";
 	public static final String PERSON_OK = "Person save!";
 	public static final String PERSON_UPTDATE = "Person update!";
