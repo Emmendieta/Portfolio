@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { NewUser } from '../../models/new-user';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-user',
@@ -10,20 +11,27 @@ import { NewUser } from '../../models/new-user';
 })
 export class NewUserComponent implements OnInit {
 
-  name: string = "";
-  userName: string = "";
-  email: string = "";
-  password: string = "";
-  personId = 1;
+  public newUserForm;
+  name: string;
+  userName: string;
+  email: string;
+  password: string;
+  personId: number;
   rols: string[] = ['admin'];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initForm();
   }
 
   createNewUser(): void {
-    const newUser = new NewUser(this.name, this.userName,this.password, this.email, this.personId, this.rols);
+    const newUser = new NewUser(this.name = this.newUserForm.get('name').value,
+      this.userName = this.newUserForm.get('userName').value,
+      this.email = this.newUserForm.get('email').value, 
+      this.password = this.newUserForm.get('password').value, 
+      this.personId = 1, 
+      this.rols);
     this.authService.newUser(newUser).subscribe({
       next: (data) => {
         alert("User has been added!");
@@ -33,6 +41,15 @@ export class NewUserComponent implements OnInit {
         alert("Error: User has not been added!");
         this.router.navigate(['']);
       }
+    })
+  }
+
+  initForm() {
+    this.newUserForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', Validators.required]
     })
   }
 }

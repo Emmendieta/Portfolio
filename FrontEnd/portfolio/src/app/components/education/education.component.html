@@ -15,12 +15,12 @@
                                 <img class="img-fluid" id="logoEdit" style="max-height: 50px; max-width: 50px" src="{{Education.image}}">
                             </td>
                             <td class="expDescription">
-                                <h2 id="col-1">{{Education.name}}</h2>
-                                <h3 id ="col-2">{{Education.title}}</h3>
-                                <h4 id="dateExp">{{Education.dateStart | date: "yyyy"}}</h4> 
+                                <h2 id="col-1">Nombre: {{Education.name}}</h2>
+                                <h3 id ="col-2">Título: {{Education.title}}</h3>
+                                <h4 id="dateExp">Inicio: {{Education.dateStart | date: "yyyy"}}</h4> 
                                 <h4 id="dateExp">-</h4>
-                                <h4 id="dateExp">{{Education.dateEnd | date: "yyyy"}}</h4>
-                                <h4 id="col-2">{{Education.description}}</h4> 
+                                <h4 id="dateExp">Finalización: {{Education.dateEnd | date: "yyyy"}}</h4>
+                                <h4 id="col-2">Descripción: {{Education.description}}</h4> 
                             </td>
                             <td class="editionExp" *ngIf="logged">
                                 <a style="cursor:pointer;" routerLink="/editEducation/{{Education.id}}"                                >

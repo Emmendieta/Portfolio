@@ -3,6 +3,7 @@ import { SocialMediaService } from '../../services/social-media.service';
 import { Router } from '@angular/router';
 import { SocialMedia } from '../../models/socialMedia.model';
 import { FormBuilder, Validators } from '@angular/forms';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-add-socials-nets',
@@ -11,16 +12,23 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AddSocialsNetsComponent implements OnInit {
 
+  logged = false;
   name: string;
   image: string;
   url: string;
   personId: number = 1;
-  public socialM: SocialMedia;
   public addSocialForm;
 
-  constructor(private socialMediaService: SocialMediaService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private socialMediaService: SocialMediaService, private router: Router, private formBuilder: FormBuilder, private token: TokenService) { }
 
   ngOnInit(): void {
+    if(this.token.getToken()){
+      this.logged = true;
+    } else {
+      this.logged = false;
+      alert("Error: tiene que loguearse para agregar una Red Social!");
+      this.router.navigate(['']);
+    }
     this.initForm();
   }
 

@@ -49,6 +49,10 @@
     text-align: justify;
 }
 
+#aboutMeAge {
+    color: white;
+}
+
 @media(max-width: 578px){
     .profile{
         flex-direction: column;
@@ -101,8 +105,6 @@
         max-width: 23px;
         max-height: 23px;
     }
-
-
 }
 
 @media (min-width: 768.01px) and (max-width: 1200px){

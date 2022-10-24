@@ -159,7 +159,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         display: inline;
     }
     .expIcon {
-        width: 150px;
+        width: 200px;
     }
 } 
 
@@ -170,7 +170,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         height: 350px;       
     }
     .expIcon {
-        width: 200px;
+        width: 300px;
     }
     #editIcon, #addExperience{
         width: 25px;

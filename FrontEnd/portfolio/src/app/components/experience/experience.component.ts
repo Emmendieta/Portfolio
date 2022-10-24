@@ -44,14 +44,4 @@ export class ExperienceComponent implements OnInit {
       )
     }
   }
-
-  /*deleteExperience(id?: number) {
-    if(id != undefined){
-      this.experienceService.delete(id).subscribe(
-        data => {this.loadExperience();
-        }, err => {
-          alert("Error: no se pudo borrar");
-        })
-    }
-  }*/
 }

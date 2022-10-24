@@ -8,38 +8,44 @@
               <div class="mb-md-5 mt-md-4 pb-5">
                 <h2 class="fw-bold mb-2 text-uppercase">Creación de la Experiencia</h2>
                 <p class="text-white-50 mb-5">Por favor, ingresa los datos solicitados:</p>
-                <form style="overflow: hidden;" #f="ngForm" (ngSubmit)="createExperience()" novalidate>
+                <form [formGroup]="experienceForm" style="overflow: hidden;" #f="ngForm" (ngSubmit)="createExperience()" novalidate>
                   <div class="form-outline form-white mb-4">
-                    <input type="text" id="nameExp" name="name" class="form-control form-control-lg" [(ngModel)]="nameExp" required  />
-                    <label class="form-label" for="nameExp">Nombre de la Institución</label>
+                    <input type="text" id="name" name="name" class="form-control form-control-lg" formControlName="name" required  />
+                    <label class="form-label" for="name">Nombre de la Institución</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="text" id="titleExp" name="title" class="form-control form-control-lg" [(ngModel)]="titleExp"
+                    <input type="text" id="title" name="title" class="form-control form-control-lg" formControlName="title"
                       required />
-                    <label class="form-label" for="titleExp">Cargo que realiza/ba en la Institución</label>
+                    <label class="form-label" for="title">Cargo que realiza/ba en la Institución</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="text" id="activityExp" name="activity" class="form-control form-control-lg" [(ngModel)]="activityExp"
+                    <input type="text" id="activity" name="activity" class="form-control form-control-lg" formControlName="activity"
                       required />
-                    <label class="form-label" for="activityExp">Descripción de las actividades que realiza/ba</label>
+                    <label class="form-label" for="activity">Descripción de las actividades que realiza/ba</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="text" id="imageExp" name="image" class="form-control form-control-lg" [(ngModel)]="imageExp"
+                    <input type="text" id="image" name="image" class="form-control form-control-lg" formControlName="image"
                       required />
-                    <label class="form-label" for="imageExp">URL de Imagen o Logo de la Institución</label>
+                    <label class="form-label" for="image">URL de Imagen o Logo de la Institución</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="date" id="dateStartExp" name="dateStart" class="form-control form-control-lg" [(ngModel)]="dateStartExp"
-                      required />
-                    <label class="form-label" for="dateStartExp">Fecha de inicio</label>                 
+                    <input matInput [matDatepicker]="dateStart" formControlName="dateStart" class="form-control form-control-lg" id="dateStart">
+                    <mat-datepicker-toggle matSuffix [for]="dateStart"></mat-datepicker-toggle>
+                    <mat-datepicker #dateStart></mat-datepicker>
+                    <label class="form-label" for="dateStart">Fecha de inicio Formato: [Mes/Día/Año]</label>               
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="date" id="dateEndExp" name="dateEnd" class="form-control form-control-lg" [(ngModel)]="dateEndExp"
-                      required />
-                    <label class="form-label" for="dateEndExp">Fecha de finalización</label>                 
+                    <input matInput [matDatepicker]="dateEnd" formControlName="dateEnd" class="form-control form-control-lg" id="dateEnd">
+                    <mat-datepicker-toggle matSuffix [for]="dateEnd"></mat-datepicker-toggle>
+                    <mat-datepicker #dateEnd></mat-datepicker>
+                    <label class="form-label" for="dateEnd">Fecha de finalización Formato: [Mes/Día/Año]</label>                
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <p><mat-checkbox formControlName="checked" (click)="showHide()"></mat-checkbox></p>
+                    <label class="form-label" for="dateEnd">Haz click aquí si el proyecto no ha finalizado</label>
                   </div>
                   <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
-                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-5" type="submit">Crear</button>
+                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-5" type="submit"[disabled]="!experienceForm.valid">Crear</button>
                 </form>
               </div>
             </div>

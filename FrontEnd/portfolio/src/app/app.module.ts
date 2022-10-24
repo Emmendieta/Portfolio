@@ -37,8 +37,10 @@ import { EditProyectComponent } from './components/proyects/edit-proyect.compone
 import { EditSocialsNetsComponent } from './components/socials-nets/edit-socials-nets.component';
 import { AddSocialsNetsComponent } from './components/socials-nets/add-socials-nets.component';
 import { EditPersonComponent } from './components/person/edit-person.component';
-import { AddPersonComponent } from './components/person/add-person.component';
 import { NewUserComponent } from './components/login/new-user.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 const appRoutes: Routes = [
@@ -84,7 +86,6 @@ const appRoutes: Routes = [
     EditSocialsNetsComponent,
     AddSocialsNetsComponent,
     EditPersonComponent,
-    AddPersonComponent,
     NewUserComponent,
   ],
   imports: [
@@ -94,12 +95,15 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatCheckboxModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    ReactiveFormsModule.withConfig(
+      {warnOnNgModelWithFormControl: 'never'}),
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     RouterModule.forRoot(
       appRoutes
     ),

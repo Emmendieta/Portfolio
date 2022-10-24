@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
-import { environment } from '../../environments/environment';
-//import { environment } from 'src/environments/environment.prod';
+//import { environment } from '../../environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Injectable({
@@ -22,6 +22,10 @@ export class PersonService {
 
   updatePersonById(id: number, person: Person){
     return this.http.put(this.baseURL + 'update/' + `${id}`, person);
+  }
+
+  getPersonById(id: number){
+    return this.http.get(this.baseURL + `${id}`);
   }
 
 }

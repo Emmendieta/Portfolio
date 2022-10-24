@@ -2,20 +2,19 @@ export class NewUser {
     
     name!: string;
     userName!: string;
-    password!: string;
     email!: string;
+    password!: string;
     personId: number;
-    authorities!: string[];
+    rols!: string[];
 
 
-    constructor(name: string, userName: string, password: string, email: string, personId: number, authorities: string[]){
+    constructor(name: string, userName: string, email: string, password: string, personId: number, rols: string[]){
         this.name = name;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.personId = personId;
-        this.authorities = authorities;
-        
+        this.rols = rols;       
     }
     
 }

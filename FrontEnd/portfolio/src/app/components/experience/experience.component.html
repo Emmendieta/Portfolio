@@ -15,12 +15,12 @@
                                 <img class="img-fluid"   id="logoEdit" style="max-height: 50px; max-width: 50px" src={{Experience.image}}>
                             </td>
                             <td class="expDescription">
-                                <h2 id="col-1">{{Experience.name}}</h2>
-                                <h3 id ="col-2">{{Experience.title}}</h3>
-                                <h4 id="dateExp">{{Experience.dateStart | date: "MM.y"}}</h4> 
+                                <h2 id="col-1">Nombre: {{Experience.name}}</h2>
+                                <h3 id ="col-2">Títlo: {{Experience.title}}</h3>
+                                <h4 id="dateExp">Inicio: {{Experience.dateStart | date: "MM.y"}}</h4> 
                                 <h4 id="dateExp">-</h4>
-                                <h4 id="dateExp">{{Experience.dateEnd | date: "MM.y"}}</h4>
-                                <h4 id="col-2">{{Experience.activity}}</h4> 
+                                <h4 id="dateExp">Finalización: {{Experience.dateEnd | date: "MM.y"}}</h4>
+                                <h4 id="col-2">Descripción: {{Experience.activity}}</h4> 
                             </td>
                             <td class="editionExp" *ngIf="logged">
                                 <a style="cursor:pointer;" routerLink="/editExperience/{{Experience.id}}" >

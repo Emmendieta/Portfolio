@@ -61,6 +61,14 @@ table{
 
 @media(max-width: 578px){
 
+    .expIconSocial{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-bottom: hidden;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
     .row{
         flex-direction: column;
         align-items: center;
@@ -81,4 +89,6 @@ table{
         flex-direction: column;
     }
 }
+
+
 
