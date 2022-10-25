@@ -44,7 +44,7 @@
                       <div class="form-outline form-white mb-4">
                         <p><mat-checkbox formControlName="checked" (click)="showHide()"></mat-checkbox></p>
                         <label class="form-label" for="dateEnd">Haz click aquí si el proyecto no ha finalizado</label>
-                      </div>
+                      </div>        
                   <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
                   <button style="margin: 5px" class="btn btn-outline-light btn-lg px-5" type="submit" [disabled]="!proyectForm.valid">Editar</button>
                 </form>
@@ -56,59 +56,3 @@
     </div>
   </section>
 </div>
-
-
-<!--<div class="background">
-  <section class="vh-100 gradient-custom" *ngIf="proyect">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-dark text-white" style="border-radius: 1rem;">
-            <div class="card-body p-5 text-center">
-              <div class="mb-md-5 mt-md-4 pb-5">
-                <h2 class="fw-bold mb-2 text-uppercase">Edición del Proyecto</h2>
-                <p class="text-white-50 mb-5">Por favor, ingresa los datos solicitados:</p>
-                <form [formGroup]="proyectForm" style="overflow: hidden;" #f="ngForm" (ngSubmit)="updateProyect()" novalidate>
-                    <div class="form-outline form-white mb-4">
-                        <input type="text" id="namePro" name="name" class="form-control form-control-lg"
-                          [(ngModel)]="proyect.name" formControlName="name" required  />
-                        <label class="form-label" for="name">Nombre del Proyecto</label>
-                      </div>
-                    <div class="form-outline form-white mb-4">
-                        <input type="text" id="descriptionPro" name="description" class="form-control form-control-lg" [(ngModel)]="proyect.description"
-                         formControlName="description"  required />
-                        <label class="form-label" for="description">Breve Descripción del Proyecto</label>
-                      </div>
-                      <div class="form-outline form-white mb-4">
-                        <input type="text" id="linkPro" name="link" class="form-control form-control-lg" [(ngModel)]="proyect.link"
-                          formControlName="link" required />
-                        <label class="form-label" for="link">URL del Proyecto</label>
-                      </div>
-                      <div class="form-outline form-white mb-4">
-                        <input type="text" id="imagePro" name="image" class="form-control form-control-lg" [(ngModel)]="proyect.image"
-                          formControlName="image" required />
-                        <label class="form-label" for="image">Image o logo del Proyecto</label>
-                      </div>
-                      <div class="form-outline form-white mb-4">
-                        <input matInput [matDatepicker]="dateStart" formControlName="dateStart" class="form-control form-control-lg" id="dateStart" [(ngModel)]="proyect.dateStart">
-                        <mat-datepicker-toggle matSuffix [for]="dateStart"></mat-datepicker-toggle>
-                        <mat-datepicker #dateStart></mat-datepicker>
-                        <label class="form-label" for="dateStart">Fecha de Incio Fomato:[Mes/Día/Año]</label> 
-                      </div>
-                      <div class="form-outline form-white mb-4">
-                        <input matInput [matDatepicker]="dateEnd" formControlName="dateEnd" class="form-control form-control-lg" id="dateEnd" [(ngModel)]="proyect.dateEnd">
-                        <mat-datepicker-toggle matSuffix [for]="dateEnd"></mat-datepicker-toggle>
-                        <mat-datepicker #dateEnd></mat-datepicker>
-                        <label class="form-label" for="dateEnd">Fecha de finalización Fomato:[Mes/Día/Año]</label> 
-                      </div>
-                  <button style="margin: 5px;" class="btn btn-outline-light btn-lg px-4" type="button" routerLink="">Cancelar</button>
-                  <button style="margin: 5px" class="btn btn-outline-light btn-lg px-5" type="submit" [disabled]="!proyectForm.valid">Editar</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div> -->

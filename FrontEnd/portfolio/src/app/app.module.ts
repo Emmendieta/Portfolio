@@ -40,6 +40,8 @@ import { EditPersonComponent } from './components/person/edit-person.component';
 import { NewUserComponent } from './components/login/new-user.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { formatDate } from "@angular/common";
+
 
 
 

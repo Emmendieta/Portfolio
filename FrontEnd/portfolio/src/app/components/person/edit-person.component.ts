@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../../services/person.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Person } from '../../models/person.model';
-import {  FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token.service';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DatePipe } from '@angular/common';
@@ -16,15 +16,15 @@ import * as moment from 'moment';
 })
 export class EditPersonComponent implements OnInit {
 
-  logged= false;
+  logged = false;
   public person: Person;
   private personId: number;
   public personForm;
-  
+
   constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder, private token: TokenService) { }
 
   ngOnInit(): void {
-    if(this.token.getToken()){
+    if (this.token.getToken()) {
       this.logged = true;
     } else {
       this.logged = false;
@@ -36,7 +36,7 @@ export class EditPersonComponent implements OnInit {
     this.initForm();
   }
 
-  getPerson(){
+  getPerson() {
     this.personService.getPersonId().subscribe((result: any) => {
       this.person = result.data
     })

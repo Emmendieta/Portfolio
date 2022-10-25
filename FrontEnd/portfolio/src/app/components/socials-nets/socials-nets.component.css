@@ -59,7 +59,7 @@ table{
     width: 150px;
 }
 
-@media(max-width: 578px){
+@media(max-width: 575.9px){
 
     .expIconSocial{
         display: flex;
@@ -90,5 +90,20 @@ table{
     }
 }
 
+@media(min-width: 575.9px) and (max-width: 767.99px){
+    .socialNets, .logArgProg {
+        
+        width: 100% !important;
+    }
+    .logArgProg{
+        display: flex;
+        justify-content: space-around;
+    }
+}
 
+@media(min-width: 1012px) and (max-width: 1157.99px){
 
+.table > :not(caption) > * > * {
+    padding: 0;
+}
+}

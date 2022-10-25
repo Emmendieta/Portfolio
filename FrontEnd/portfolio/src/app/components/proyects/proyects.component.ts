@@ -1,3 +1,4 @@
+import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { Proyect } from '../../models/proyect.model';
@@ -39,4 +40,5 @@ export class ProyectsComponent implements OnInit {
       })
     }
   }
+  
 }
