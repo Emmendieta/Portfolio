@@ -22,8 +22,8 @@ import com.portfolio.portfolioEMM.services.SocialMediasService;
 
 @RestController
 @RequestMapping(path = "/portfolio/v1/socialMedia/")
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
 public class SocialMediasController {
 
 	@Autowired

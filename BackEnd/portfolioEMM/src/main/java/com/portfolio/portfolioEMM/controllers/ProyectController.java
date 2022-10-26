@@ -22,8 +22,8 @@ import com.portfolio.portfolioEMM.services.ProyectService;
 
 @RestController
 @RequestMapping(path = "/portfolio/v1/proyect/")
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
 public class ProyectController {
 
 	@Autowired

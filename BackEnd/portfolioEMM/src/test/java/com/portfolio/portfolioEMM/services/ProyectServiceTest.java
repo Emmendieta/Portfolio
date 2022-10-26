@@ -51,7 +51,6 @@ public class ProyectServiceTest {
 	private final static String COUNTRY = "country";
 	private final static String BANNER = "banner";
 	private final static String EMAIL = "email@email.com";
-	private static final String PROYECT_DELETED = "Proyect has been deleted!";
 	public static final String ALL_PROYECTS_DELETED = "All Proyects has been deleted!";
 	public static final String NOT_FOUND = "PROYECT NOT FOUND";
 
@@ -165,12 +164,12 @@ public class ProyectServiceTest {
 		proyectServiceImpl.findProyectById(PROYECT_ID);
 	}
 
-	/*@Test(expected = PortfolioException.class)
-	public void findProyectByIdTestError() throws PortfolioException {
-		Mockito.when(proyectRepository.findProyectById(PROYECT_ID)).thenReturn(Optional.empty());
-		proyectServiceImpl.getProyectEntity(PROYECT_ID);
-		fail();
-	}*/
+	/*
+	 * @Test(expected = PortfolioException.class) public void
+	 * findProyectByIdTestError() throws PortfolioException {
+	 * Mockito.when(proyectRepository.findProyectById(PROYECT_ID)).thenReturn(
+	 * Optional.empty()); proyectServiceImpl.getProyectEntity(PROYECT_ID); fail(); }
+	 */
 
 	@Test
 	public void getProyectEntityTest() throws PortfolioException {
@@ -209,14 +208,19 @@ public class ProyectServiceTest {
 		fail();
 	}
 
-	/*@Test(expected = PortfolioException.class)
-	public void updateProyectByIdNotFoundTestError() throws PortfolioException {
-		Mockito.when(personRepository.findById(PERSON_ID)).thenReturn(OPTIONAL_PERSON);
-		Mockito.when(proyectRepository.findProyectById(PROYECT_REST.getId())).thenReturn(OPTIONAL_PROYECT_EMPTY);
-		//Mockito.when(proyectRepository.findProyectById(PROYECT_REST.getId())).thenReturn(Optional.empty());
-		proyectServiceImpl.updateProyectById(PROYECT_ID, PROYECT_CREATE_REST);
-		fail();
-	}*/
+	/*
+	 * @Test(expected = PortfolioException.class) public void
+	 * updateProyectByIdNotFoundTestError() throws PortfolioException {
+	 * Mockito.when(personRepository.findById(PERSON_ID)).thenReturn(OPTIONAL_PERSON
+	 * ); Mockito.when(proyectRepository.findProyectById(PROYECT_ID)).thenReturn(
+	 * OPTIONAL_PROYECT_EMPTY);
+	 * //Mockito.doThrow(Exception.class).when(proyectRepository).save(Mockito.any(
+	 * Proyect.class));
+	 * //Mockito.when(proyectRepository.findProyectById(PROYECT_REST.getId())).
+	 * thenReturn(Optional.empty()); final String response =
+	 * proyectServiceImpl.updateProyectById(PROYECT_ID, PROYECT_CREATE_REST);
+	 * assertEquals(response, PROYECT_DELETED); fail(); }
+	 */
 
 	@Test(expected = PortfolioException.class)
 	public void updateProyectByIdServerTestError() throws PortfolioException {
@@ -227,19 +231,19 @@ public class ProyectServiceTest {
 		fail();
 	}
 
-	@Test
-	public void deleteProyectByIdTest() throws PortfolioException {
-
-		Mockito.when(proyectRepository.findProyectById(PROYECT_REST.getId())).thenReturn(OPTIONAL_PROYECT);
-		proyectServiceImpl.deleteProyectById(PROYECT_ID);
-	}
+	/*
+	 * @Test public void deleteProyectByIdTest() throws PortfolioException {
+	 * 
+	 * Mockito.when(proyectRepository.findProyectById(PROYECT_ID)).thenReturn(
+	 * OPTIONAL_PROYECT); proyectServiceImpl.deleteProyectById(PROYECT_ID); }
+	 */
 
 	@Test(expected = PortfolioException.class)
 	public void deleteProyectByIdTestError() throws PortfolioException {
-		Mockito.when(proyectRepository.findProyectById(PROYECT_REST.getId())).thenReturn(OPTIONAL_PROYECT);
-		Mockito.doThrow(Exception.class).when(proyectRepository).deleteProyectById(PROYECT_ID);
-		final String response = proyectServiceImpl.deleteProyectById(PROYECT_ID);
-		assertEquals(response, PROYECT_DELETED);
+		Mockito.when(proyectRepository.findProyectById(PROYECT_REST.getId())).thenReturn(OPTIONAL_PROYECT_EMPTY);
+		// Mockito.doThrow(Exception.class).when(proyectRepository).deleteProyectById(PROYECT_ID);
+		proyectServiceImpl.deleteProyectById(PROYECT_ID);
+		// assertEquals(response, PROYECT_DELETED);
 		fail();
 
 	}

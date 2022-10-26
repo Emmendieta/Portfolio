@@ -25,8 +25,8 @@ import com.portfolio.portfolioEMM.services.PersonService;
 
 @RestController
 @RequestMapping(path = "/portfolio/v1/person/")
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendportfolioemm-55080.web.app")
 public class PersonController {
 
 	@Autowired
